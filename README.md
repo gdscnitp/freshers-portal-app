@@ -3,7 +3,7 @@
 
 ### `Problems Addressed:`
 
-1.Freshers Student face problem as they don’t know whom to connect<br />            
+1.Freshers Student face problem as they don’t know whom to connect          
 2.They face problem while interacting with seniors.<br />
 3.Students of every semester requires notes and previous year question<br />
 
