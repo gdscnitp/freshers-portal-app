@@ -37,6 +37,6 @@ Creating an app for Freshers Student for them to connect with Seniors and Alumni
 ### Roadmap Overview:
 
 1. First time interval – 30 Sept-30 Oct, 2020 – Target(Completing Main Part Of this project related to Alumni Connection)<br />
- 2. Second time interval – 30 Oct - 20 Nov, 2020 – Target(Uploading Notes,Previous Year Paper Will be included Here) <br />
+2. Second time interval – 30 Oct - 20 Nov, 2020 – Target(Uploading Notes,Previous Year Paper Will be included Here) <br />
 
 
