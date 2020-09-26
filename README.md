@@ -17,18 +17,15 @@ Creating an app for Freshers Student for them to connect with Seniors and Alumni
 2.To Help Student in their Academics.<br />
 3.To Help Student in knowing more about our college.<br />
 
-
 ### `Scalability`
 
 1.Mainly Freshers Student will be benifitted through this,<br />
 2.Other than that,It will help every semester student (as we are providing notes and semester wise question  paper)
 
-
 ## Tech Stacks Required:
 
 1.Android Studio(Java)<br />
-2.Firebase<br /><br />
-
+2.Firebase
 
 ### Limitations :
 
