@@ -1,39 +1,43 @@
-## Freshers Portal App
+# Freshers Portal App
 
 
-### `Problems Addressed:`
+## Problems Addressed:
 
-1.Freshers Student face problem as they don’t know whom to connect          
-2.They face problem while interacting with seniors.<br />
-3.Students of every semester requires notes and previous year question<br />
+* Freshers Student face problem as they don’t know whom to connect          
+* They face problem while interacting with seniors.<br />
+* Students of every semester requires notes and previous year question<br />
 
-### `Overview:`
+## Overview:
 
 Creating an app for Freshers Student for them to connect with Seniors and Alumni of our college.Chating with the seniors will be the main features...Seniors and Alumni can also write blog describing how they started preparing for competitive coding,placement like things....Other than that we can have previous year department wise question and notes for students.We will be giving some special rights to alumni so that no one can disturb them,,etc..
 
-### `Goals:`
+## Goals:
 
-1.To Help Freshers in interacting with the seniors.<br />
-2.To Help Student in their Academics.<br />
-3.To Help Student in knowing more about our college.<br />
+* To Help Freshers in interacting with the seniors.<br />
+* To Help Student in their Academics.<br />
+* To Help Student in knowing more about our college.<br />
 
-### `Scalability`
+## Scalability
 
-1.Mainly Freshers Student will be benifitted through this,<br />
-2.Other than that,It will help every semester student (as we are providing notes and semester wise question  paper)
+* Mainly Freshers Student will be benifitted through this,<br />
+* Other than that,It will help every semester student (as we are providing notes and semester wise question  paper)
 
 ## Tech Stacks Required:
 
-1.Android Studio(Java)<br />
-2.Firebase
+* Android Studio(Java)<br />
+* Firebase
 
-### Limitations :
+## Limitations :
 
-1.There wouldn’t be any limitations as of now other than(we need to make people aware of this app).
+* There wouldn’t be any limitations as of now other than(we need to make people aware of this app).
 
-### Roadmap Overview:
+## Roadmap Overview:
 
-1.First time interval – 30 Sept-30 Oct, 2020 – Target(Completing Main Part Of this project related to Alumni Connection)<br />
-2.Second time interval – 30 Oct - 20 Nov, 2020 – Target(Uploading Notes,Previous Year Paper Will be included Here) <br />
+* First time interval – 30 Sept-30 Oct, 2020 – Target(Completing Main Part Of this project related to Alumni Connection)<br />
+* Second time interval – 30 Oct - 20 Nov, 2020 – Target(Uploading Notes,Previous Year Paper Will be included Here) <br />
+
+## Designs
+
+[Freshers Portal App](https://www.figma.com/file/X2sky3vqdNnEoNV6IvHKf4/DSC-Mobile-Development-Designs?node-id=0%3A1)
 
 
