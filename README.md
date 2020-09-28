@@ -36,6 +36,8 @@ Creating an app for Freshers Student for them to connect with Seniors and Alumni
 * First time interval – 30 Sept-30 Oct, 2020 – Target(Completing Main Part Of this project related to Alumni Connection)<br />
 * Second time interval – 30 Oct - 20 Nov, 2020 – Target(Uploading Notes,Previous Year Paper Will be included Here) <br />
 
+## Total Contributors Required:
+6 Students
 ## Designs
 
 [Freshers Portal App](https://www.figma.com/file/X2sky3vqdNnEoNV6IvHKf4/DSC-Mobile-Development-Designs?node-id=0%3A1)
