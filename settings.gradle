@@ -1,0 +1,2 @@
+rootProject.name='Freshers Portal'
+include ':app'
