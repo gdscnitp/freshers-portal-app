@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.PopupMenu;
 
 
+import com.dscnitp.freshersportal.notifications.Token;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,6 +31,7 @@ public class DashboardActivity extends AppCompatActivity  {
     String myuid;
     Toolbar actionBar;
     BottomNavigationView navigationView;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +40,8 @@ public class DashboardActivity extends AppCompatActivity  {
         actionBar=findViewById(R.id.toolbar);
         setSupportActionBar(actionBar);
         actionBar.setTitle("Profile Activity");
+        mAuth=FirebaseAuth.getInstance();
         firebaseAuth=FirebaseAuth.getInstance();
-
         navigationView=findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
         actionBar.setTitle("Home");
@@ -48,7 +50,6 @@ public class DashboardActivity extends AppCompatActivity  {
         fragmentTransaction.replace(R.id.content,fragment,"");
         fragmentTransaction.commit();
         checkUserStatus();
-
     }
 
     @Override
@@ -107,7 +108,23 @@ public class DashboardActivity extends AppCompatActivity  {
         super.onStart();
         checkUserStatus();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.logout,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_logout) {
+            mAuth.signOut();
+            finish();
+            Intent mainIntent = new Intent(DashboardActivity.this, MainActivity.class);
+            startActivity(mainIntent);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void checkUserStatus(){
         FirebaseUser user=firebaseAuth.getCurrentUser();
@@ -117,6 +134,7 @@ public class DashboardActivity extends AppCompatActivity  {
             SharedPreferences.Editor editor=sharedPreferences.edit();
             editor.putString("CURRENT_USERID",myuid);
             editor.apply();
+            updateToken(FirebaseInstanceId.getInstance().getToken());
         }
         else {
             startActivity(new Intent(DashboardActivity.this,MainActivity.class));
@@ -126,5 +144,12 @@ public class DashboardActivity extends AppCompatActivity  {
 
 
 
+    public void updateToken(String token){
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Tokens");
+        Token token1=new Token(token);
+        ref.child(myuid).setValue(token1);
+        DatabaseReference references= FirebaseDatabase.getInstance().getReference("users").child(myuid);
+        references.child("device_token").setValue(token);
+    }
 
 }

@@ -270,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
         hashMap.put("name",name);
         hashMap.put("USER_TYPE", "user");
         hashMap.put("id", "");
+        hashMap.put("device_token", "");
         hashMap.put("uid", uid);
         hashMap.put("imgUrl",photo);
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
