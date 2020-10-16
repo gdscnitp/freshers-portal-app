@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "620782197376",
+    "firebase_url": "https://freshers-portal.firebaseio.com",
+    "project_id": "freshers-portal",
+    "storage_bucket": "freshers-portal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620782197376:android:2fda542bda213a547d2465",
+        "android_client_info": {
+          "package_name": "com.dscnitp.freshersportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620782197376-m2au1ouhf7pqqf5aave92lcaqlq8bmhd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dscnitp.freshersportal",
+            "certificate_hash": "51b072ca4afbba9448c1fc3ae10d8e216744ed8c"
+          }
+        },
+        {
+          "client_id": "620782197376-47rb94s7q3b3rh97citgofd6bm1vd1ns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdrI7_4-fYp32CotZDoQpsSi-wUYWywrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620782197376-47rb94s7q3b3rh97citgofd6bm1vd1ns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
