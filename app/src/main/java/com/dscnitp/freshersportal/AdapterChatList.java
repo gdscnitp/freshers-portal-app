@@ -86,7 +86,7 @@ public class AdapterChatList extends RecyclerView.Adapter<AdapterChatList.Myhold
     }
 
     private void setLastMessage(final Myholder holder, final int position, final String hisuid) {
-        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("users");
         reference.child(uid).child("Messages").child(hisuid).limitToLast(1).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

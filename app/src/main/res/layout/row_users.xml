@@ -28,14 +28,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/namep"
-                android:text=""
+                android:text="Name"
                 android:textSize="18sp"
                 android:textColor="@color/colorBlack"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/classp"
-                android:text=""
+                android:text="18*****"
                 android:textColor="@color/colorBlack"/>
 
         </LinearLayout>

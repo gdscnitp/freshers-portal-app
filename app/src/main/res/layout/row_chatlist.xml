@@ -18,7 +18,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:id="@+id/profileimage"
-            android:src="@color/colorWhite"/>
+            android:src="@drawable/ic_face"/>
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
@@ -27,7 +27,7 @@
             android:id="@+id/nameonline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Alpha"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
             android:layout_marginStart="4dp"
@@ -39,7 +39,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:text=""
+            android:text="Last Meessage"
             android:layout_marginStart="4dp"
             android:textColor="@color/colorBlack"
             android:layout_toEndOf="@id/profileimage"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text=""
+            android:text="2 minutes ago"
             android:id="@+id/sendingtime"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="5dp"
