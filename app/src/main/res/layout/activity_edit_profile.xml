@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="EditProfile">
+
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="191dp"
+        android:src="@drawable/t" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="83dp"
+        android:layout_height="99dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/b" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="163dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="97dp"
+        android:layout_marginEnd="111dp"
+        android:src="@drawable/savii" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="436dp"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="62dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="PROFILE  DETAILS"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:paddingTop="3dp"
+            android:text="Full Name"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="3dp"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:paddingTop="3dp"
+            android:text="Roll No."
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName1"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="3dp"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:paddingTop="3dp"
+            android:text="Branch"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="3dp"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:paddingTop="3dp"
+            android:text="Year"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="3dp"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="166dp"
+            android:layout_height="29dp"
+            android:layout_marginLeft="8dp"
+            android:background="@android:color/holo_blue_dark"
+            android:text="Update"
+            android:textSize="20dp"
+            />
+
+
+    </LinearLayout>
+</RelativeLayout>
