@@ -123,6 +123,11 @@ public class DashboardActivity extends AppCompatActivity  {
             startActivity(mainIntent);
 
         }
+        if(item.getItemId()==R.id.action_setting){
+            Intent mainIntent = new Intent(DashboardActivity.this, ProfileActivity.class);
+            startActivity(mainIntent);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
