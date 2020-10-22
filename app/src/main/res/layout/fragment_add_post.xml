@@ -21,7 +21,8 @@
             android:layout_marginBottom="89dp"
             android:background="#E4F8F6F6"
             android:ems="10"
-            android:hint="    Share your experience and Questions"
+            android:textAlignment="center"
+            android:hint="Share your experience and Questions"
              />
 
         <Button
@@ -32,7 +33,6 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="7dp"
             android:layout_marginBottom="91dp"
-            android:background="@drawable/btn2"
             android:text="Post"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
@@ -46,8 +46,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="-1dp"
-            android:background="@drawable/btn"
-            android:text="                BLOGS"
+            android:text="BLOGS"
+            android:textAlignment="center"
             android:textColor="#070000"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -75,7 +75,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="4dp"
             android:layout_marginTop="89dp"
-            android:background="@drawable/btn3"
             android:text=" > Branch"
             android:textAllCaps="false"
             android:textColor="#00BCD4"
@@ -90,7 +89,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="-1dp"
             android:layout_marginTop="196dp"
-            android:background="@drawable/btn3"
             android:text=" > Blog type"
             android:textAllCaps="false"
             android:textColor="#00BCD4"
@@ -105,7 +103,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="1dp"
             android:layout_marginTop="307dp"
-            android:background="@drawable/btn3"
             android:text=" > Title "
             android:textAllCaps="false"
             android:textColor="#00BCD4"
@@ -135,8 +132,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="138dp"
             android:layout_marginEnd="0dp"
-            android:entries="@array/Branch_array"
-            android:prompt="@string/Branch_prompts" />
+             />
 
         <Spinner
             android:id="@+id/spinner_title"
@@ -146,8 +142,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="359dp"
             android:layout_marginEnd="3dp"
-            android:entries="@array/title_array"
-            android:prompt="@string/title_prompts" />
+            />
 
         <Spinner
             android:id="@+id/spinner_type"
@@ -157,8 +152,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="247dp"
             android:layout_marginEnd="1dp"
-            android:entries="@array/type_array"
-            android:prompt="@string/type_prompts" />
+             />
 
 
     </RelativeLayout>
