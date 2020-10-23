@@ -9,20 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AllContactForStudentActivity"></activity>
-        <activity android:name=".ChatActivity"
-            android:parentActivityName=".DashboardActivity"/>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".AllContactForStudentActivity" />
+        <activity
+            android:name=".ChatActivity"
+            android:parentActivityName=".DashboardActivity" />
         <activity android:name=".ImageViewActivity" />
         <activity android:name=".ViewPdfActivity" />
         <activity android:name=".AdminMainPanel" />
         <activity android:name=".DashboardActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".notifications.FirebaseMessaging"
             android:enabled="true"
@@ -31,6 +34,9 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
