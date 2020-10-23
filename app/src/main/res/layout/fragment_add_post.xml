@@ -1,14 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddPostFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#A4EAE4E4">
 
+        <EditText
+            android:id="@+id/edit_text_description"
+            android:layout_width="match_parent"
+            android:layout_height="169dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-2dp"
+            android:layout_marginBottom="89dp"
+            android:background="#E4F8F6F6"
+            android:ems="10"
+            android:textAlignment="center"
+            android:hint="Share your experience and Questions"
+             />
+
+        <Button
+            android:id="@+id/btn_post"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="91dp"
+            android:text="Post"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="409dp"
+            android:layout_height="56dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="-1dp"
+            android:text="BLOGS"
+            android:textAlignment="center"
+            android:textColor="#070000"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="83dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="-4dp"
+            android:layout_marginBottom="3dp"
+            android:background="#fff"
+            app:itemIconTint="@drawable/tab_color"
+            app:itemTextColor="@drawable/tab_color"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="164dp"
+            android:layout_height="47dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="89dp"
+            android:text=" > Branch"
+            android:textAllCaps="false"
+            android:textColor="#00BCD4"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="169dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="196dp"
+            android:text=" > Blog type"
+            android:textAllCaps="false"
+            android:textColor="#00BCD4"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="174dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="307dp"
+            android:text=" > Title "
+            android:textAllCaps="false"
+            android:textColor="#00BCD4"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="410dp"
+            android:layout_height="47dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="426dp"
+            android:background="#C4EAE8E8"
+            android:text=" > Description"
+            android:textAllCaps="false"
+            android:textColor="#00BCD4"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <Spinner
+            android:id="@+id/spinner_branch"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="138dp"
+            android:layout_marginEnd="0dp"
+             />
+
+        <Spinner
+            android:id="@+id/spinner_title"
+            android:layout_width="409dp"
+            android:layout_height="47dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="359dp"
+            android:layout_marginEnd="3dp"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_type"
+            android:layout_width="409dp"
+            android:layout_height="47dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="247dp"
+            android:layout_marginEnd="1dp"
+             />
+
+
+    </RelativeLayout>
 </FrameLayout>

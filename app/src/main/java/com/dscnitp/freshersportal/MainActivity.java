@@ -79,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         imagelogo=findViewById(R.id.splash_image);
+        imagelogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            }
+        });
         googleSignUp=findViewById(R.id.btn_glogin);
         googleSignUp.setVisibility(View.INVISIBLE);
         Animation fadeOut = new AlphaAnimation(0, 1);
