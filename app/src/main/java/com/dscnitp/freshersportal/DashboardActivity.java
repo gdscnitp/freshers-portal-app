@@ -121,13 +121,11 @@ public class DashboardActivity extends AppCompatActivity  {
             finish();
             Intent mainIntent = new Intent(DashboardActivity.this, MainActivity.class);
             startActivity(mainIntent);
-
         }
         if(item.getItemId()==R.id.action_setting){
             Intent mainIntent = new Intent(DashboardActivity.this, ProfileActivity.class);
             startActivity(mainIntent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -146,8 +144,6 @@ public class DashboardActivity extends AppCompatActivity  {
             finish();
         }
     }
-
-
 
     public void updateToken(String token){
         DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Tokens");
