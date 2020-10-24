@@ -6,151 +6,125 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#A4EAE4E4">
     tools:context=".EditProfileActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="match_parent"
-        android:layout_height="191dp"
-        android:src="@drawable/logo" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="83dp"
-        android:layout_height="99dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="169dp"
+        android:layout_height="58dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="25dp"
-        android:src="@drawable/logo" />
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="250dp"
+        android:background="@color/colorWhite"
+        android:fontFamily="@font/knewave"
+        android:paddingLeft="50dp"
+        android:text="Update"
+        android:textColor="#070000"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="163dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="97dp"
-        android:layout_marginEnd="111dp"
-        android:src="@drawable/logo" />
+    <ImageView
+        android:id="@+id/logoSplash"
+        android:layout_width="47dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/logo_splash" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="436dp"
-        android:layout_below="@+id/imageView5"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-4dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="62dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="162dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="114dp"
+            app:srcCompat="@mipmap/ic_launcher_foreground" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:text="PROFILE  DETAILS"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:text="PROFILE DETAILS"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView5"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:paddingTop="3dp"
-            android:text="Full Name"
-            android:textColor="@android:color/secondary_text_light"
-            android:textSize="20dp" />
+            android:hint="Name"
+            android:paddingBottom="20dp">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/roll"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingTop="3dp"
-            android:textSize="20dp" />
+            android:hint="Roll no."
+            android:paddingBottom="20dp">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/textView6"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/branch"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:paddingTop="3dp"
-            android:text="Roll No."
-            android:textColor="@android:color/secondary_text_light"
-            android:textSize="20dp" />
+            android:hint="Branch"
+            android:paddingBottom="20dp">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName1"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:layout_marginLeft="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingTop="3dp"
-            android:textSize="20dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/textView7"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/year"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:paddingTop="3dp"
-            android:text="Branch"
-            android:textColor="@android:color/secondary_text_light"
-            android:textSize="20dp" />
+            android:hint="Year"
+            android:paddingBottom="40dp">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:layout_marginLeft="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingTop="3dp"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:paddingTop="3dp"
-            android:text="Year"
-            android:textColor="@android:color/secondary_text_light"
-            android:textSize="20dp" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName3"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:layout_marginLeft="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingTop="3dp"
-            android:textSize="20dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="166dp"
-            android:layout_height="29dp"
-            android:layout_marginLeft="8dp"
-            android:background="@android:color/holo_blue_dark"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#4DB6AC"
+            android:gravity="center"
             android:text="Update"
-            android:textSize="20dp"
-            />
+            android:textColor="#fff" />
 
 
     </LinearLayout>
+
+
 </RelativeLayout>

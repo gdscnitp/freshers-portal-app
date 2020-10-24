@@ -13,17 +13,19 @@
 
         <EditText
             android:id="@+id/edit_text_description"
+            android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="169dp"
+            android:layout_height="150dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="-2dp"
             android:layout_marginBottom="89dp"
             android:background="#E4F8F6F6"
             android:ems="10"
-            android:textAlignment="center"
-            android:hint="Share your experience and Questions"
-             />
+            android:gravity="top"
+            android:hint="@string/share_your_experience_or_question"
+            android:inputType="TODO"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/btn_post"
@@ -31,23 +33,28 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="7dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginBottom="91dp"
-            android:text="Post"
+            android:background="#4DB6AC"
+            android:shadowColor="#FFFFFF"
+            android:text="@string/post"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="409dp"
-            android:layout_height="56dp"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="-1dp"
-            android:text="BLOGS"
-            android:textAlignment="center"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="272dp"
+            android:paddingLeft="50dp"
+            android:background="@color/colorWhite"
+            android:fontFamily="@font/knewave"
+            android:text="@string/blog"
             android:textColor="#070000"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -75,9 +82,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="4dp"
             android:layout_marginTop="89dp"
-            android:text=" > Branch"
+            android:text="@string/branch"
             android:textAllCaps="false"
-            android:textColor="#00BCD4"
+            android:textColor="#3F51B5"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -89,9 +96,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="-1dp"
             android:layout_marginTop="196dp"
-            android:text=" > Blog type"
+            android:text="@string/blog_type"
             android:textAllCaps="false"
-            android:textColor="#00BCD4"
+            android:textColor="#3F51B5"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -103,9 +110,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="1dp"
             android:layout_marginTop="307dp"
-            android:text=" > Title "
+            android:text="@string/title"
             android:textAllCaps="false"
-            android:textColor="#00BCD4"
+            android:textColor="#3F51B5"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -118,9 +125,9 @@
             android:layout_marginStart="1dp"
             android:layout_marginTop="426dp"
             android:background="#C4EAE8E8"
-            android:text=" > Description"
+            android:text="@string/description"
             android:textAllCaps="false"
-            android:textColor="#00BCD4"
+            android:textColor="#3F51B5"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -153,6 +160,13 @@
             android:layout_marginTop="247dp"
             android:layout_marginEnd="1dp"
              />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="47dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logo_splash" />
 
 
     </RelativeLayout>
