@@ -93,12 +93,12 @@
             android:layout_width="123dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#FFC107"
+            android:layout_marginBottom="10dp"
+            android:background="#4DB6AC"
             android:onClick="signuphere"
             android:padding="10dp"
             android:text="Submit"
-            android:layout_marginBottom="10dp"
-            android:textColor="#E91E63"
+            android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -106,10 +106,10 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/proximanovasemibold"
             android:gravity="center_horizontal"
             android:onClick="gotosignin"
-            android:layout_marginTop="15dp"
             android:text="Registered already? Login here!"
             android:textAlignment="center"
             android:textColor="#3F51B5"
@@ -134,12 +134,11 @@
         android:id="@+id/imageView3"
         android:layout_width="210dp"
         android:layout_height="152dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089"
         app:srcCompat="@drawable/logo_splash" />
 
 

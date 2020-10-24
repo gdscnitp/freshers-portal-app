@@ -7,17 +7,6 @@
     tools:context=".LoginActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="185dp"
-        android:layout_height="156dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073"
-        app:srcCompat="@drawable/logo" />
-
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
@@ -92,11 +81,12 @@
             android:layout_width="123dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#FFC107"
+            android:layout_marginTop="20dp"
+            android:background="#4DB6AC"
             android:onClick="signinhere"
             android:padding="10dp"
             android:text="LOGIN"
-            android:textColor="#E91E63"
+            android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -106,17 +96,17 @@
         android:id="@+id/createaccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/proximanovasemibold"
-        android:text="Create Account"
-        android:textColor="#E91E63"
-        android:textSize="24sp"
+        android:fontFamily="@font/antic"
+        android:text="New User? SIGN UP"
+        android:textAllCaps="true"
+        android:textColor="#000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.774" />
 
     <ProgressBar
         android:id="@+id/progressBar_login"
@@ -150,4 +140,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.96" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="210dp"
+        android:layout_height="152dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_splash" />
 </androidx.constraintlayout.widget.ConstraintLayout>
