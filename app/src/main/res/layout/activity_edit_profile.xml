@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#A4EAE4E4">
+    android:background="#A4EAE4E4"
     tools:context=".EditProfileActivity">
 
     <TextView
@@ -20,7 +20,7 @@
         android:background="@color/colorWhite"
         android:fontFamily="@font/knewave"
         android:paddingLeft="50dp"
-        android:text="Update"
+        android:text="Update  "
         android:textColor="#070000"
         android:textSize="32sp"
         android:textStyle="bold" />

@@ -4,13 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A4EAE4E4"
     tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="169dp"
+        android:layout_height="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="250dp"
+        android:background="@color/colorWhite"
+        android:fontFamily="@font/knewave"
+        android:paddingLeft="50dp"
+        android:text="Profile"
+        android:textColor="#070000"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/logoSplash"
+        android:layout_width="47dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/logo_splash" />
 
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
-        android:layout_height="162dp"
+        android:layout_height="166dp"
         android:layout_gravity="center"
         android:layout_marginStart="150dp"
         android:layout_marginTop="39dp"
@@ -87,6 +111,21 @@
         android:background="#4DB6AC"
         android:text="Edit"
         android:textColor="#FFFFFF" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="1dp"
+        android:background="#fff"
+        app:itemIconTint="@drawable/tab_color"
+        app:itemTextColor="@drawable/tab_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </RelativeLayout>
