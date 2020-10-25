@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp">
+    android:padding="4dp"
+    android:background="#A4EAE4E4">
 
     <TextView
         android:id="@+id/textView6"
@@ -19,6 +20,7 @@
         android:textSize="20sp"
         android:textStyle="bold|italic"
         android:textColor="@android:color/black"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,9 +45,13 @@
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="33dp"
+        android:background="@android:color/white"
         android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -53,7 +59,7 @@
         android:id="@+id/imageView5"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="194dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
