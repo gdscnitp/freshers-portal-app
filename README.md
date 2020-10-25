@@ -22,7 +22,7 @@
 
 ## Scalability
 
-* Mainly Freshers Student will be benifitted through this,<br />
+* Mainly Freshers Student will be benefitted through this,<br />
 * Other than that,It will help every semester student (as we are providing notes and semester wise question  paper)
 
 ## Tech Stacks Required:
