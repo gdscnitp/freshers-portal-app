@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/proximanovasemibold"
-        android:text="WELCOME TO NIT PATNA"
+        android:text="@string/welcome_to_nit_patna"
         android:textColor="#E91E63"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -97,7 +97,7 @@
             android:background="#4DB6AC"
             android:onClick="signuphere"
             android:padding="10dp"
-            android:text="Submit"
+            android:text="@string/submit"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -110,7 +110,7 @@
             android:fontFamily="@font/proximanovasemibold"
             android:gravity="center_horizontal"
             android:onClick="gotosignin"
-            android:text="Registered already? Login here!"
+            android:text="@string/registered_already_login_here"
             android:textAlignment="center"
             android:textColor="#3F51B5"
             android:textSize="20sp" />
