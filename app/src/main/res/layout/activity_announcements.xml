@@ -62,6 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="33dp"
+        android:scrollbars = "vertical"
         android:background="@android:color/white"
         android:text="TextView"
         android:textColor="@android:color/black"
