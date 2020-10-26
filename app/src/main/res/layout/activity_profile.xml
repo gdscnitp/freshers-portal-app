@@ -51,7 +51,7 @@
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
         />
 
     <TextView
@@ -62,7 +62,7 @@
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#000"
         />
@@ -75,7 +75,7 @@
         android:layout_below="@+id/roll"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#000"
         />
