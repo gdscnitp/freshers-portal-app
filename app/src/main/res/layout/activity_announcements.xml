@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="4dp"
-    android:background="#A4EAE4E4">
+    android:background="#A4EAE4E4"
+    tools:context=".AnnouncementsActivity">
 
     <TextView
         android:id="@+id/textView"
