@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GroupInfoActivity">
+<include layout="@layout/app_bar_layout"
+    android:id="@+id/toolbargrp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbargrp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_group"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:id="@+id/grpicons"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#54000000"
+                android:id="@+id/descri"
+                android:text="Description Of the Group"
+                android:padding="5dp"
+                android:layout_above="@id/createdby"
+                android:textColor="@color/colorWhite"/>
+            <TextView
+                android:id="@+id/createdby"
+                android:background="#54000000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Created By ABC on 10/02/2000"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:drawableStart="@drawable/ic_edit"
+            android:drawableTint="@color/colorBlack"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="10dp"
+            android:layout_width="match_parent"
+            android:id="@+id/editgrp"
+            android:layout_height="wrap_content"
+            android:text="Edit Group Info"
+            android:padding="5dp"
+            android:textColor="@color/colorBlack"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#eee"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#eee"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#eee"/>
+        <TextView
+            android:drawableStart="@drawable/ic_face"
+            android:drawableTint="@color/colorBlack"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="10dp"
+            android:id="@+id/totalparticipants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Participants(N)"
+            android:padding="5dp"
+            android:textColor="@color/colorBlack"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#eee"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/particpantstv"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

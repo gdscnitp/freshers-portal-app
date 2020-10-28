@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:contentPadding="3dp"
+    android:layout_marginTop="1dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_group"
+            android:id="@+id/grpicontv"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Group Title"
+            android:layout_toEndOf="@id/grpicontv"
+            android:id="@+id/grptitletv"
+            android:textSize="18sp"
+            android:textColor="@color/colorBlack"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Sender Name"
+            android:textStyle="bold"
+            android:layout_below="@id/grptitletv"
+            android:layout_toEndOf="@id/grpicontv"
+            android:id="@+id/sendername"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Text Message"
+            android:id="@+id/sendingmsg"
+            android:maxLines="2"
+            android:layout_toEndOf="@id/sendername"
+            android:layout_below="@id/grptitletv"
+            android:textColor="#666262"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="12:20 PM"
+            android:id="@+id/sendingtime"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:layout_below="@id/sendingmsg"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/seen"
+            android:visibility="invisible"
+            android:layout_marginBottom="25dp"
+            android:layout_above="@id/sendingtime"
+            android:src="@color/colorGreen"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

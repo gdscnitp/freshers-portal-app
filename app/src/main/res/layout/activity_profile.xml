@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A4EAE4E4"
-    tools:context=".ProfileActivity">
+    tools:context=".Student.ProfileActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -111,21 +111,6 @@
         android:background="#4DB6AC"
         android:text="Edit"
         android:textColor="#FFFFFF" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="1dp"
-        android:background="#fff"
-        app:itemIconTint="@drawable/tab_color"
-        app:itemTextColor="@drawable/tab_color"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </RelativeLayout>

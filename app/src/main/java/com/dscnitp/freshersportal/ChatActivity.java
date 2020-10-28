@@ -13,7 +13,6 @@ import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +41,9 @@ import com.android.volley.toolbox.Volley;
 import com.anstrontechnologies.corehelper.AnstronCoreHelper;
 import com.bumptech.glide.Glide;
 
+import com.dscnitp.freshersportal.Adapter.AdapterChat;
+import com.dscnitp.freshersportal.Model.ModelChat;
+import com.dscnitp.freshersportal.Model.ModelUser;
 import com.dscnitp.freshersportal.notifications.Data;
 import com.dscnitp.freshersportal.notifications.Sender;
 import com.dscnitp.freshersportal.notifications.Token;
@@ -1058,7 +1060,7 @@ public class ChatActivity extends AppCompatActivity {
 
         }
         else {
-            startActivity(new Intent(ChatActivity.this, MainActivity.class));
+            startActivity(new Intent(ChatActivity.this, SplashScreen.class));
             finish();
         }
     }
