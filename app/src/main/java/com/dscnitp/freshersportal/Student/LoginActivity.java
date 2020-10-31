@@ -18,6 +18,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,12 +54,14 @@ public class LoginActivity extends AppCompatActivity {
     TextView createaccount;
     ProgressBar bar;
     FirebaseAuth mAuth;
+    EditText emails,password;
     private static final String EMAIL = "email";
     public static final String Id="id";
     public static final String imgurl="imgUrl";
     public static final String dbname="name";
     private static final int RC_SIGN_IN = 101;
     Button googleSignUp;
+    Button login;
     String name2;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -82,10 +85,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+                finish();
             }
         });
         mAuth= FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(this);
+        emails=findViewById(R.id.emails);
+        password=findViewById(R.id.password);
         googleSignUp=findViewById(R.id.btn_glogin);
         googleSignUp.setVisibility(View.INVISIBLE);
         Animation fadeOut = new AlphaAnimation(0, 1);
@@ -117,6 +123,22 @@ public class LoginActivity extends AppCompatActivity {
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
+        login=findViewById(R.id.login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(emails.getText().equals("")){
+                    emails.setError("Required");
+                    return;
+                }
+                if(password.getText().equals("")){
+                    password.setError("Required");
+                    return;
+                }
+
+                signinhere();
+            }
+        });
         googleSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -337,29 +359,33 @@ public class LoginActivity extends AppCompatActivity {
         }
         super.onStop();
     }
-    public void signinhere(View view)
+    public void signinhere()
     {
-        bar.setVisibility(View.VISIBLE);
         String email=t1.getEditText().getText().toString();
         String password=t2.getEditText().getText().toString();
-        mAuth.signInWithEmailAndPassword(email, password)
+        if(!email.equals("")&& !password.equals("")){
+            bar.setVisibility(View.VISIBLE);
+
+            mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             bar.setVisibility(View.INVISIBLE);
-                            Intent intent =new Intent(LoginActivity.this, ProfileActivity.class);
-                            intent.putExtra("email",mAuth.getCurrentUser().getEmail());
-                            intent.putExtra("uid",mAuth.getCurrentUser().getUid());
+                            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                            intent.putExtra("email", mAuth.getCurrentUser().getEmail());
+                            intent.putExtra("uid", mAuth.getCurrentUser().getUid());
                             startActivity(intent);
-                        }
-                        else {
+                        } else {
                             bar.setVisibility(View.INVISIBLE);
                             t1.getEditText().setText("");
                             t2.getEditText().setText("");
-                            Toast.makeText(getApplicationContext(),"Invalid Email/Password", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Invalid Email/Password", Toast.LENGTH_LONG).show();
                         }
+
                     }
                 });
-    }
+
+
 }
+}}

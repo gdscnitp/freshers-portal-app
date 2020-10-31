@@ -95,7 +95,7 @@ public class AdapterGroupChat extends RecyclerView.Adapter<AdapterGroupChat.Myho
         else {
             holder.message.setVisibility(View.GONE);
             holder.image.setVisibility(View.VISIBLE);
-            Glide.with(context).load(message).into(holder.image);
+            Glide.with(context).load(message).placeholder(R.drawable.ic_group).into(holder.image);
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -81,6 +81,7 @@ public class AlumniLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AlumniLoginActivity.this, AlumniSignUpActivity.class));
+                finish();
             }
         });
         mAuth= FirebaseAuth.getInstance();
@@ -321,9 +322,11 @@ public class AlumniLoginActivity extends AppCompatActivity {
     }
     public void signinhere(View view)
     {
-        bar.setVisibility(View.VISIBLE);
+
         String email=t1.getEditText().getText().toString();
         String password=t2.getEditText().getText().toString();
+        if(!email.equals("") && !password.equals("")){
+            bar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -344,4 +347,4 @@ public class AlumniLoginActivity extends AppCompatActivity {
                     }
                 });
     }
-}
+}}

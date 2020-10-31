@@ -94,6 +94,8 @@ public class GroupInfoActivity extends AppCompatActivity {
                     reference1.orderByChild("uid").equalTo(uid).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            users.clear();
+
                             for (DataSnapshot dataSnapshot11:dataSnapshot.getChildren()){
                                 ModelUser userss=dataSnapshot11.getValue(ModelUser.class);
                                 users.add(userss);

@@ -82,44 +82,46 @@ public class AlumniSignUpActivity extends AppCompatActivity {
     public void signuphere(View view) {
         final String emails = email.getEditText().getText().toString();
         String passw = password.getEditText().getText().toString();
-        mAuth = FirebaseAuth.getInstance();
-        mAuth.createUserWithEmailAndPassword(emails, passw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    bar.setVisibility(View.INVISIBLE);
-                    email.getEditText().setText("");
-                    password.getEditText().setText("");
-                    uid=FirebaseAuth.getInstance().getUid();
-                    HashMap<String,Object> hashMap=new HashMap<>();
-                    hashMap.put("email",emails);
-                    hashMap.put("year",spinner1.getText().toString());
-                    hashMap.put("name",name.getEditText().getText().toString());
-                    hashMap.put("USER_TYPE", "Alumni");
-                    hashMap.put("id", "");
-                    hashMap.put("device_token", "");
-                    hashMap.put("uid", uid);
-                    hashMap.put("imgUrl","");
-                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
-                    db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Intent i=new Intent(getApplicationContext(), AlumniMainActivity.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(i);
-                            finish();
-                        }
-                    });
-                    Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
-                } else {
-                    bar.setVisibility(View.INVISIBLE);
-                    Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_LONG).show();
+        if (!emails.equals("") && !password.equals("")) {
+            mAuth = FirebaseAuth.getInstance();
+            mAuth.createUserWithEmailAndPassword(emails, passw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        bar.setVisibility(View.INVISIBLE);
+                        email.getEditText().setText("");
+                        password.getEditText().setText("");
+                        uid = FirebaseAuth.getInstance().getUid();
+                        HashMap<String, Object> hashMap = new HashMap<>();
+                        hashMap.put("email", emails);
+                        hashMap.put("year", spinner1.getText().toString());
+                        hashMap.put("name", name.getEditText().getText().toString());
+                        hashMap.put("USER_TYPE", "Alumni");
+                        hashMap.put("id", "");
+                        hashMap.put("device_token", "");
+                        hashMap.put("uid", uid);
+                        hashMap.put("imgUrl", "");
+                        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
+                        db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Intent i = new Intent(getApplicationContext(), AlumniMainActivity.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(i);
+                                finish();
+                            }
+                        });
+                        Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
+                    } else {
+                        bar.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
-
     public void gotosignin(View view) {
         startActivity(new Intent(AlumniSignUpActivity.this, LoginActivity.class));
+        finish();
     }
 }

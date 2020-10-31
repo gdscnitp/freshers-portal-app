@@ -103,16 +103,15 @@ public class AddPostActivity extends AppCompatActivity {
         actionBar.setTitle("Add New Post");
         upload.setText("Upload");
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
-
-        Query query = databaseReference.orderByChild("email").equalTo(email);
+        Query query = databaseReference.child(uid).orderByChild("email").equalTo(email);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     ModelUser modelUsers = dataSnapshot.getValue(ModelUser.class);
-                    name = dataSnapshot1.child("name").getValue().toString();
-                    email = "" + dataSnapshot1.child("email").getValue();
-                    dp = "" + dataSnapshot1.child("image").getValue().toString();
+                    name = dataSnapshot.child("name").getValue().toString();
+                    email = "" + dataSnapshot.child("email").getValue();
+                    dp = "" + dataSnapshot.child("imgUrl").getValue().toString();
                 }
             }
 

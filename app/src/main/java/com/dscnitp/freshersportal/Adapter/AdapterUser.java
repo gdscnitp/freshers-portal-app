@@ -50,9 +50,11 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.MyHolder> {
     public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
         final String hisuid = list.get(position).getUid();
         String userImage = list.get(position).getImgUrl();
+        String id = list.get(position).getId();
         String username = list.get(position).getName();
         String claase = list.get(position).getAboutYou();
         holder.name.setText(username);
+        holder.classes.setText(id);
         setClass(hisuid,holder);
         try {
             Glide.with(context).load(userImage).placeholder(R.drawable.ic_face).into(holder.profiletv);
