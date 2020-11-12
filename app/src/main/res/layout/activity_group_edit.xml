@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    tools:context=".Activities.GroupEditActivity">
+    <include
+        android:id="@+id/editgrps"
+        layout="@layout/app_bar_layout">
+    </include>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_below="@id/editgrps"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/groupiconn"
+        android:src="@drawable/ic_group"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/grptitlee"
+        android:background="@color/colorWhite"
+        android:layout_below="@id/groupiconn"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:hint="Group Title"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/grpdescc"
+        android:background="@color/colorWhite"
+        android:layout_below="@id/grptitlee"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:inputType="textMultiLine|textCapSentences"
+        android:minHeight="100dp"
+        android:gravity="top"
+        android:hint="Group Description"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/updatetbn"
+        android:paddingRight="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_done"/>
+</RelativeLayout>

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#A4EAE4E4">
-    tools:context=".EditProfileActivity">
-
+    android:background="#A4EAE4E4"
+    tools:context=".Student.EditProfileActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
     <TextView
         android:id="@+id/textView"
         android:layout_width="169dp"
@@ -20,7 +23,7 @@
         android:background="@color/colorWhite"
         android:fontFamily="@font/knewave"
         android:paddingLeft="50dp"
-        android:text="Update"
+        android:text="Update  "
         android:textColor="#070000"
         android:textSize="32sp"
         android:textStyle="bold" />
@@ -123,8 +126,20 @@
             android:text="Update"
             android:textColor="#fff" />
 
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:id="@+id/logout"
+            android:layout_marginBottom="5dp"
+            android:background="#3F51B5"
+            android:gravity="center"
+            android:text="Logout"
+            android:textColor="#fff" />
+
 
     </LinearLayout>
-
-
 </RelativeLayout>
+
+</ScrollView>

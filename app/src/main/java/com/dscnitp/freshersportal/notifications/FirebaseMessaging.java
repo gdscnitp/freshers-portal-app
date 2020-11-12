@@ -19,8 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import com.dscnitp.freshersportal.ChatActivity;
-import com.dscnitp.freshersportal.MainActivity;
 import com.dscnitp.freshersportal.R;
+import com.dscnitp.freshersportal.SplashScreen;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -127,7 +127,7 @@ public class FirebaseMessaging extends FirebaseMessagingService {
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
             setUpPostNotification(notificationManager);
         }
-        Intent intent=new Intent(this, MainActivity.class);
+        Intent intent=new Intent(this, SplashScreen.class);
         intent.putExtra("pid",pid);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
@@ -165,7 +165,7 @@ public class FirebaseMessaging extends FirebaseMessagingService {
         String body=remoteMessage.getData().get("body");
         RemoteMessage.Notification notification=remoteMessage.getNotification();
         int i=Integer.parseInt(user.replaceAll("[\\D]",""));
-        Intent intent=new Intent(this, MainActivity.class);
+        Intent intent=new Intent(this, SplashScreen.class);
         Bundle bundle=new Bundle();
         bundle.putString("uid",user);
         intent.putExtras(bundle);
@@ -190,7 +190,7 @@ public class FirebaseMessaging extends FirebaseMessagingService {
         String body=remoteMessage.getData().get("body");
         RemoteMessage.Notification notification=remoteMessage.getNotification();
         int i=Integer.parseInt(user.replaceAll("[\\D]",""));
-        Intent intent=new Intent(this, MainActivity.class);
+        Intent intent=new Intent(this, SplashScreen.class);
         Bundle bundle=new Bundle();
         bundle.putString("uid",user);
         intent.putExtras(bundle);
@@ -223,7 +223,7 @@ public class FirebaseMessaging extends FirebaseMessagingService {
         String body=remoteMessage.getData().get("body");
         RemoteMessage.Notification notification=remoteMessage.getNotification();
         int i=Integer.parseInt(user.replaceAll("[\\D]",""));
-        Intent intent=new Intent(this, MainActivity.class);
+        Intent intent=new Intent(this, SplashScreen.class);
         Bundle bundle=new Bundle();
         bundle.putString("uid",user);
         intent.putExtras(bundle);
@@ -248,7 +248,7 @@ public class FirebaseMessaging extends FirebaseMessagingService {
         String body=remoteMessage.getData().get("body");
         RemoteMessage.Notification notification=remoteMessage.getNotification();
         int i=Integer.parseInt(user.replaceAll("[\\D]",""));
-        Intent intent=new Intent(this, MainActivity.class);
+        Intent intent=new Intent(this, SplashScreen.class);
         Bundle bundle=new Bundle();
         bundle.putString("uid",user);
         intent.putExtras(bundle);

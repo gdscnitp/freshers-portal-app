@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddPostFragment">
+    tools:context=".Student.AddPostFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,27 +13,27 @@
 
         <EditText
             android:id="@+id/edit_text_description"
-            android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="253dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="-2dp"
-            android:layout_marginBottom="89dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:autofillHints=""
             android:background="#E4F8F6F6"
             android:ems="10"
             android:gravity="top"
             android:hint="@string/share_your_experience_or_question"
-            android:autofillHints="" />
+            android:padding="10dp" />
 
         <Button
             android:id="@+id/btn_post"
-            android:layout_width="119dp"
-            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:layout_height="36dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="91dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="19dp"
             android:background="#4DB6AC"
             android:shadowColor="#FFFFFF"
             android:text="@string/post"
@@ -58,20 +58,7 @@
             android:textSize="32sp"
             android:textStyle="bold" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigation"
-            android:layout_width="wrap_content"
-            android:layout_height="83dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            android:layout_marginEnd="-4dp"
-            android:layout_marginBottom="3dp"
-            android:background="#fff"
-            app:itemIconTint="@drawable/tab_color"
-            app:itemTextColor="@drawable/tab_color"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/bottom_nav"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
         <TextView
             android:id="@+id/textView2"

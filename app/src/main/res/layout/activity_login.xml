@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".Student.LoginActivity">
 
 
     <TextView
@@ -45,16 +45,16 @@
             android:hint="Email"
             android:textColorHint="@color/colorBlack">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/proximanovasemibold"
                 android:hint="Email"
+                android:id="@+id/emails"
                 android:inputType="textEmailAddress"
                 android:textColor="#171616">
 
-            </com.google.android.material.textfield.TextInputEditText>
-
+            </EditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -66,24 +66,25 @@
             android:textColorHint="@color/colorBlack"
             app:passwordToggleEnabled="true">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/password"
                 android:fontFamily="@font/proximanovasemibold"
                 android:hint="Password"
                 android:inputType="textPassword">
 
-            </com.google.android.material.textfield.TextInputEditText>
+            </EditText>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:layout_width="123dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:background="#4DB6AC"
-            android:onClick="signinhere"
+            android:id="@+id/login"
             android:padding="10dp"
             android:text="LOGIN"
             android:textColor="#FFFFFF"
