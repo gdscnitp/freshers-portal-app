@@ -15,8 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GroupInfoActivity"></activity>
-        <activity android:name=".GroupEditActivity"></activity>
+        <activity android:name=".GroupInfoActivity"> </activity>
+        <activity android:name=".GroupEditActivity"> </activity>
         <activity
             android:name=".Alumni.AlumniAllContactActivity"
             android:parentActivityName=".Alumni.AlumniChatActivity" />

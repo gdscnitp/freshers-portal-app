@@ -3,16 +3,25 @@ package com.dscnitp.freshersportal.Student;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.dscnitp.freshersportal.R;
-import com.dscnitp.freshersportal.Student.EditProfileActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 /**
@@ -20,7 +29,16 @@ import com.dscnitp.freshersportal.Student.EditProfileActivity;
  */
 public class ProfileFragment extends Fragment {
 
-    Button edit;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+
+    //views from xml
+    TextView nameTv, rollTv, branchTv;
+    ImageView logo;
+    Button editTv;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -33,13 +51,34 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
 
-        edit=view.findViewById(R.id.edit);
-        edit.setOnClickListener(new View.OnClickListener() {
+        //init firebase
+        firebaseAuth = FirebaseAuth.getInstance();
+        user= firebaseAuth.getCurrentUser();
+        firebaseDatabase= FirebaseDatabase.getInstance();
+        databaseReference=firebaseDatabase.getReference("users");
+
+        nameTv = view.findViewById(R.id.nameTv);
+
+
+        //get info using signed in email of user
+
+        Query query= databaseReference.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), EditProfileActivity.class));
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String name = "" + ds.child("name").getValue();
+                    nameTv.setText(name);
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
+
         return view;
     }
 }
