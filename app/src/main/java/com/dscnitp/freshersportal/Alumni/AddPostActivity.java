@@ -65,6 +65,7 @@ public class AddPostActivity extends AppCompatActivity {
         title = findViewById(R.id.ptitle);
         type = findViewById(R.id.type);
         uid=FirebaseAuth.getInstance().getUid();
+
         title.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -80,6 +81,7 @@ public class AddPostActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         type.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -95,6 +97,7 @@ public class AddPostActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         des = findViewById(R.id.pdes);
         upload = findViewById(R.id.pupload);
         pd = new ProgressDialog(this);

@@ -107,12 +107,14 @@ public class AdapterBlogs extends RecyclerView.Adapter<AdapterBlogs.MyHolder>{
         return modelPosts.size();
     }
 
-    class MyHolder extends RecyclerView.ViewHolder{
+    class MyHolder extends RecyclerView.ViewHolder
+    {
         ImageView picture;
         TextView name,time,title,description,like,comments;
         Button likebtn,comment;
         LinearLayout profile;
-        public MyHolder(@NonNull View itemView) {
+        public MyHolder(@NonNull View itemView)
+        {
             super(itemView);
             picture=itemView.findViewById(R.id.picturetv);
             name=itemView.findViewById(R.id.unametv);
