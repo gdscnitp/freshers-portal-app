@@ -13,24 +13,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class EditProfileActivity extends AppCompatActivity {
 
-    Button logout;
-    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-        logout=findViewById(R.id.logout);
-        mAuth=FirebaseAuth.getInstance();
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                finish();
-                Intent mainIntent = new Intent(EditProfileActivity.this, SplashScreen.class);
-                startActivity(mainIntent);
-            }
-        });
 
     }
+
 }
+

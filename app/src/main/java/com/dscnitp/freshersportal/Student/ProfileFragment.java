@@ -38,7 +38,7 @@ public class ProfileFragment extends Fragment {
     //views from xml
     TextView nameTv, rollTv, branchTv;
     ImageView logo;
-    Button editTv;
+    Button editBtn;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -49,7 +49,16 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_profile, container, false);
+        final View view= inflater.inflate(R.layout.fragment_profile, container, false);
+
+        editBtn = (Button) view.findViewById(R.id.editBtn);
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //init firebase
         firebaseAuth = FirebaseAuth.getInstance();
@@ -77,6 +86,7 @@ public class ProfileFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
 
         return view;

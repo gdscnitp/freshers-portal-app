@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Student.ProfileFragment">
+    tools:context=".Student.ProfileFragment"
+    android:background="#A4EAE4E4">
 
     <TextView
         android:id="@+id/textView"
@@ -58,7 +59,7 @@
         android:layout_below="@+id/nameTv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:text="1906096"
+        android:hint="Roll No."
         android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -70,7 +71,7 @@
         android:layout_below="@+id/rollTv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:text="CSE,2nd Year"
+        android:hint="Branch, Year"
         android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -94,7 +95,7 @@
         android:transformPivotY="0dp" />
 
     <Button
-        android:id="@+id/editTv"
+        android:id="@+id/editBtn"
         android:layout_width="wrap_content"
         android:layout_height="38dp"
         android:layout_alignBottom="@+id/branchTv"
