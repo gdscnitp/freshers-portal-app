@@ -5,7 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserTypeActivity"
-    android:background="#5E916666">
+    >
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="@drawable/gradient2"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user_bg"
+
+        tools:layout_editor_absoluteX="-174dp"
+        tools:layout_editor_absoluteY="-16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nit_patna"
+        android:textSize="48sp"
+        android:layout_marginTop="18dp"
+
+        android:textColor="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -21,8 +46,8 @@
 
     <Button
         android:id="@+id/student"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="261dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
@@ -31,26 +56,28 @@
         android:paddingLeft="10dp"
         android:text="Are You a Student?"
         android:textColor="#fff"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613" />
+        app:layout_constraintVertical_bias="0.815" />
 
     <Button
         android:id="@+id/alumni"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="246dp"
+        android:layout_height="74dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="390dp"
         android:background="@drawable/button_background"
         android:backgroundTint="#52AFFA"
         android:fontFamily="@font/proximanovasemibold"
         android:paddingLeft="10dp"
-        android:text="Are you a Alumni?"
+        android:text="Are you an Alumni?"
         android:textColor="#fff"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
