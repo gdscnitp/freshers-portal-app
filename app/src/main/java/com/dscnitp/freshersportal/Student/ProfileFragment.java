@@ -66,9 +66,6 @@ public class ProfileFragment extends Fragment {
         databaseReference=firebaseDatabase.getReference("users");
 
         nameTv = view.findViewById(R.id.nameTv);
-        branchTv = (TextView) view.findViewById(R.id.branch);
-        branchTv.setText(getActivity().getIntent().getStringExtra("mytext2"));
-
 
         //get info using signed in email of user
 
