@@ -25,11 +25,7 @@
 
 
 
-    >>>>>>> master
-    =======
-    >>>>>>> master
-    =======
-    >>>>>>> master
+
     <string name="EmptyBlog">Add Blog Description</string>
 
     <string-array name="Branch">
@@ -58,8 +54,5 @@
     </string-array>
 
 
-    =======
-
-    >>>>>>> master
 
 </resources>
