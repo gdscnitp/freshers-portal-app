@@ -17,11 +17,16 @@
 
 
 
+
+
+
     <string name="nit_patna">NIT PATNA</string>
     <string name="update" />
 
 
 
+    >>>>>>> master
+    =======
     >>>>>>> master
     =======
     >>>>>>> master
@@ -51,5 +56,10 @@
         <item>Civil Services</item>
         <item>Random</item>
     </string-array>
+
+
+    =======
+
+    >>>>>>> master
 
 </resources>
