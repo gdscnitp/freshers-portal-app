@@ -16,5 +16,33 @@
     <string name="submit">Submit</string>
     <string name="nit_patna">NIT PATNA</string>
     <string name="update" />
-    <string name="EmptyBlog" />
+
+
+    <string name="EmptyBlog">Add Blog Description</string>
+
+    <string-array name="Branch">
+        <item>Computer Science</item>
+        <item>Electronics and Communication</item>
+        <item>Electrical</item>
+        <item>Mechanical</item>
+        <item>Civil</item>
+        <item>Int. Msc.</item>
+        <item>Architecture</item>
+    </string-array>
+
+    <string-array name="BlogType">
+        <item>Inspirational</item>
+        <item>Opportunity</item>
+        <item>Issue</item>
+        <item>Newbie</item>
+        <item>Random</item>
+    </string-array>
+
+    <string-array name="BlogTitle">
+        <item>Coding</item>
+        <item>Gate</item>
+        <item>Civil Services</item>
+        <item>Random</item>
+    </string-array>
+
 </resources>
