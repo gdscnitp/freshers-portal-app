@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#A4EAE4E4">
-    tools:context=".EditProfileActivity">
+    android:background="#A4EAE4E4"
+    tools:context="Student.EditProfileActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -61,7 +61,6 @@
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,12 +68,12 @@
             android:paddingBottom="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/roll"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,12 +81,13 @@
             android:paddingBottom="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/roll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/branch"
+
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,12 +95,13 @@
             android:paddingBottom="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/branch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/year"
+
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,11 +109,13 @@
             android:paddingBottom="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/update"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -50,7 +50,6 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view= inflater.inflate(R.layout.fragment_profile, container, false);
-
         editBtn = (Button) view.findViewById(R.id.editBtn);
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +66,6 @@ public class ProfileFragment extends Fragment {
         databaseReference=firebaseDatabase.getReference("users");
 
         nameTv = view.findViewById(R.id.nameTv);
-
 
         //get info using signed in email of user
 
@@ -88,6 +86,8 @@ public class ProfileFragment extends Fragment {
             }
 
         });
+
+
 
         return view;
     }

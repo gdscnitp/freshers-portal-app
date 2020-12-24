@@ -9,7 +9,6 @@
     <string name="post">Post</string>
     <string name="title"><![CDATA[> Title]]></string>
     <string name="blog">Blog</string>
-    <string name="update">Update </string>
     <string name="share_your_experience_or_question">Share your experience or question</string>
     <string name="announcements">Announcements</string>
     <string name="welcome_to_nit_patna">WELCOME TO NIT PATNA</string>
@@ -21,11 +20,15 @@
 
 
 
+
     <string name="nit_patna">NIT PATNA</string>
     <string name="update" />
 
 
 
+
+
+    <string name="update">Update</string>
 
 
     <string name="EmptyBlog">Add Blog Description</string>
@@ -54,6 +57,9 @@
         <item>Civil Services</item>
         <item>Random</item>
     </string-array>
+
+
+
 
 
 
