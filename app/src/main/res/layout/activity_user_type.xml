@@ -42,9 +42,10 @@
     <ImageView
         android:layout_width="234dp"
         android:layout_height="134dp"
-        android:layout_marginTop="644dp"
+        android:layout_marginTop="608dp"
         android:src="@drawable/logo1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
