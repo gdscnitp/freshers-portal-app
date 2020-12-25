@@ -22,7 +22,7 @@
 
 
     <string name="nit_patna">NIT PATNA</string>
-    <string name="update" />
+
 
 
 
@@ -32,6 +32,7 @@
 
 
     <string name="EmptyBlog">Add Blog Description</string>
+    <string name="fresher_s_portal">Fresher\'s Portal</string>
 
     <string-array name="Branch">
         <item>Computer Science</item>
