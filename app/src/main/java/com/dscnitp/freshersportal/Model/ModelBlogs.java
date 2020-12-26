@@ -2,8 +2,19 @@ package com.dscnitp.freshersportal.Model;
 
 public class ModelBlogs {
     String Type;
+    String Writtenby;
+    String Title;
+    String Description;
+    String Department;
+    String Time;
 
-    public ModelBlogs() {
+    public ModelBlogs(String type, String writtenby, String title, String description, String department, String time) {
+        Type = type;
+        Writtenby = writtenby;
+        Title = title;
+        Description = description;
+        Department = department;
+        Time = time;
     }
 
     public String getType() {
@@ -14,7 +25,8 @@ public class ModelBlogs {
         Type = type;
     }
 
-    public String getWrittenby() {
+    public String getWrittenby()
+    {
         return Writtenby;
     }
 
@@ -54,19 +66,4 @@ public class ModelBlogs {
         Time = time;
     }
 
-    String Writtenby;
-    String Title;
-
-    public ModelBlogs(String type, String writtenby, String title, String description, String department, String time) {
-        Type = type;
-        Writtenby = writtenby;
-        Title = title;
-        Description = description;
-        Department = department;
-        Time = time;
     }
-
-    String Description;
-    String Department;
-    String Time;
-}

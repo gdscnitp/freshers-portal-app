@@ -140,13 +140,15 @@ public class AlumniLoginActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             progressDialog.setMessage("Signing you in...");
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            if (result.isSuccess()) {
+            if (result.isSuccess())
+            {
                 GoogleSignInAccount account = result.getSignInAccount();
                 id=account.getId();
                 firebaseAuthWithGoogle(account);
                 mGoogleApiClient.clearDefaultAccountAndReconnect();
             }
-            else {
+            else
+                {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), " Connection failed", Toast.LENGTH_SHORT).show();
             }
@@ -320,6 +322,7 @@ public class AlumniLoginActivity extends AppCompatActivity {
         }
         super.onStop();
     }
+
     public void signinhere(View view)
     {
 
@@ -337,6 +340,7 @@ public class AlumniLoginActivity extends AppCompatActivity {
                             intent.putExtra("email",mAuth.getCurrentUser().getEmail());
                             intent.putExtra("uid",mAuth.getCurrentUser().getUid());
                             startActivity(intent);
+                            finish();
                         }
                         else {
                             bar.setVisibility(View.INVISIBLE);

@@ -122,7 +122,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.385" />
 
-    <Button
+    <!--    <Button-->
+<!--        android:id="@+id/btn_glogin"-->
+<!--        android:layout_width="220dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:background="@drawable/button_background"-->
+<!--        android:drawableLeft="@drawable/google_icon"-->
+<!--        android:fontFamily="@font/proximanovasemibold"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:text="Google Sign up"-->
+<!--        android:textColor="#fff"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.96" />-->
+
+    <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_glogin"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
@@ -134,13 +154,13 @@
         android:fontFamily="@font/proximanovasemibold"
         android:paddingLeft="10dp"
         android:text="Google Sign up"
-        android:textColor="#fff"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
+        app:layout_constraintVertical_bias="0.908"/>
 
     <ImageView
         android:id="@+id/imageView2"
