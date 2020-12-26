@@ -5,75 +5,82 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GroupChatActivity">
+
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbargrp"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:id="@+id/toolbargrp"
         android:background="@color/colorPrimaryDark"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
+
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/groupicontv"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:id="@+id/groupicontv"
-                android:src="@drawable/ic_group"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_group" />
+
             <TextView
+                android:id="@+id/grptitletv"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="7dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/groupicontv"
+                android:layout_weight="1"
                 android:text="Group Title"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:id="@+id/grptitletv"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/grpchatrecycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/grpchatrecycle"
+        android:layout_above="@id/chatlayout"
+        android:layout_below="@id/toolbargrp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:stackFromEnd="true"
-        tools:listitem="@layout/row_groupchat_left"
-        android:layout_above="@id/chatlayout"
-        android:layout_below="@id/toolbargrp"/>
+        tools:listitem="@layout/row_groupchat_left" />
+
     <LinearLayout
+        android:id="@+id/chatlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/chatlayout"
         android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:background="@color/colorWhite">
+        android:orientation="horizontal">
+
         <ImageButton
+            android:id="@+id/grpattach"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:id="@+id/grpattach"
-            android:src="@drawable/ic_attach"
-            android:background="@null"/>
+            android:background="@null"
+            android:src="@drawable/ic_attach" />
 
         <EditText
+            android:id="@+id/grpmsg"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/grpmsg"
             android:background="@null"
             android:hint="Start Typing"
             android:inputType="textCapSentences|textMultiLine"
-            android:padding="15dp"/>
+            android:padding="15dp" />
+
         <ImageButton
+            android:id="@+id/sendgrpmsg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@null"
-            android:id="@+id/sendgrpmsg"
-            android:src="@drawable/ic_send"/>
+            android:src="@drawable/ic_send" />
     </LinearLayout>
 </RelativeLayout>

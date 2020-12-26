@@ -50,8 +50,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/proximanovasemibold"
                 android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:textColor="#171616">
+                android:inputType="textEmailAddress">
 
             </com.google.android.material.textfield.TextInputEditText>
 
