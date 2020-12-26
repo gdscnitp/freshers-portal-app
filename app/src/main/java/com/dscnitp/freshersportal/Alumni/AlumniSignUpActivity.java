@@ -91,7 +91,7 @@ public class AlumniSignUpActivity extends AppCompatActivity {
                         bar.setVisibility(View.INVISIBLE);
                         email.getEditText().setText("");
                         password.getEditText().setText("");
-                        uid = FirebaseAuth.getInstance().getUid();
+                        uid = mAuth.getCurrentUser().getUid();
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("email", emails);
                         hashMap.put("year", spinner1.getText().toString());
