@@ -23,10 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
-    TextInputLayout t1, t2,names;
+    TextInputLayout t1,t2,names;
     ProgressBar bar;
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,20 +37,23 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     String uid;
-    public void signuphere(View view) {
+
+    public void signuphere(View view)
+    {
         final String email = t1.getEditText().getText().toString();
         String password = t2.getEditText().getText().toString();
         final String name = names.getEditText().getText().toString();
 
-        if (!email.equals("") && !password.equals("")) {
+        if (!email.equals("")  &&  !password.equals("")  &&  !name.equals(""))
+        {
             mAuth = FirebaseAuth.getInstance();
-            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         bar.setVisibility(View.INVISIBLE);
-                        bar.setVisibility(View.INVISIBLE);
-                        uid = FirebaseAuth.getInstance().getUid();
+//                      bar.setVisibility(View.INVISIBLE);
+                        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("email", email);
                         hashMap.put("name", name);
@@ -61,33 +63,35 @@ public class SignUpActivity extends AppCompatActivity {
                         hashMap.put("uid", uid);
                         hashMap.put("imgUrl", "");
                         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
-                        db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>()
+                        {
                             @Override
-                            public void onSuccess(Void aVoid) {
-                                Intent i = new Intent(getApplicationContext(), DashboardActivity.class);
+                            public void onSuccess(Void aVoid)
+                            {
+                                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(i);
                                 finish();
                                 t1.getEditText().setText("");
                                 t2.getEditText().setText("");
-                                Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignUpActivity.this, "Registered Successfully", Toast.LENGTH_LONG).show();
                             }
                         });
-                    } else {
+                    }
+                    else {
                         bar.setVisibility(View.INVISIBLE);
                         t1.getEditText().setText("");
                         t2.getEditText().setText("");
-                        Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUpActivity.this, "Process Error", Toast.LENGTH_LONG).show();
                     }
                 }
             });
         }
     }
 
-
-    public void gotosignin(View view) {
+    public void gotosignin(View view)
+    {
      startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
      finish();
     }
-
 }

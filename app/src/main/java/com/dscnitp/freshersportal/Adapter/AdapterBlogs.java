@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -65,14 +66,21 @@ public class AdapterBlogs extends RecyclerView.Adapter<AdapterBlogs.MyHolder>{
         Calendar calendar=Calendar.getInstance(Locale.ENGLISH);
         calendar.setTimeInMillis(Long.parseLong(ptime));
         String timedate= DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
-        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("users");
+//        DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+//        String date = df.format(Calendar.getInstance().getTime());
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference().child("users");
         reference.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
                 String name=dataSnapshot.child("name").getValue().toString();
                 String imgUrl=dataSnapshot.child("imgUrl").getValue().toString();
                 holder.name.setText(name);
-                Glide.with(context).load(imgUrl).into(holder.picture);
+
+                Glide.with(context).
+                        load(imgUrl).
+                        into(holder.picture);
+
             }
 
             @Override
@@ -113,6 +121,7 @@ public class AdapterBlogs extends RecyclerView.Adapter<AdapterBlogs.MyHolder>{
         TextView name,time,title,description,like,comments;
         Button likebtn,comment;
         LinearLayout profile;
+
         public MyHolder(@NonNull View itemView)
         {
             super(itemView);
