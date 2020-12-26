@@ -4,24 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Alumni.AlumniMainActivity">
-    <LinearLayout android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical">
+    tools:context=".Alumni.AlumniMainActivity"
+    android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            android:background="#4DB6AC"
-            />
+            android:background="#4DB6AC"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="58dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="246dp"
+                android:background="@color/colorWhite"
+                android:fontFamily="@font/knewave"
+                android:paddingLeft="50dp"
+                android:text="Profile"
+                android:textColor="#070000"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/logoSplash"
+                android:layout_centerVertical="true"
+                android:layout_width="49dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="12dp"
+                app:srcCompat="@drawable/logo_splash" />
+
+        </RelativeLayout>
         <FrameLayout android:layout_height="0dp"
             android:layout_width="match_parent"
             android:id="@+id/content"
             android:layout_weight="1">
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#A4EAE4E4"
@@ -40,7 +66,7 @@
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Digvijay Srivastava"
+                    android:text="Sameer Shekhar"
                     android:textColor="#000"
                     android:layout_below="@+id/logo"
                     android:layout_centerHorizontal="true"
@@ -93,10 +119,68 @@
                     android:transformPivotX="0dp"
                     android:transformPivotY="0dp" />
 
-                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/session"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/branch"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="46dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:text="Session:"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    />
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:layout_centerVertical="true"
+                        android:spinnerMode="dropdown"/>
+                </RelativeLayout>
 
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/session"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="46dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"
+                        android:text="Anonymous:"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="0dp"
+                        android:backgroundTint="#7792E4"
+                        android:text="Avail" />
+
+                </RelativeLayout>
             </RelativeLayout>
+
+
+
         </FrameLayout>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -115,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:text="Allow Notification"
                 android:checked="true"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:clickable="true"
                 android:id="@+id/postswitch" />
         </androidx.cardview.widget.CardView>
@@ -131,6 +215,6 @@
             app:labelVisibilityMode="labeled">
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    </LinearLayout>
+
 
 </LinearLayout>
