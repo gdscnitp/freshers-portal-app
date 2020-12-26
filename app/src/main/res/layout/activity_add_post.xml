@@ -5,15 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Alumni.AddPostActivity">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            android:background="#4DB6AC"/>
+            android:background="#349C92"/>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -21,34 +25,38 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="15dp"
             app:passwordToggleEnabled="true">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittextstyle"
-            android:hint="Choose Title"
-            android:layout_marginTop="10dp"
-            android:singleLine="true"
-            android:id="@+id/ptitle"
-            android:padding="10dp"
-            />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextstyle"
+                android:hint="Choose Title"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:id="@+id/ptitle"
+                android:padding="10dp"
+                />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             app:passwordToggleEnabled="true">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittextstyle"
-            android:hint="Choose Type"
-            android:singleLine="true"
-            android:id="@+id/type"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextstyle"
+                android:hint="Choose Type"
+                android:singleLine="true"
+                android:id="@+id/type"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"

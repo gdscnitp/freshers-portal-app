@@ -363,7 +363,7 @@ public class LoginActivity extends AppCompatActivity {
     {
         String email=t1.getEditText().getText().toString();
         String password=t2.getEditText().getText().toString();
-        if(!email.equals("")&& !password.equals("")){
+        if(!email.equals("") && !password.equals("")){
             bar.setVisibility(View.VISIBLE);
 
             mAuth.signInWithEmailAndPassword(email, password)
@@ -372,7 +372,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             bar.setVisibility(View.INVISIBLE);
-                            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                             intent.putExtra("email", mAuth.getCurrentUser().getEmail());
                             intent.putExtra("uid", mAuth.getCurrentUser().getUid());
                             startActivity(intent);

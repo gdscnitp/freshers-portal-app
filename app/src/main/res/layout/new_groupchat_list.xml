@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:orientation="vertical"
     app:cardBackgroundColor="@color/colorWhite"
-    app:contentPadding="3dp"
-    android:layout_marginTop="1dp">
+    app:contentPadding="3dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/grpicontv"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/ic_group"
-            android:id="@+id/grpicontv"/>
+            android:src="@drawable/ic_group" />
+
         <TextView
+            android:id="@+id/grptitletv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:layout_toEndOf="@id/grpicontv"
             android:text="Group Title"
-            android:layout_toEndOf="@id/grpicontv"
-            android:id="@+id/grptitletv"
-            android:textSize="18sp"
             android:textColor="@color/colorBlack"
-            />
+            android:textSize="18sp" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="Sender Name"
-            android:textStyle="bold"
-            android:layout_below="@id/grptitletv"
-            android:layout_toEndOf="@id/grpicontv"
             android:id="@+id/sendername"
-            />
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="Text Message"
-            android:id="@+id/sendingmsg"
-            android:maxLines="2"
-            android:layout_toEndOf="@id/sendername"
             android:layout_below="@id/grptitletv"
-            android:textColor="#666262"
-            />
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@id/grpicontv"
+            android:text="Sender Name"
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/sendingmsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="12:20 PM"
+            android:layout_below="@id/grptitletv"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/sendername"
+            android:maxLines="2"
+            android:text="Text Message"
+            android:textColor="#666262" />
+
+        <TextView
             android:id="@+id/sendingtime"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/sendingmsg"
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="5dp"
+            android:text="12:20 PM" />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/seen"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/seen"
-            android:visibility="invisible"
-            android:layout_marginBottom="25dp"
             android:layout_above="@id/sendingtime"
-            android:src="@color/colorGreen"
-            android:layout_marginEnd="10dp"
             android:layout_alignParentEnd="true"
-            />
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="25dp"
+            android:src="@color/colorGreen"
+            android:visibility="invisible" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
