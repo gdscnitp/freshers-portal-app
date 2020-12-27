@@ -16,6 +16,7 @@
             android:id="@+id/content"
             android:layout_weight="1">
         </FrameLayout>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,12 +38,14 @@
                 android:clickable="true"
                 android:id="@+id/postswitch" />
         </androidx.cardview.widget.CardView>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/navigation"
             android:background="#fff"
             app:menu="@menu/bottom_nav"
+            android:elevation="@dimen/cardview_default_elevation"
             app:itemIconTint="@drawable/tab_color"
             app:itemTextColor="@drawable/tab_color"
             android:layout_gravity="bottom"

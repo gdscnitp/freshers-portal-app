@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:id="@+id/msglayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/msglayout"
+    android:orientation="vertical"
     android:padding="10dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilec"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:civ_border_color="@null"
             android:src="@drawable/ic_face"
-            android:id="@+id/profilec"/>
+            app:civ_border_color="@null" />
+
         <TextView
+            android:id="@+id/msgc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/msgc"
             android:layout_weight="1"
-            android:textSize="16sp"
-            android:textColor="@color/colorBlack"
             android:background="@drawable/bg_receiver"
             android:padding="15dp"
-            android:visibility="gone"
-            android:text="His Message"/>
+            android:text="His Message"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
         <ImageView
+            android:id="@+id/images"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/images"
             android:adjustViewBounds="true"
+            android:background="@drawable/bg_receiver"
             android:padding="15dp"
-            android:src="@color/colorWhite"
             android:scaleType="fitCenter"
-            android:background="@drawable/bg_receiver"/>
+            android:src="@color/colorWhite" />
+
         <TextView
+            android:id="@+id/timetv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/timetv"
             android:text="02/01/1990 06:19PM"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp"/>
+            android:textSize="12sp" />
     </LinearLayout>
+
     <TextView
+        android:id="@+id/isSeen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/isSeen"
         android:gravity="end"
-        android:visibility="gone"
+        android:text="Delivered"
         android:textAlignment="textEnd"
-        android:text="Delivered"/>
+        android:visibility="gone" />
 </LinearLayout>
