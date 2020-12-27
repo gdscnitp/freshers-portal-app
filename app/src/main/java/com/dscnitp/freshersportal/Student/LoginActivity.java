@@ -54,16 +54,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-public class LoginActivity extends AppCompatActivity
-{
+public class LoginActivity extends AppCompatActivity {
     TextInputLayout t1, t2;
     TextView createaccount;
     ProgressBar bar;
-    EditText emails,password;
+    EditText emails, password;
     private static final String EMAIL = "email";
-    public static final String Id="id";
-    public static final String imgurl="imgUrl";
-    public static final String dbname="name";
+    public static final String Id = "id";
+    public static final String imgurl = "imgUrl";
+    public static final String dbname = "name";
     private static final int RC_SIGN_IN = 101;
     SignInButton googleSignUp;
     Button login;
@@ -71,7 +70,7 @@ public class LoginActivity extends AppCompatActivity
     FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     GoogleApiClient mGoogleApiClient;
-//    GoogleSignInClient mGoogleSignInClient;
+    //    GoogleSignInClient mGoogleSignInClient;
     ProgressDialog progressDialog;
     Animation bounce;
     String mailid = "";
@@ -79,6 +78,7 @@ public class LoginActivity extends AppCompatActivity
     String photo = "";
 
     FirebaseUser currentUser;
+
     @Override
     public void onStart() {
 
@@ -111,27 +111,25 @@ public class LoginActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         t1 = (TextInputLayout) findViewById(R.id.email_login);
         t2 = (TextInputLayout) findViewById(R.id.pwd_login);
         bar = (ProgressBar) findViewById(R.id.progressBar_login);
-        createaccount=findViewById(R.id.createaccount);
+        createaccount = findViewById(R.id.createaccount);
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
                 finish();
             }
         });
-        mAuth= FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(this);
-        emails=findViewById(R.id.emails);
-        password=findViewById(R.id.password);
-        googleSignUp=(SignInButton)findViewById(R.id.btn_glogin);
+        emails = findViewById(R.id.emails);
+        password = findViewById(R.id.password);
+        googleSignUp = (SignInButton) findViewById(R.id.btn_glogin);
         googleSignUp.setVisibility(View.INVISIBLE);
         Animation fadeOut = new AlphaAnimation(0, 1);
         fadeOut.setInterpolator(new AccelerateInterpolator()); //and this
@@ -162,23 +160,19 @@ public class LoginActivity extends AppCompatActivity
                 .requestEmail()
                 .build();
 
-        mAuthListener =new FirebaseAuth.AuthStateListener(){
-        @Override
-        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
-        {
-            if(firebaseAuth.getCurrentUser()!=null)
-            {
-                 secondActivity();
-            }
-            else
-            {
-                bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if (firebaseAuth.getCurrentUser() != null) {
+                    secondActivity();
+                } else {
+                    bounce = AnimationUtils.loadAnimation(getApplicationContext(),
                             R.anim.bounce);
                     googleSignUp.startAnimation(bounce);
                     googleSignUp.setVisibility(View.VISIBLE);
+                }
             }
-        }
-       };
+        };
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
@@ -193,16 +187,16 @@ public class LoginActivity extends AppCompatActivity
                 .build();
 
 
-        login=findViewById(R.id.login);
+        login = findViewById(R.id.login);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(emails.getText().equals("")){
+                if (emails.getText().equals("")) {
                     emails.setError("Required");
                     return;
                 }
-                if(password.getText().equals("")){
+                if (password.getText().equals("")) {
                     password.setError("Required");
                     return;
                 }
@@ -246,7 +240,7 @@ public class LoginActivity extends AppCompatActivity
 //    }
 
 
-        @Override
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
@@ -256,7 +250,7 @@ public class LoginActivity extends AppCompatActivity
             if (result.isSuccess()) {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
-                id=account.getId();
+                id = account.getId();
 
 
 //                SharedPreferences sharedPreferences = PreferenceManager
@@ -268,8 +262,7 @@ public class LoginActivity extends AppCompatActivity
 
                 firebaseAuthWithGoogle(account);
 //                mGoogleApiClient.clearDefaultAccountAndReconnect();
-            }
-            else {
+            } else {
                 // Google Sign In failed, update UI appropriately
                 // ...
                 progressDialog.dismiss();
@@ -326,7 +319,7 @@ public class LoginActivity extends AppCompatActivity
 
 
     private void checkingUserExist(String UID) {
-        uid=FirebaseAuth.getInstance().getUid();
+        uid = FirebaseAuth.getInstance().getUid();
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
         db.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -334,18 +327,16 @@ public class LoginActivity extends AppCompatActivity
                 if (dataSnapshot.exists()) {
                     progressDialog.dismiss();
                     secondActivity();
-                }
-                else{
-                    try{
+                } else {
+                    try {
                         mailid = mAuth.getCurrentUser().getEmail();
                         name = mAuth.getCurrentUser().getDisplayName();
                         photo = mAuth.getCurrentUser().getPhotoUrl().toString();
-                    }
-                    catch (Exception e){
-                        Log.e("Getting Started",e.getMessage());
+                    } catch (Exception e) {
+                        Log.e("Getting Started", e.getMessage());
                     }
                     progressDialog.setMessage("Creating New User...");
-                    createNewUser(mailid,name,photo);
+                    createNewUser(mailid, name, photo);
                 }
             }
 
@@ -358,10 +349,10 @@ public class LoginActivity extends AppCompatActivity
 
 
     String uid;
-    private void secondActivity()
-    {
-        uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final DatabaseReference database=FirebaseDatabase.getInstance().getReference().child("users");
+
+    private void secondActivity() {
+        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users");
         database.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -370,17 +361,13 @@ public class LoginActivity extends AppCompatActivity
                 hashMap.put("uid", uid);
                 database.child(uid).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid)
-                    {
-                        if(accountType.equals("student"))
-                        {
+                    public void onSuccess(Void aVoid) {
+                        if (accountType.equals("student")) {
                             Intent mainIntent = new Intent(LoginActivity.this, DashboardActivity.class);
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(mainIntent);
                             finish();
-                        }
-                        else
-                            {
+                        } else {
                             Intent mainIntent = new Intent(LoginActivity.this, AdminMainPanel.class);
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(mainIntent);
@@ -389,29 +376,30 @@ public class LoginActivity extends AppCompatActivity
                     }
                 });
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
 
-    public void createNewUser( String mailid, String name, String photo) {
-        uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        HashMap<String,Object> hashMap=new HashMap<>();
-        hashMap.put("email",mailid);
-        hashMap.put("name",name);
+    public void createNewUser(String mailid, String name, String photo) {
+        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("email", mailid);
+        hashMap.put("name", name);
         hashMap.put("USER_TYPE", "student");
         hashMap.put("id", "");
         hashMap.put("device_token", "");
         hashMap.put("uid", uid);
-        hashMap.put("imgUrl",photo);
+        hashMap.put("imgUrl", photo);
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
         db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 progressDialog.dismiss();
-                Intent i=new Intent(getApplicationContext(), DashboardActivity.class);
-                i.putExtra("Name2",name2);
+                Intent i = new Intent(getApplicationContext(), DashboardActivity.class);
+                i.putExtra("Name2", name2);
                 startActivity(i);
                 finish();
             }
@@ -426,14 +414,11 @@ public class LoginActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Log.e("USERUID----",mAuth.getCurrentUser().getUid());
-                    if(user.isEmailVerified())
-                    {
-                        Log.e("Verify dialog true",user.isEmailVerified()+"" );
-                    }
-                    else
-                        {
-                        Log.e("Verify Image dialog",user.isEmailVerified()+"" );
+                    Log.e("USERUID----", mAuth.getCurrentUser().getUid());
+                    if (user.isEmailVerified()) {
+                        Log.e("Verify dialog true", user.isEmailVerified() + "");
+                    } else {
+                        Log.e("Verify Image dialog", user.isEmailVerified() + "");
                         Dialog mdialog = new Dialog(getApplicationContext());
                         mdialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     }
@@ -452,38 +437,36 @@ public class LoginActivity extends AppCompatActivity
         super.onStop();
     }
 
-    public void signinhere()
-    {
-        String email=t1.getEditText().getText().toString();
-        String password=t2.getEditText().getText().toString();
+    public void signinhere() {
+        String email = t1.getEditText().getText().toString();
+        String password = t2.getEditText().getText().toString();
 
-        if(!email.equals("") && !password.equals("")){
+        if (!email.equals("") && !password.equals("")) {
 
-        if(!email.equals("") && !password.equals(""))
-        {
+            if (!email.equals("") && !password.equals("")) {
 
-            bar.setVisibility(View.VISIBLE);
-            mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            bar.setVisibility(View.INVISIBLE);
-                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                            intent.putExtra("email", mAuth.getCurrentUser().getEmail());
-                            intent.putExtra("uid", mAuth.getCurrentUser().getUid());
-                            startActivity(intent);
-                            finish();
-                        }
-                        else {
-                            bar.setVisibility(View.INVISIBLE);
-                            t1.getEditText().setText("");
-                            t2.getEditText().setText("");
-                            Toast.makeText(getApplicationContext(), "Invalid Email/Password", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                bar.setVisibility(View.VISIBLE);
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    bar.setVisibility(View.INVISIBLE);
+                                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                                    intent.putExtra("email", mAuth.getCurrentUser().getEmail());
+                                    intent.putExtra("uid", mAuth.getCurrentUser().getUid());
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    bar.setVisibility(View.INVISIBLE);
+                                    t1.getEditText().setText("");
+                                    t2.getEditText().setText("");
+                                    Toast.makeText(getApplicationContext(), "Invalid Email/Password", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+            }
         }
-    }
 
+    }
 }
