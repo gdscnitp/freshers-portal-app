@@ -14,9 +14,25 @@
     <string name="welcome_to_nit_patna">WELCOME TO NIT PATNA</string>
     <string name="registered_already_login_here">Registered already? Login here!</string>
     <string name="submit">Submit</string>
+
+
+
+
+
+
+
+    <string name="nit_patna">NIT PATNA</string>
+
+
+
+
+
+
     <string name="update">Update</string>
 
+
     <string name="EmptyBlog">Add Blog Description</string>
+    <string name="fresher_s_portal">Fresher\'s Portal</string>
 
     <string-array name="Branch">
         <item>Computer Science</item>
@@ -42,4 +58,10 @@
         <item>Civil Services</item>
         <item>Random</item>
     </string-array>
+
+
+
+
+
+
 </resources>
