@@ -10,6 +10,7 @@
     tools:context="Student.EditProfileActivity">
 
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbargrp"
         android:layout_width="match_parent"
