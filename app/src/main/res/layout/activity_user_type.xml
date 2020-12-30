@@ -7,30 +7,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
-    tools:context=".UserTypeActivity"
-    >
+    tools:context=".UserTypeActivity">
 
 
     <ImageView
 
-        android:layout_width="479dp"
-        android:layout_height="794dp"
-        android:rotationX="-1"
-        android:alpha="0.78"
-        android:background="@drawable/gradient2"
+        android:layout_width="wrap_content"
+        android:layout_height="870dp"
         android:contentDescription="null"
-        android:rotation="1"
         android:scaleType="fitXY"
-        android:src="@drawable/clg_image"
+        android:src="@drawable/clg_gnd"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-53dp"
-        tools:layout_editor_absoluteY="-38dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
-        android:layout_width="156dp"
-        android:layout_height="110dp"
+        android:layout_width="137dp"
+        android:layout_height="94dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/nit_logo"
 
@@ -40,30 +33,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="234dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="620dp"
+        android:layout_width="114dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="648dp"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="135dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="122dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/welcome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_splash" />
 
     <Button
         android:id="@+id/student"
-        android:layout_width="234dp"
+        android:layout_width="214dp"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -76,27 +69,27 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.761" />
+        app:layout_constraintVertical_bias="0.634" />
 
     <Button
         android:id="@+id/alumni"
-        android:layout_width="246dp"
+        android:layout_width="216dp"
 
         android:layout_height="74dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="356dp"
-        android:background="@drawable/button_background"
+        android:layout_marginTop="236dp"
+        android:background="@drawable/gradient4"
         android:fontFamily="@font/proximanovasemibold"
-        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
         android:text="Alumni"
         android:textColor="#fff"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
