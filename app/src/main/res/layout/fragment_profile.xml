@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:gravity="center"
     tools:context=".Student.ProfileFragment">
 
     <TextView
@@ -13,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="250dp"
+        android:layout_marginEnd="249dp"
         android:background="@color/colorWhite"
         android:fontFamily="@font/knewave"
         android:paddingLeft="50dp"
@@ -31,60 +33,64 @@
 
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="166dp"
+        android:id="@+id/ProfileImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_gravity="center"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="114dp"
+        android:layout_marginTop="143dp"
         app:srcCompat="@mipmap/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Savita Budania"
+        android:layout_below="@+id/ProfileImage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="42dp"
+        android:gravity="center"
+        android:text="Your Name"
         android:textColor="#000"
-        android:layout_below="@+id/logo"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
         android:textSize="24sp"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1906096"
         android:layout_below="@+id/name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Roll No"
         android:textColor="#000"
-        />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/branch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CSE,2nd Year"
         android:layout_below="@+id/roll"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="CSE,2nd Year"
         android:textColor="#000"
-        />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         style="?android:attr/ratingBarStyleIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/logo"
+        android:layout_alignBottom="@+id/ProfileImage"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="-32dp"
@@ -100,17 +106,30 @@
     <Button
         android:id="@+id/edit"
         android:layout_width="wrap_content"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/branch"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
-        android:layout_marginBottom="-54dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginRight="163dp"
+        android:layout_marginBottom="-203dp"
         android:background="#4DB6AC"
         android:text="Edit"
         android:textColor="#FFFFFF" />
 
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="275dp"
+        android:background="#3F51B5"
+        android:gravity="center"
+        android:text="Logout"
+        android:textColor="#ffffff" />
 
 
 </RelativeLayout>

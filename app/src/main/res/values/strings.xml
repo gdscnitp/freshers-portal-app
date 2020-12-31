@@ -16,12 +16,17 @@
     <string name="registered_already_login_here">Registered already? Login here!</string>
     <string name="submit">Submit</string>
     <string name="EmptyBlog">Add Blog Description</string>
+    <string name="etName">Enter Name</string>
+    <string name="etRoll">Enter Roll No</string>
+    <string name="etBranch">select Branch</string>
+    <string name="etYear">Enter Year</string>
 
     <string-array name="Branch">
         <item>Computer Science</item>
         <item>Electronics Communication</item>
         <item>Mechanical</item>
         <item>Electrical</item>
+        <item>Civil</item>
     </string-array>
 
     <string-array name="BlogType">

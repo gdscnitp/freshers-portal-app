@@ -45,6 +45,7 @@ public class AlumniSignUpActivity extends AppCompatActivity {
         password = (TextInputLayout) findViewById(R.id.pwd);
         bar = (ProgressBar) findViewById(R.id.progressBar);
         spinner2 =  findViewById(R.id.spinner2);
+
        spinner1.setOnTouchListener(new View.OnTouchListener() {
            @Override
            public boolean onTouch(View v, MotionEvent event) {
@@ -60,6 +61,7 @@ public class AlumniSignUpActivity extends AppCompatActivity {
                return true;
            }
        });
+
         spinner2.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -79,6 +81,7 @@ public class AlumniSignUpActivity extends AppCompatActivity {
     }
 
     String uid;
+
     public void signuphere(View view) {
         final String emails = email.getEditText().getText().toString();
         String passw = password.getEditText().getText().toString();

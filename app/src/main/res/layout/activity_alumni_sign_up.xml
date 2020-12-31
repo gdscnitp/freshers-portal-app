@@ -87,6 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
         <EditText
             android:id="@+id/spinner2"
             android:layout_width="70dp"
@@ -94,6 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
         </LinearLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/pwd"
@@ -147,7 +149,7 @@
         app:layout_constraintVertical_bias="0.385" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivProfile"
         android:layout_width="210dp"
         android:layout_height="152dp"
         app:layout_constraintBottom_toTopOf="@+id/welcome"
