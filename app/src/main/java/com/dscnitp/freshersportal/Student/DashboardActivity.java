@@ -90,10 +90,10 @@ public class DashboardActivity extends AppCompatActivity  {
                     return true;
                 case R.id.nav_profile:
 //                    actionBar.setTitle("Profile");
-                    ProfileFragment listFragment5=new ProfileFragment();
-                    FragmentTransaction fragmentTransaction5=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction5.replace(R.id.content,listFragment5,"");
-                    fragmentTransaction5.commit();
+                    ProfileFragment listFragment4=new ProfileFragment();
+                    FragmentTransaction fragmentTransaction4=getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction4.replace(R.id.content,listFragment4,"");
+                    fragmentTransaction4.commit();
             }
             return false;
         }

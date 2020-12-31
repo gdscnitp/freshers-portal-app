@@ -10,7 +10,7 @@
         android:title="Add Post"
         android:icon="@drawable/ic_add_post"/>
     <item android:id="@+id/nav_cnotes"
-        android:title="Notes"
+        android:title="Materials"
         android:icon="@drawable/ic_paper"/>
     <item android:id="@+id/nav_profile"
         android:title="Profile"
