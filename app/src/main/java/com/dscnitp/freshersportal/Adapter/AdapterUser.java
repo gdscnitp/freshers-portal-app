@@ -52,13 +52,13 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.MyHolder> {
         String userImage = list.get(position).getImgUrl();
         String id = list.get(position).getId();
         String username = list.get(position).getName();
-        String claase = list.get(position).getAboutYou();
         holder.name.setText(username);
         holder.classes.setText(id);
         setClass(hisuid,holder);
-        try {
+        try{
             Glide.with(context).load(userImage).placeholder(R.drawable.ic_face).into(holder.profiletv);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +119,5 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.MyHolder> {
             name=itemView.findViewById(R.id.namep);
             classes=itemView.findViewById(R.id.classp);
         }
-
     }
 }

@@ -1,57 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserTypeActivity">
+
+
+    tools:context=".UserTypeActivity"
+    >
+
+
+    <ImageView
+
+        android:layout_width="479dp"
+        android:layout_height="794dp"
+        android:rotationX="-1"
+        android:alpha="0.78"
+        android:background="@drawable/gradient2"
+        android:contentDescription="null"
+        android:rotation="1"
+        android:scaleType="fitXY"
+        android:src="@drawable/clg_image"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-53dp"
+        tools:layout_editor_absoluteY="-38dp" />
+
+    <ImageView
+        android:layout_width="156dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/nit_logo"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="234dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="620dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="210dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="135dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/welcome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_splash" />
 
     <Button
         android:id="@+id/student"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="234dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/gradient3"
         android:fontFamily="@font/proximanovasemibold"
         android:paddingLeft="10dp"
-        android:text="Are You a Student?"
+        android:text="Student"
         android:textColor="#fff"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613" />
+        app:layout_constraintVertical_bias="0.761" />
 
     <Button
         android:id="@+id/alumni"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="246dp"
+
+        android:layout_height="74dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="356dp"
         android:background="@drawable/button_background"
-        android:backgroundTint="#52AFFA"
         android:fontFamily="@font/proximanovasemibold"
         android:paddingLeft="10dp"
-        android:text="Are you a Alumni?"
+        android:text="Alumni"
         android:textColor="#fff"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

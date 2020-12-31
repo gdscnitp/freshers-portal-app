@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A4EAE4E4"
     tools:context=".GroupChatActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,7 +20,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/backToProfile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:paddingTop="8dp"
@@ -234,6 +235,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="284dp"
             android:layout_marginBottom="56dp"
+            android:background="@color/colorWhite"
             android:src="@drawable/ic_images"
             android:tint="@color/colorPrimaryDark" />
 

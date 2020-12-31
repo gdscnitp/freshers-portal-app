@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Student.AllContactForStudentActivity">
+
     <include
         android:id="@+id/allcontact"
         layout="@layout/app_bar_layout">
     </include>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/allcontact"
         tools:listitem="@layout/row_users"
         android:id="@+id/allUsers"/>
+
 </RelativeLayout>
