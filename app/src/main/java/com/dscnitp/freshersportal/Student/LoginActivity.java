@@ -25,7 +25,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dscnitp.freshersportal.Admin.AdminMainPanel;
-import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -55,68 +54,61 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-
 public class LoginActivity extends AppCompatActivity {
     TextInputLayout t1, t2;
     TextView createaccount;
     ProgressBar bar;
     EditText emails, password;
-
     private static final String EMAIL = "email";
     public static final String Id = "id";
     public static final String imgurl = "imgUrl";
     public static final String dbname = "name";
     private static final int RC_SIGN_IN = 101;
-
     SignInButton googleSignUp;
     Button login;
     String name2;
     FirebaseAuth mAuth;
-    FirebaseUser currentUser;
-
     private FirebaseAuth.AuthStateListener mAuthListener;
     GoogleApiClient mGoogleApiClient;
-
-    //GoogleSignInClient mGoogleSignInClient;
-
+    //    GoogleSignInClient mGoogleSignInClient;
     ProgressDialog progressDialog;
     Animation bounce;
     String mailid = "";
     String name = "";
     String photo = "";
 
-
-    public void signinhere()
-    {
-        String email=t1.getEditText().getText().toString();
-        String password=t2.getEditText().getText().toString();
-        if(!email.equals("") && !password.equals(""))
-        {
-            bar.setVisibility(View.VISIBLE);
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                bar.setVisibility(View.INVISIBLE);
-                                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-//                            intent.putExtra("email", mAuth.getCurrentUser().getEmail());
-//                            intent.putExtra("uid", mAuth.getCurrentUser().getUid());
-                                startActivity(intent);
-                                finish();
-                            }
-                            else {
-                                bar.setVisibility(View.INVISIBLE);
-                                t1.getEditText().setText("");
-                                t2.getEditText().setText("");
-                                Toast.makeText(getApplicationContext(), "Invalid Email/Password", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    });
-        }
-
     FirebaseUser currentUser;
 
+    @Override
+    public void onStart() {
+
+        super.onStart();
+
+        mAuth.addAuthStateListener(mAuthListener);
+
+//        mAuth=FirebaseAuth.getInstance();
+
+//        if (mAuth != null)
+//        {
+//            currentUser = mAuth.getCurrentUser();
+//        }
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                FirebaseUser user=mAuth.getCurrentUser();
+//                if(user==null){
+//                    bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+//                            R.anim.bounce);
+//                    googleSignUp.startAnimation(bounce);
+//                    googleSignUp.setVisibility(View.VISIBLE);
+//                }
+//                else {
+//                    uid=user.getUid();
+//                    secondActivity();
+//                }
+//            }
+//        },1000);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,9 +117,7 @@ public class LoginActivity extends AppCompatActivity {
         t1 = (TextInputLayout) findViewById(R.id.email_login);
         t2 = (TextInputLayout) findViewById(R.id.pwd_login);
         bar = (ProgressBar) findViewById(R.id.progressBar_login);
-
         createaccount = findViewById(R.id.createaccount);
-
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,9 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         mAuth = FirebaseAuth.getInstance();
-
         FirebaseApp.initializeApp(this);
         emails = findViewById(R.id.emails);
         password = findViewById(R.id.password);
@@ -164,8 +152,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         DatabaseReference daa = FirebaseDatabase.getInstance().getReference();
-
-        login=findViewById(R.id.login);
 
 //        mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
 
@@ -201,10 +187,9 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
 
 
+        login = findViewById(R.id.login);
 
-
-        login.setOnClickListener(new View.OnClickListener()
-        {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (emails.getText().equals("")) {
@@ -225,76 +210,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
-//    @Override
-//    public void onStart() {
-//
-//        super.onStart();
-//
-//        mAuth.addAuthStateListener(mAuthListener);
-
-//        mAuth=FirebaseAuth.getInstance();
-
-//        if (mAuth != null)
-//        {
-//            currentUser = mAuth.getCurrentUser();
-//        }
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                FirebaseUser user=mAuth.getCurrentUser();
-//                if(user==null){
-//                    bounce = AnimationUtils.loadAnimation(getApplicationContext(),
-//                            R.anim.bounce);
-//                    googleSignUp.startAnimation(bounce);
-//                    googleSignUp.setVisibility(View.VISIBLE);
-//                }
-//                else {
-//                    uid=user.getUid();
-//                    secondActivity();
-//                }
-//            }
-//        },1000);
-//    }
-
-
-
-//        mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
-//
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestIdToken(getString(R.string.default_web_client_id))
-//                .requestEmail()
-//                .build();
-
-//        mAuthListener =new FirebaseAuth.AuthStateListener(){
-//        @Override
-//        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
-//        {
-//            if(firebaseAuth.getCurrentUser()!=null)
-//            {
-//                 secondActivity();
-//            }
-//            else
-//            {
-//                bounce = AnimationUtils.loadAnimation(getApplicationContext(),
-//                            R.anim.bounce);
-//                    googleSignUp.startAnimation(bounce);
-//                    googleSignUp.setVisibility(View.VISIBLE);
-//            }
-//        }
-//       };
-
-//        mGoogleApiClient = new GoogleApiClient.Builder(this)
-//                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
-//                    @Override
-//                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-//                        progressDialog.dismiss();
-//                        Log.e("connection failed", connectionResult.getErrorMessage());
-//                        Toast.makeText(getApplicationContext(), "Connection failed", Toast.LENGTH_SHORT).show();
-//                    }
-//                })
-//                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-//                .build();
 
     String id;
 
@@ -325,7 +240,6 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -339,7 +253,6 @@ public class LoginActivity extends AppCompatActivity {
                 id = account.getId();
 
 
-
 //                SharedPreferences sharedPreferences = PreferenceManager
 //                        .getDefaultSharedPreferences(this);
 //                SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -347,10 +260,8 @@ public class LoginActivity extends AppCompatActivity {
 //                editor.apply();
 
 
-//                firebaseAuthWithGoogle(account);
+                firebaseAuthWithGoogle(account);
 //                mGoogleApiClient.clearDefaultAccountAndReconnect();
-
-
             } else {
                 // Google Sign In failed, update UI appropriately
                 // ...
@@ -361,31 +272,30 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        Log.d("Login Page", "firebaseAuthWithGoogle:" + acct.getId());
 
-//    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-//        Log.d("Login Page", "firebaseAuthWithGoogle:" + acct.getId());
-//
-//        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-//        mAuth.signInWithCredential(credential)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        Log.d("Login Page", "signInWithCredential:onComplete:" + task.isSuccessful());
-//
-//                        if (!task.isSuccessful()) {
-//                            Log.w("Login Page", "signInWithCredential", task.getException());
-//                            Toast.makeText(getApplicationContext(), "Something went wrong\n" + task.getException().getMessage(),
-//                                    Toast.LENGTH_SHORT).show();
-//                            progressDialog.dismiss();
-//                        } else {
-//                            Toast.makeText(getApplicationContext(), "Successful signin", Toast.LENGTH_SHORT).show();
-//                            progressDialog.setMessage("Checking Email...");
-//                            checkingUserExist(id);
-//                            progressDialog.dismiss();
-//                        }
-//                    }
-//                });
-//    }
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d("Login Page", "signInWithCredential:onComplete:" + task.isSuccessful());
+
+                        if (!task.isSuccessful()) {
+                            Log.w("Login Page", "signInWithCredential", task.getException());
+                            Toast.makeText(getApplicationContext(), "Something went wrong\n" + task.getException().getMessage(),
+                                    Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Successful signin", Toast.LENGTH_SHORT).show();
+                            progressDialog.setMessage("Checking Email...");
+                            checkingUserExist(id);
+                            progressDialog.dismiss();
+                        }
+                    }
+                });
+    }
 
 //    private void firebaseAuthWithGoogle(String IdToken)
 //    {
@@ -408,135 +318,155 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 
 
+    private void checkingUserExist(String UID) {
+        uid = FirebaseAuth.getInstance().getUid();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
+        db.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    progressDialog.dismiss();
+                    secondActivity();
+                } else {
+                    try {
+                        mailid = mAuth.getCurrentUser().getEmail();
+                        name = mAuth.getCurrentUser().getDisplayName();
+                        photo = mAuth.getCurrentUser().getPhotoUrl().toString();
+                    } catch (Exception e) {
+                        Log.e("Getting Started", e.getMessage());
+                    }
+                    progressDialog.setMessage("Creating New User...");
+                    createNewUser(mailid, name, photo);
+                }
+            }
 
-//    private void checkingUserExist(String UID) {
-//        uid=FirebaseAuth.getInstance().getUid();
-//        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
-//        db.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()) {
-//                    progressDialog.dismiss();
-//                    secondActivity();
-//                }
-//                else{
-//                    try{
-//                        mailid = mAuth.getCurrentUser().getEmail();
-//                        name = mAuth.getCurrentUser().getDisplayName();
-//                        photo = mAuth.getCurrentUser().getPhotoUrl().toString();
-//                    }
-//                    catch (Exception e){
-//                        Log.e("Getting Started",e.getMessage());
-//                    }
-//                    progressDialog.setMessage("Creating New User...");
-//                    createNewUser(mailid,name,photo);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
 
-//    String uid;
-//    private void secondActivity()
-//    {
-//        uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        final DatabaseReference database=FirebaseDatabase.getInstance().getReference().child("users");
-//        database.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                final String accountType = "" + dataSnapshot.child(Node.USER_TYPE).getValue();
-//                HashMap<String, Object> hashMap = new HashMap<>();
-//                hashMap.put("uid", uid);
-//                database.child(uid).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid)
-//                    {
-//                        if(accountType.equals("student"))
-//                        {
-//                            Intent mainIntent = new Intent(LoginActivity.this, DashboardActivity.class);
-//                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                            startActivity(mainIntent);
-//                            finish();
-//                        }
-//                        else
-//                            {
-//                            Intent mainIntent = new Intent(LoginActivity.this, AdminMainPanel.class);
-//                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                            startActivity(mainIntent);
-//                            finish();
-//                        }
-//                    }
-//                });
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
-//    }
-//
-//    public void createNewUser( String mailid, String name, String photo) {
-//        uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        HashMap<String,Object> hashMap=new HashMap<>();
-//        hashMap.put("email",mailid);
-//        hashMap.put("name",name);
-//        hashMap.put("USER_TYPE", "student");
-//        hashMap.put("id", "");
-//        hashMap.put("device_token", "");
-//        hashMap.put("uid", uid);
-//        hashMap.put("imgUrl",photo);
-//        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
-//        db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-//            @Override
-//            public void onSuccess(Void aVoid) {
-//                progressDialog.dismiss();
-//                Intent i=new Intent(getApplicationContext(), DashboardActivity.class);
-//                i.putExtra("Name2",name2);
-//                startActivity(i);
-//                finish();
-//            }
-//        });
-//    }
-//
-//
-//    @Override
-//    public void onResume() {
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//                if (user != null) {
-//                    Log.e("USERUID----",mAuth.getCurrentUser().getUid());
-//                    if(user.isEmailVerified())
-//                    {
-//                        Log.e("Verify dialog true",user.isEmailVerified()+"" );
-//                    }
-//                    else
-//                        {
-//                        Log.e("Verify Image dialog",user.isEmailVerified()+"" );
-//                        Dialog mdialog = new Dialog(getApplicationContext());
-//                        mdialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                    }
-//                }
-//            }
-//        };
-//        mAuth.addAuthStateListener(mAuthListener);
-//        super.onResume();
-//    }
+    String uid;
 
+    private void secondActivity() {
+        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users");
+        database.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final String accountType = "" + dataSnapshot.child("USER_TYPE").getValue();
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("uid", uid);
+                database.child(uid).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        if (accountType.equals("student")) {
+                            Intent mainIntent = new Intent(LoginActivity.this, DashboardActivity.class);
+                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(mainIntent);
+                            finish();
+                        } else {
+                            Intent mainIntent = new Intent(LoginActivity.this, AdminMainPanel.class);
+                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(mainIntent);
+                            finish();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
+    public void createNewUser(String mailid, String name, String photo) {
+        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("email", mailid);
+        hashMap.put("name", name);
+        hashMap.put("USER_TYPE", "student");
+        hashMap.put("id", "");
+        hashMap.put("device_token", "");
+        hashMap.put("uid", uid);
+        hashMap.put("imgUrl", photo);
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
+        db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                progressDialog.dismiss();
+                Intent i = new Intent(getApplicationContext(), DashboardActivity.class);
+                i.putExtra("Name2", name2);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
 
 
     @Override
-    public void onStop()
-    {
-        if (mAuthListener != null)
-        {
+    public void onResume() {
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Log.e("USERUID----", mAuth.getCurrentUser().getUid());
+                    if (user.isEmailVerified()) {
+                        Log.e("Verify dialog true", user.isEmailVerified() + "");
+                    } else {
+                        Log.e("Verify Image dialog", user.isEmailVerified() + "");
+                        Dialog mdialog = new Dialog(getApplicationContext());
+                        mdialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    }
+                }
+            }
+        };
+        mAuth.addAuthStateListener(mAuthListener);
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        if (mAuthListener != null) {
 //            auth.removeAuthStateListener(authStateListener);
         }
         super.onStop();
+    }
+
+    public void signinhere() {
+        String email = t1.getEditText().getText().toString();
+        String password = t2.getEditText().getText().toString();
+
+        if (!email.equals("") && !password.equals("")) {
+
+            if (!email.equals("") && !password.equals("")) {
+
+                bar.setVisibility(View.VISIBLE);
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    bar.setVisibility(View.INVISIBLE);
+                                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                                    intent.putExtra("email", mAuth.getCurrentUser().getEmail());
+                                    intent.putExtra("uid", mAuth.getCurrentUser().getUid());
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    bar.setVisibility(View.INVISIBLE);
+                                    t1.getEditText().setText("");
+                                    t2.getEditText().setText("");
+                                    Toast.makeText(getApplicationContext(), "Invalid Email/Password", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+            }
+        }
+
     }
 }
