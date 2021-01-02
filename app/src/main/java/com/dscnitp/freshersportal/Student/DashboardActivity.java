@@ -2,6 +2,7 @@ package com.dscnitp.freshersportal.Student;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+import com.dscnitp.freshersportal.Alumni.AlumniHomeFragment;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.SplashScreen;
 import com.dscnitp.freshersportal.notifications.Token;
@@ -21,7 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 
-public class DashboardActivity extends AppCompatActivity  {
+public class DashboardActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener
+{
 
     private FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
@@ -39,15 +42,23 @@ public class DashboardActivity extends AppCompatActivity  {
 //        actionBar.setTitle("Profile Activity");
         mAuth=FirebaseAuth.getInstance();
         firebaseAuth=FirebaseAuth.getInstance();
+
+        loadFragments(new HomeFagment());
         navigationView=findViewById(R.id.navigation);
-        navigationView.setOnNavigationItemSelectedListener(selectedListener);
-//        actionBar.setTitle("Home");
-        HomeFagment fragment=new HomeFagment();
-        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content,fragment,"");
-        fragmentTransaction.commit();
+        navigationView.setOnNavigationItemSelectedListener(this);
+//
+//
         checkUserStatus();
     }
+
+    public boolean loadFragments(Fragment fragment) {
+       if(fragment!=null)
+       {
+           getSupportFragmentManager().beginTransaction().replace(R.id.content, fragment).commit();
+       }
+        return true;
+    }
+
 
     @Override
     protected void onResume() {
@@ -55,50 +66,7 @@ public class DashboardActivity extends AppCompatActivity  {
         super.onResume();
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener selectedListener=new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            switch (menuItem.getItemId()){
-                case R.id.nav_home:
-//                    actionBar.setTitle("Home");
-                    HomeFagment fragment=new HomeFagment();
-                    FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content,fragment,"");
-                    fragmentTransaction.commit();
-
-                    return true;
-                case R.id.nav_message:
-//                    actionBar.setTitle("Messages");
-                    ChatFragment fragment1=new ChatFragment();
-                    FragmentTransaction fragmentTransaction1=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction1.replace(R.id.content,fragment1);
-                    fragmentTransaction1.commit();
-                    return true;
-                case R.id.nav_post:
-//                    actionBar.setTitle("Add Something");
-                    AddPostFragment fragment2=new AddPostFragment();
-                    FragmentTransaction fragmentTransaction2=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction2.replace(R.id.content,fragment2,"");
-                    fragmentTransaction2.commit();
-                    return true;
-                case R.id.nav_cnotes:
-//                    actionBar.setTitle("Notes");
-                    NotesFragment listFragment=new NotesFragment();
-                    FragmentTransaction fragmentTransaction3=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction3.replace(R.id.content,listFragment,"");
-                    fragmentTransaction3.commit();
-                    return true;
-                case R.id.nav_profile:
-//                    actionBar.setTitle("Profile");
-                    ProfileFragment listFragment4=new ProfileFragment();
-                    FragmentTransaction fragmentTransaction4=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction4.replace(R.id.content,listFragment4,"");
-                    fragmentTransaction4.commit();
-            }
-            return false;
-        }
-    };
-
+    //////
 
     @Override
     protected void onStart() {
@@ -150,4 +118,42 @@ public class DashboardActivity extends AppCompatActivity  {
         references.child("device_token").setValue(token);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+    {
+     Fragment fragment= null;
+
+     switch(menuItem.getItemId())
+     {
+         case R.id.nav_home:
+             fragment= new HomeFagment();
+             break;
+         case R.id.nav_message:
+             fragment= new ChatFragment();
+             break;
+         case R.id.nav_post:
+             fragment= new AddPostFragment();
+             break;
+         case R.id.nav_cnotes:
+             fragment= new NotesFragment();
+             break;
+         case R.id.nav_profile:
+             fragment= new ProfileFragment();
+             break;
+     }
+        return loadFragments(fragment);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(navigationView.getSelectedItemId()== R.id.nav_home)
+        {
+            super.onBackPressed();
+            finish();
+        }
+       else
+        {
+            navigationView.setSelectedItemId(R.id.nav_home);
+        }
+    }
 }
