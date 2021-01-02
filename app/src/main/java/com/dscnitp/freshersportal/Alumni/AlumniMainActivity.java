@@ -3,6 +3,7 @@ package com.dscnitp.freshersportal.Alumni;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -14,6 +15,11 @@ import android.widget.Toast;
 
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.SplashScreen;
+import com.dscnitp.freshersportal.Student.AddPostFragment;
+import com.dscnitp.freshersportal.Student.ChatFragment;
+import com.dscnitp.freshersportal.Student.HomeFagment;
+import com.dscnitp.freshersportal.Student.NotesFragment;
+import com.dscnitp.freshersportal.Student.ProfileFragment;
 import com.dscnitp.freshersportal.notifications.Token;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,7 +35,8 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashMap;
 
-public class AlumniMainActivity extends AppCompatActivity {
+public class AlumniMainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener
+{
 
     private FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
@@ -46,40 +53,27 @@ public class AlumniMainActivity extends AppCompatActivity {
         actionBar.setTitle("");
         mAuth=FirebaseAuth.getInstance();
         firebaseAuth=FirebaseAuth.getInstance();
+
+
         navigationView=findViewById(R.id.navigation);
-        navigationView.setOnNavigationItemSelectedListener(selectedListener);
-        actionBar.setTitle("Home");
-        AlumniHomeFragment fragment=new AlumniHomeFragment();
-        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content,fragment,"");
-        fragmentTransaction.commit();
+        navigationView.setOnNavigationItemSelectedListener(this);
+        //actionBar.setTitle("Home");
+        //AlumniHomeFragment fragment=new AlumniHomeFragment();
+        //FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+        //fragmentTransaction.replace(R.id.content,fragment,"");
+        //fragmentTransaction.commit();
         checkUserStatus();
     }
-    private BottomNavigationView.OnNavigationItemSelectedListener selectedListener=new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            switch (menuItem.getItemId()){
-                case R.id.nav_home:
-                    actionBar.setTitle("Home");
-                    AlumniHomeFragment fragment=new AlumniHomeFragment();
-                    FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content,fragment,"");
-                    fragmentTransaction.commit();
 
-                    return true;
-                case R.id.nav_message:
-                    startActivity(new Intent(AlumniMainActivity.this, AlumniChatActivity.class));
-                    return true;
-                case R.id.nav_profile:
-                    actionBar.setTitle("Profile");
-                    AlumniProfileFragment listFragment2=new AlumniProfileFragment();
-                    FragmentTransaction fragmentTransaction2=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction2.replace(R.id.content,listFragment2,"");
-                    fragmentTransaction2.commit();
-            }
-            return false;
+    public boolean loadFragments(Fragment fragment) {
+        if(fragment!=null)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.alumni_nav, fragment).commit();
+
         }
-    };
+        return true;
+    }
+
 
     @Override
     protected void onStart() {
@@ -216,5 +210,38 @@ public class AlumniMainActivity extends AppCompatActivity {
         ref.child(myuid).setValue(token1);
         DatabaseReference references= FirebaseDatabase.getInstance().getReference("users").child(myuid);
         references.child("device_token").setValue(token);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment fragment= null;
+
+        switch(menuItem.getItemId())
+        {
+            case R.id.nav_home:
+                actionBar.setTitle("Home");
+                fragment= new AlumniHomeFragment();
+                break;
+            case R.id.nav_message:
+                startActivity(new Intent(AlumniMainActivity.this, AlumniChatActivity.class));
+                break;
+            case R.id.nav_profile:
+                actionBar.setTitle("Profile");
+                fragment= new AlumniProfileFragment();
+                break;
+        }
+        return loadFragments(fragment);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(navigationView.getSelectedItemId()== R.id.nav_home) {
+            super.onBackPressed();
+            finish();
+        }
+        else
+        {
+            navigationView.setSelectedItemId(R.id.nav_home);
+        }
     }
 }

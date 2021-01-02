@@ -79,7 +79,18 @@
         android:layout_below="@+id/rollTv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:hint="Branch, Year"
+        android:hint="Branch"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/yearTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/branchTv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:hint="Year"
         android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -95,18 +106,32 @@
         android:layout_marginEnd="-32dp"
         android:layout_marginRight="-32dp"
         android:layout_marginBottom="2dp"
-        android:max="5"
-        android:rating="3.5"
         android:scaleX=".5"
         android:scaleY=".5"
         android:transformPivotX="0dp"
-        android:transformPivotY="0dp" />
+        android:transformPivotY="0dp"
+        android:stepSize="0.5"
+        android:numStars="5" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@+id/ratingBar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginBottom="-12dp"
+        android:background="#4DB6AC"
+        android:text="Submit"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/editBtn"
         android:layout_width="wrap_content"
         android:layout_height="38dp"
-        android:layout_alignBottom="@+id/branchTv"
+        android:layout_alignBottom="@+id/yearTv"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="33dp"

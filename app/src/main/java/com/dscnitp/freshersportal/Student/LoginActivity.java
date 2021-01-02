@@ -388,11 +388,15 @@ public class LoginActivity extends AppCompatActivity {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("email", mailid);
         hashMap.put("name", name);
+        hashMap.put("roll", "");
+        hashMap.put("branch", "");
+        hashMap.put("year", "");
         hashMap.put("USER_TYPE", "student");
         hashMap.put("id", "");
         hashMap.put("device_token", "");
         hashMap.put("uid", uid);
         hashMap.put("imgUrl", photo);
+
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
         db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
