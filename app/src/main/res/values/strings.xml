@@ -4,7 +4,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="branch"><![CDATA[> Branch]]></string>
-    <string name="AddBlogs">Add Your Blogs</string>
     <string name="blog_type"><![CDATA[> Blog type]]></string>
     <string name="description"><![CDATA[> Description]]></string>
     <string name="post">Post</string>
@@ -15,43 +14,40 @@
     <string name="welcome_to_nit_patna">WELCOME TO NIT PATNA</string>
     <string name="registered_already_login_here">Registered already? Login here!</string>
     <string name="submit">Submit</string>
-
     <string name="update">Update</string>
     <string name="about_my_college">National Institute of Technology Patna is the 18th National Institute of Technology created by the Ministry of H.R.D. Government of India after rechristening the erstwhile Bihar College of Engineering Patna on 28. 01. 2004.
         <p>NIT Patna marked its humble beginning in 1886 with the establishment of pleaders survey training school which was subsequently promoted of Bihar College of Engineering Patna in 1924. </p></string>
 
-
     <string name="EmptyBlog">Add Blog Description</string>
-    <string name="etName">Enter Name</string>
-    <string name="etRoll">Enter Roll No</string>
-    <string name="etBranch">select Branch</string>
-    <string name="etYear">Enter Year</string>
 
     <string-array name="Branch">
         <item>Computer Science</item>
-        <item>Electronics Communication</item>
-        <item>Mechanical</item>
+        <item>Electronics and Communication</item>
         <item>Electrical</item>
+        <item>Mechanical</item>
         <item>Civil</item>
+        <item>Int. Msc.</item>
+        <item>Architecture</item>
     </string-array>
 
     <string-array name="BlogType">
-        <item>Issue</item>
+        <item>Inspirational</item>
         <item>Opportunity</item>
-        <item>Inspiration</item>
+        <item>Issue</item>
+        <item>Newbie</item>
+        <item>Random</item>
     </string-array>
 
     <string-array name="BlogTitle">
-        <item>GATE</item>
-        <item>UPSC</item>
         <item>Coding</item>
+        <item>Gate</item>
+        <item>Civil Services</item>
+        <item>Random</item>
     </string-array>
-
 
     <string-array name="Highlights">
         <item><b>Congratulations! NIT Patna for securing "92" position in NIRF 2020 Ranking; achieving an improvement of 42 places than NIRF 2019 Ranking</b></item>
         <item><b>One Week FDP on Machine Learning Applications in Mechanical Engineering" under the banner of E &amp; ICT Academy, NIT Patna. </b>21st to 26th December, 2020</item>
         <item><b>One week online FDP on Multimedia and Security </b>16–20 Dec 2020</item>
     </string-array>
-
 </resources>

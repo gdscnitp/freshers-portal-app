@@ -56,7 +56,7 @@
             android:padding="20dp">
 
             <ImageView
-                android:id="@+id/ProfileImage"
+                android:id="@+id/logo"
                 android:layout_width="wrap_content"
                 android:layout_height="162dp"
                 android:layout_gravity="center"

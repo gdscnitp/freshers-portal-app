@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.dscnitp.freshersportal.Admin.AdminMainPanel;
 import com.dscnitp.freshersportal.Alumni.AlumniMainActivity;
-import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.Student.DashboardActivity;
 import com.dscnitp.freshersportal.Student.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,7 +70,7 @@ public class SplashScreen extends AppCompatActivity {
 
     }
     private void checkUserType() {
-        DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child(Node.Users);
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("users");
         reference.orderByChild("uid").equalTo(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

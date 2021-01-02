@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:gravity="center"
-    tools:context=".Student.ProfileFragment">
+    tools:context=".Student.ProfileFragment"
+    android:background="#A4EAE4E4">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -41,54 +40,46 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/ProfileImage"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="166dp"
         android:layout_gravity="center"
-        android:layout_marginTop="143dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="114dp"
         app:srcCompat="@mipmap/ic_launcher_foreground" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/nameTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ProfileImage"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="42dp"
-        android:gravity="center"
-        android:text="Your Name"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/roll"
+        android:id="@+id/rollTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="Roll No"
+        android:layout_below="@+id/nameTv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:hint="Roll No."
         android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/branch"
+        android:id="@+id/branchTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/roll"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:text="CSE,2nd Year"
+        android:layout_below="@+id/rollTv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:hint="Branch, Year"
         android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -98,7 +89,7 @@
         style="?android:attr/ratingBarStyleIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ProfileImage"
+        android:layout_alignBottom="@+id/logo"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="-32dp"
@@ -112,32 +103,19 @@
         android:transformPivotY="0dp" />
 
     <Button
-        android:id="@+id/edit"
+        android:id="@+id/editBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/branch"
+        android:layout_height="38dp"
+        android:layout_alignBottom="@+id/branchTv"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="163dp"
-        android:layout_marginRight="163dp"
-        android:layout_marginBottom="-203dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginBottom="-54dp"
         android:background="#4DB6AC"
         android:text="Edit"
         android:textColor="#FFFFFF" />
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="275dp"
-        android:background="#3F51B5"
-        android:gravity="center"
-        android:text="Logout"
-        android:textColor="#ffffff" />
 
 
 </RelativeLayout>

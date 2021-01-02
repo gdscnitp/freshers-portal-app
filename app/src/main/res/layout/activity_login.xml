@@ -79,12 +79,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
+            android:layout_width="123dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:background="#4DB6AC"
+            android:id="@+id/login"
             android:padding="10dp"
             android:text="LOGIN"
             android:textColor="#FFFFFF"

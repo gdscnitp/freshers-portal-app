@@ -43,7 +43,7 @@
 
 
     <ImageView
-        android:id="@+id/ProfileImage"
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="166dp"
         android:layout_gravity="center"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:text="Savita Budania"
         android:textColor="#000"
-        android:layout_below="@+id/ProfileImage"
+        android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
@@ -96,7 +96,7 @@
         style="?android:attr/ratingBarStyleIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ProfileImage"
+        android:layout_alignBottom="@+id/logo"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="-32dp"
