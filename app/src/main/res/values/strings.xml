@@ -15,6 +15,8 @@
     <string name="registered_already_login_here">Registered already? Login here!</string>
     <string name="submit">Submit</string>
     <string name="update">Update</string>
+    <string name="about_my_college">National Institute of Technology Patna is the 18th National Institute of Technology created by the Ministry of H.R.D. Government of India after rechristening the erstwhile Bihar College of Engineering Patna on 28. 01. 2004.
+        <p>NIT Patna marked its humble beginning in 1886 with the establishment of pleaders survey training school which was subsequently promoted of Bihar College of Engineering Patna in 1924. </p></string>
 
     <string name="EmptyBlog">Add Blog Description</string>
 
@@ -41,5 +43,11 @@
         <item>Gate</item>
         <item>Civil Services</item>
         <item>Random</item>
+    </string-array>
+
+    <string-array name="Highlights">
+        <item><b>Congratulations! NIT Patna for securing "92" position in NIRF 2020 Ranking; achieving an improvement of 42 places than NIRF 2019 Ranking</b></item>
+        <item><b>One Week FDP on Machine Learning Applications in Mechanical Engineering" under the banner of E &amp; ICT Academy, NIT Patna. </b>21st to 26th December, 2020</item>
+        <item><b>One week online FDP on Multimedia and Security </b>16–20 Dec 2020</item>
     </string-array>
 </resources>
