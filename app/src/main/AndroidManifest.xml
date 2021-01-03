@@ -15,12 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Student.ViewQuesPaperActivity"></activity>
         <activity android:name=".Student.ViewBooksActivity" />
         <activity android:name=".ViewPdfActivity" />
         <activity android:name=".Student.UploadPdfActivity" />
         <activity android:name=".GroupInfoActivity" />
         <activity android:name=".GroupEditActivity" />
+
+        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".GroupInfoActivity"></activity>
+        <activity android:name=".GroupEditActivity"></activity>
+
         <activity
             android:name=".Alumni.AlumniAllContactActivity"
             android:parentActivityName=".Alumni.AlumniChatActivity" />
