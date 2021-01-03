@@ -15,8 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GroupInfoActivity"> </activity>
-        <activity android:name=".GroupEditActivity"> </activity>
+        <activity android:name=".Student.ViewQuesPaperActivity"></activity>
+        <activity android:name=".Student.ViewBooksActivity" />
+        <activity android:name=".ViewPdfActivity" />
+        <activity android:name=".Student.UploadPdfActivity" />
+        <activity android:name=".GroupInfoActivity" />
+        <activity android:name=".GroupEditActivity" />
         <activity
             android:name=".Alumni.AlumniAllContactActivity"
             android:parentActivityName=".Alumni.AlumniChatActivity" />
@@ -49,13 +53,13 @@
             android:name=".ImageViewActivity"
             android:parentActivityName=".ChatActivity" />
         <activity
-            android:name=".ViewPdfActivity"
+            android:name=".Student.ViewNotesActivity"
             android:parentActivityName=".ChatActivity" />
         <activity android:name=".Admin.AdminMainPanel" />
         <activity android:name=".Student.DashboardActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

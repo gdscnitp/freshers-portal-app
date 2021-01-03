@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A4EAE4E4"
-    tools:context=".GroupChatActivity">
+    tools:context=".Student.NotesFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbargrp"
@@ -50,10 +50,12 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/ques_paper_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="fill"
             android:layout_marginHorizontal="10dp"
+            android:clickable="true"
             android:layout_marginVertical="10dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
@@ -92,6 +94,7 @@
                     android:layout_alignBottom="@+id/desc1"
                     android:layout_alignParentRight="true"
                     android:background="@null"
+                    android:clickable="true"
                     android:src="@drawable/ic_baseline_next_plan_24"
                     android:tint="#DA070707" />
 
@@ -101,11 +104,13 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/books_pdf_card"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_gravity="fill"
             android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="10dp"
+            android:clickable="true"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
 
@@ -118,7 +123,7 @@
                     android:id="@+id/pdfs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Books / PDFs /Notes :"
+                    android:text="Books / PDFs  :"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp"
@@ -130,7 +135,7 @@
                     android:layout_height="match_parent"
                     android:layout_below="@+id/pdfs"
                     android:paddingEnd="18dp"
-                    android:text="Looking for some resources to prepare ?  Click here for books , pdfs and notes. "
+                    android:text="Looking for some resources to prepare ?  Click here for books and pdfs. "
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp" />
 
@@ -141,6 +146,7 @@
                     android:layout_alignBottom="@+id/desc2"
                     android:layout_alignParentRight="true"
                     android:background="@null"
+                    android:clickable="true"
                     android:src="@drawable/ic_baseline_next_plan_24"
                     android:tint="#DA070707" />
 
@@ -150,11 +156,13 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/notes_card"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_gravity="fill"
             android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="10dp"
+            android:clickable="true"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
 
@@ -164,10 +172,10 @@
                 android:padding="18dp">
 
                 <TextView
-                    android:id="@+id/gallery"
+                    android:id="@+id/notes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gallery :"
+                    android:text="Notes:"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp"
@@ -177,9 +185,9 @@
                     android:id="@+id/desc3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/gallery"
+                    android:layout_below="@+id/notes"
                     android:paddingEnd="18dp"
-                    android:text="Here you can find some image resources. Click here to find more. "
+                    android:text="Here you can find some notes. Click here to find more. "
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp" />
 
@@ -190,6 +198,7 @@
                     android:layout_alignBottom="@+id/desc3"
                     android:layout_alignParentRight="true"
                     android:background="@null"
+                    android:clickable="true"
                     android:src="@drawable/ic_baseline_next_plan_24"
                     android:tint="#DA070707" />
 
@@ -223,36 +232,19 @@
             android:textColor="#000000"
             android:textSize="18sp" />
 
-        <ImageButton
-            android:id="@+id/grpattach"
-            android:layout_width="64dp"
-            android:layout_height="48dp"
-            android:layout_below="@+id/grpmsg"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="start"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="284dp"
-            android:layout_marginBottom="56dp"
-            android:background="@color/colorWhite"
-            android:src="@drawable/ic_images"
-            android:tint="@color/colorPrimaryDark" />
-
-        <ImageButton
+        <Button
             android:id="@+id/sendgrpmsg"
-            android:layout_width="41dp"
-            android:layout_height="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
             android:layout_below="@+id/grpmsg"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="end"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="60dp"
-            android:background="@color/colorPrimaryDark"
-            android:src="@android:drawable/stat_sys_upload_done"
-            android:tint="@color/colorWhite" />
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginRight="27dp"
+            android:background="#4DB6AC"
+            android:text="Upload"
+            android:textColor="#FFFFFF" />
     </RelativeLayout>
 
 </RelativeLayout>

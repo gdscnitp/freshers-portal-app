@@ -42,4 +42,10 @@
         <item>Civil Services</item>
         <item>Random</item>
     </string-array>
+
+    <string-array name="MaterialsType">
+        <item>Question-papers</item>
+        <item>Books-PDFs</item>
+        <item>Notes</item>
+    </string-array>
 </resources>
