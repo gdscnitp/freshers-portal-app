@@ -19,7 +19,6 @@ import com.bumptech.glide.Glide;
 import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.SplashScreen;
-import com.dscnitp.freshersportal.Student.EditProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -82,7 +81,7 @@ public class ProfileFragment extends Fragment {
 
 
         Name=view.findViewById(R.id.name);
-        RollNo=view.findViewById(R.id.roll);
+        RollNo=view.findViewById(R.id.rollNo);
         Branch=view.findViewById(R.id.branch);
 
         mStorage= FirebaseStorage.getInstance();

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.dscnitp.freshersportal.Adapter.AdapterBlogs;
+import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.Model.ModelBlogs;
 import com.dscnitp.freshersportal.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,6 +50,18 @@ public class AlumniHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_alumni_home, container, false);
+        return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         firebaseAuth=FirebaseAuth.getInstance();
         recyclerView=view.findViewById(R.id.postrecyclerview);
         recyclerView.setHasFixedSize(true);
@@ -57,8 +70,9 @@ public class AlumniHomeFragment extends Fragment {
         layoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(layoutManager);
         posts=new ArrayList<>();
+        adapterPosts=new AdapterBlogs(getActivity(),posts);
+        recyclerView.setAdapter(adapterPosts);
         loadPosts();
-        return view;
     }
 
     @Override
@@ -74,18 +88,31 @@ public class AlumniHomeFragment extends Fragment {
     }
 
     private void loadPosts() {
-
-        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("Blogs");
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("Blogs");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 posts.clear();
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
-                    ModelBlogs modelPost=dataSnapshot1.getValue(ModelBlogs.class);
-                    posts.add(modelPost);
-                    adapterPosts=new AdapterBlogs(getActivity(),posts);
-                    recyclerView.setAdapter(adapterPosts);
+                    if(dataSnapshot1.exists()) {
+                        //ModelBlogs modelPost = dataSnapshot1.getValue(ModelBlogs.class);
 
+                        String department=dataSnapshot1.child(Node.Department).getValue()!=null?
+                                dataSnapshot1.child(Node.Department).getValue().toString():"";
+                        String description=dataSnapshot1.child(Node.Description).getValue()!=null?
+                                dataSnapshot1.child(Node.Description).getValue().toString():"";
+                        String Time=dataSnapshot1.child(Node.Time).getValue()!=null?
+                                dataSnapshot1.child(Node.Time).getValue().toString():"";
+                        String Title=dataSnapshot1.child(Node.Title).getValue()!=null?
+                                dataSnapshot1.child(Node.Title).getValue().toString():"";
+                        String Type=dataSnapshot1.child(Node.Type).getValue()!=null?
+                                dataSnapshot1.child(Node.Type).getValue().toString():"";
+                        String WrittenBy=dataSnapshot1.child(Node.Writtenby).getValue()!=null?
+                                dataSnapshot1.child(Node.Writtenby).getValue().toString():"";
+                        ModelBlogs modelPost = new ModelBlogs(Type,WrittenBy,Title,description,department,Time);
+                        posts.add(modelPost);
+                        adapterPosts.notifyDataSetChanged();
+                    }
                 }
             }
 
@@ -96,11 +123,4 @@ public class AlumniHomeFragment extends Fragment {
             }
         });
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
-        super.onCreate(savedInstanceState);
-    }
-
 }

@@ -76,7 +76,7 @@
                 />
 
             <TextView
-                android:id="@+id/roll"
+                android:id="@+id/Com"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Company"
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Department"
-                android:layout_below="@+id/roll"
+                android:layout_below="@+id/Com"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:textSize="18sp"
@@ -177,6 +177,22 @@
                     android:text="Avail" />
 
             </RelativeLayout>
+
+            <Button
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/branch"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="157dp"
+                android:layout_marginRight="157dp"
+                android:layout_marginBottom="-283dp"
+                android:background="#4DB6AC"
+                android:fontFamily="@font/knewave"
+                android:text="Edit"
+                android:textColor="#FFFFFF" />
+
         </RelativeLayout>
 
 

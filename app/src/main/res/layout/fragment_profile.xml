@@ -59,20 +59,23 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="42dp"
+        android:fontFamily="@font/knewave"
         android:gravity="center"
+        android:includeFontPadding="false"
         android:text="Your Name"
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/roll"
+        android:id="@+id/rollNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/knewave"
         android:gravity="center"
         android:text="Roll No"
         android:textColor="#000"
@@ -83,10 +86,11 @@
         android:id="@+id/branch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/roll"
+        android:layout_below="@+id/rollNo"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/knewave"
         android:gravity="center"
         android:text="CSE,2nd Year"
         android:textColor="#000"
@@ -122,6 +126,7 @@
         android:layout_marginRight="163dp"
         android:layout_marginBottom="-203dp"
         android:background="#4DB6AC"
+        android:fontFamily="@font/knewave"
         android:text="Edit"
         android:textColor="#FFFFFF" />
 
@@ -135,6 +140,7 @@
         android:layout_marginEnd="164dp"
         android:layout_marginBottom="275dp"
         android:background="#3F51B5"
+        android:fontFamily="@font/knewave"
         android:gravity="center"
         android:text="Logout"
         android:textColor="#ffffff" />
