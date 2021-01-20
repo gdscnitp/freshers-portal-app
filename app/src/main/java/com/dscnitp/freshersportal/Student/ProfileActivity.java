@@ -45,5 +45,21 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+         t1=findViewById(R.id.name);
+        t2=findViewById(R.id.roll);
+        t3=findViewById(R.id.student_branch);
+        t4=findViewById(R.id.year);
+        
+        Intent i= getIntent();
+
+        String s1=i.getStringExtra("name");
+        String s2=i.getStringExtra("roll");
+        String s3=i.getStringExtra("branch");
+        String s4=i.getStringExtra("year");
+
+        t1.setText(s1);
+        t2.setText(s2);
+        t3.setText(s3);
+        t4.setText(s4);
     }
 }
