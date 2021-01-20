@@ -77,7 +77,6 @@
     <Button
         android:id="@+id/alumni"
         android:layout_width="216dp"
-
         android:layout_height="74dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

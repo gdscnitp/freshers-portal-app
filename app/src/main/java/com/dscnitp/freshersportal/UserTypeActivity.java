@@ -22,9 +22,9 @@ public class UserTypeActivity extends AppCompatActivity {
         student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserTypeActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+
+                startActivity(new Intent(UserTypeActivity.this,LoginActivity.class));
+
             }
         });
         alumni.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +32,7 @@ public class UserTypeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(UserTypeActivity.this, AlumniLoginActivity.class);
                 startActivity(intent);
-                finish();
+
             }
         });
 

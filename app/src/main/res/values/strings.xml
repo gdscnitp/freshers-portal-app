@@ -50,11 +50,10 @@
         <item>Question-papers</item>
         <item>Books-PDFs</item>
         <item>Notes</item>
-
+    </string-array>
     <string-array name="Highlights">
         <item><b>Congratulations! NIT Patna for securing "92" position in NIRF 2020 Ranking; achieving an improvement of 42 places than NIRF 2019 Ranking</b></item>
         <item><b>One Week FDP on Machine Learning Applications in Mechanical Engineering" under the banner of E &amp; ICT Academy, NIT Patna. </b>21st to 26th December, 2020</item>
         <item><b>One week online FDP on Multimedia and Security </b>16–20 Dec 2020</item>
-
     </string-array>
 </resources>
