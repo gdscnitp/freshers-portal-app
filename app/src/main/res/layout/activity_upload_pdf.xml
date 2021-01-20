@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Student.UploadPdfActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbargrp"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#349C92"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
+    <ImageView
+        android:id="@+id/backToProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/logo_splash" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="113dp"
+        android:layout_height="54dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/backToProfile"
+        android:fontFamily="@font/knewave"
+        android:padding="10dp"
+        android:text="Upload Materials"
+        android:textColor="#E8FFFFFF"
+        android:textSize="24sp" />
+
+
+    <Button
+        android:id="@+id/uploadPDF"
+        android:layout_width="110dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="120dp"
+        android:background="#4DB6AC"
+        android:shadowColor="#FFFFFF"
+        android:text="Upload"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/selectFile_button"
+        android:layout_width="110dp"
+        android:layout_height="36dp"
+        android:layout_below="@+id/fileName"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="107dp"
+        android:background="#4DB6AC"
+        android:shadowColor="#FFFFFF"
+        android:text="Select File"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/fileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/material_type_spinner"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:hint="filename.pdf"
+        android:padding="10dp"
+        android:paddingHorizontal="10dp"
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="164dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="89dp"
+        android:text="Title"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="169dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="196dp"
+        android:text="Type"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+    <EditText
+        android:id="@+id/material_title"
+        android:layout_width="409dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="138dp"
+        android:layout_marginEnd="8dp"
+        android:hint="type a title for the file"
+        android:paddingHorizontal="10dp" />
+
+
+    <Spinner
+        android:id="@+id/material_type_spinner"
+        android:layout_width="409dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="247dp"
+        android:layout_marginEnd="8dp" />
+
+</RelativeLayout>
+
+

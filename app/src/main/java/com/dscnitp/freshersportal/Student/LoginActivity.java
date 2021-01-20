@@ -79,36 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseUser currentUser;
 
-    @Override
-    public void onStart() {
 
-        super.onStart();
-
-        mAuth.addAuthStateListener(mAuthListener);
-
-//        mAuth=FirebaseAuth.getInstance();
-
-//        if (mAuth != null)
-//        {
-//            currentUser = mAuth.getCurrentUser();
-//        }
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                FirebaseUser user=mAuth.getCurrentUser();
-//                if(user==null){
-//                    bounce = AnimationUtils.loadAnimation(getApplicationContext(),
-//                            R.anim.bounce);
-//                    googleSignUp.startAnimation(bounce);
-//                    googleSignUp.setVisibility(View.VISIBLE);
-//                }
-//                else {
-//                    uid=user.getUid();
-//                    secondActivity();
-//                }
-//            }
-//        },1000);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -205,6 +176,36 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onStart() {
+
+        super.onStart();
+
+        mAuth.addAuthStateListener(mAuthListener);
+
+//        mAuth=FirebaseAuth.getInstance();
+
+//        if (mAuth != null)
+//        {
+//            currentUser = mAuth.getCurrentUser();
+//        }
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                FirebaseUser user=mAuth.getCurrentUser();
+//                if(user==null){
+//                    bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+//                            R.anim.bounce);
+//                    googleSignUp.startAnimation(bounce);
+//                    googleSignUp.setVisibility(View.VISIBLE);
+//                }
+//                else {
+//                    uid=user.getUid();
+//                    secondActivity();
+//                }
+//            }
+//        },1000);
+    }
     private void signIn() {
         progressDialog.dismiss();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -388,11 +389,15 @@ public class LoginActivity extends AppCompatActivity {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("email", mailid);
         hashMap.put("name", name);
+        hashMap.put("roll", "");
+        hashMap.put("branch", "");
+        hashMap.put("year", "");
         hashMap.put("USER_TYPE", "student");
         hashMap.put("id", "");
         hashMap.put("device_token", "");
         hashMap.put("uid", uid);
         hashMap.put("imgUrl", photo);
+
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
         db.child(uid).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
