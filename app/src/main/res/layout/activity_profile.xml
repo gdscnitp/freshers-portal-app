@@ -43,7 +43,7 @@
 
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/ProfileImage"
         android:layout_width="wrap_content"
         android:layout_height="166dp"
         android:layout_gravity="center"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:text="Savita Budania"
         android:textColor="#000"
-        android:layout_below="@+id/logo"
+        android:layout_below="@+id/ProfileImage"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
@@ -66,7 +66,7 @@
         />
 
     <TextView
-        android:id="@+id/roll"
+        android:id="@+id/rollNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1906096"
@@ -82,8 +82,13 @@
         android:id="@+id/student_branch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="CSE"
         android:layout_below="@+id/roll"
+=======
+        android:text="CSE,2nd Year"
+        android:layout_below="@+id/rollNo"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:textSize="18sp"
@@ -109,7 +114,7 @@
         style="?android:attr/ratingBarStyleIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/logo"
+        android:layout_alignBottom="@+id/ProfileImage"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="-32dp"
