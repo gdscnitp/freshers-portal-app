@@ -61,12 +61,13 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/rollTv"
+        android:id="@+id/rollNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameTv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/knewave"
         android:hint="Roll No."
         android:textColor="#000"
         android:textSize="18sp"
@@ -76,9 +77,10 @@
         android:id="@+id/branchTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rollTv"
+        android:layout_below="@+id/rollNo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/knewave"
         android:hint="Branch"
         android:textColor="#000"
         android:textSize="18sp"
@@ -124,6 +126,7 @@
         android:layout_marginRight="33dp"
         android:layout_marginBottom="-12dp"
         android:background="#4DB6AC"
+        android:fontFamily="@font/knewave"
         android:text="Submit"
         android:textColor="#FFFFFF" />
 
@@ -138,6 +141,7 @@
         android:layout_marginRight="33dp"
         android:layout_marginBottom="-54dp"
         android:background="#4DB6AC"
+        android:fontFamily="@font/knewave"
         android:text="Edit"
         android:textColor="#FFFFFF" />
 

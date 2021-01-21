@@ -81,7 +81,7 @@ public class ProfileFragment extends Fragment {
         databaseReference= firebaseDatabase.getReference("users");
 
         nameTv = view.findViewById(R.id.nameTv);
-        rollTv= view.findViewById(R.id.rollTv);
+        rollTv= view.findViewById(R.id.rollNo);
         branchTv= view.findViewById(R.id.branchTv);
         yearTv= view.findViewById(R.id.yearTv);
 
