@@ -42,7 +42,6 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
 //        actionBar.setTitle("Profile Activity");
         mAuth=FirebaseAuth.getInstance();
         firebaseAuth=FirebaseAuth.getInstance();
-
         loadFragments(new HomeFagment());
         navigationView=findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);

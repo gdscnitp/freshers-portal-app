@@ -124,7 +124,7 @@
         android:numStars="5" />
 
     <Button
-        android:id="@+id/submitBtn"
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_alignBottom="@+id/ratingBar"
@@ -153,19 +153,19 @@
         android:text="Edit"
         android:textColor="#FFFFFF" />
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="275dp"
-        android:background="#3F51B5"
-        android:gravity="center"
-        android:text="Logout"
-        android:textColor="#ffffff" />
+<!--    <Button-->
+<!--        android:id="@+id/logout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="false"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginEnd="164dp"-->
+<!--        android:layout_marginBottom="275dp"-->
+<!--        android:background="#3F51B5"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Logout"-->
+<!--        android:textColor="#ffffff" />-->
 
 
 </RelativeLayout>

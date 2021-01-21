@@ -71,7 +71,7 @@ public class ProfileFragment extends Fragment {
                 Toast.makeText(getActivity(), rating + "stars", Toast.LENGTH_SHORT).show();
             }
         });
-        submit = (Button) view.findViewById(R.id.submitBtn);
+        submit = (Button) view.findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,32 +82,26 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-
-
-
-
         Name=view.findViewById(R.id.name);
         RollNo=view.findViewById(R.id.roll);
         Branch=view.findViewById(R.id.branch);
         yearTv= view.findViewById(R.id.yearTv);
 
-
-
         ivProfile=view.findViewById(R.id.ProfileImage);
 
         mAuth=FirebaseAuth.getInstance();
-        logout=view.findViewById(R.id.logout);
+//        logout=view.findViewById(R.id.logout);
         mAuth= FirebaseAuth.getInstance();
 
-        logout.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                Intent mainIntent = new Intent(getActivity(), SplashScreen.class);
-                startActivity(mainIntent);
-            }
-        });
+//        logout.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v) {
+//                mAuth.signOut();
+//                Intent mainIntent = new Intent(getActivity(), SplashScreen.class);
+//                startActivity(mainIntent);
+//            }
+//        });
 
         edit=view.findViewById(R.id.edit);
         edit.setOnClickListener(new View.OnClickListener() {

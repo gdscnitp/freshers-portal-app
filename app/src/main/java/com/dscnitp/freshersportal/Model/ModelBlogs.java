@@ -8,6 +8,9 @@ public class ModelBlogs {
     String Department;
     String Time;
 
+    public ModelBlogs() {
+    }
+
     public ModelBlogs(String type, String writtenby, String title, String description, String department, String time) {
         Type = type;
         Writtenby = writtenby;

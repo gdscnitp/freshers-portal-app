@@ -24,7 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dscnitp.freshersportal.Admin.AdminMainPanel;
+import com.dscnitp.freshersportal.Alumni.AlumniMainActivity;
 import com.dscnitp.freshersportal.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -369,7 +369,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(mainIntent);
                             finish();
                         } else {
-                            Intent mainIntent = new Intent(LoginActivity.this, AdminMainPanel.class);
+                            Intent mainIntent = new Intent(LoginActivity.this, AlumniMainActivity.class);
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(mainIntent);
                             finish();
