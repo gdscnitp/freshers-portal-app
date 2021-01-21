@@ -64,7 +64,7 @@ public class AlumniSignUpActivity extends AppCompatActivity {
         password = (TextInputLayout) findViewById(R.id.pwd);
         company=(TextInputLayout) findViewById(R.id.Company);
         bar = (ProgressBar) findViewById(R.id.progressBar);
-        ivProfile=findViewById(R.id.imageView3);
+        ivProfile=findViewById(R.id.ivProfile);
         spinner2 =  findViewById(R.id.spinner2);
        spinner1.setOnTouchListener(new View.OnTouchListener() {
            @Override

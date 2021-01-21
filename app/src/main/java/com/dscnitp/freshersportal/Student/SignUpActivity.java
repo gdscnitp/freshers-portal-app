@@ -58,9 +58,9 @@ public class SignUpActivity extends AppCompatActivity {
         t1 = findViewById(R.id.email);
         t2 = findViewById(R.id.pwd);
         names =  findViewById(R.id.name);
-        rollNo=findViewById(R.id.rollNo);
+        rollNo=findViewById(R.id.RollNo);
         bar = (ProgressBar) findViewById(R.id.progressBar);
-        ivProfile = findViewById(R.id.imageView3);
+        ivProfile = findViewById(R.id.ivProfile);
         BranchList=findViewById(R.id.branchList);
 
         ArrayAdapter<String> myBranchAdapter=new ArrayAdapter<String>(SignUpActivity.this,android.R.layout.simple_list_item_1,
