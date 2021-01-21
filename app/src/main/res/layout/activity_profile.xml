@@ -79,10 +79,10 @@
         />
 
     <TextView
-        android:id="@+id/branch"
+        android:id="@+id/student_branch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CSE,2nd Year"
+        android:text="CSE"
         android:layout_below="@+id/roll"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
@@ -90,6 +90,19 @@
         android:textStyle="bold"
         android:textColor="#000"
         />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/roll"
+        android:layout_marginTop="6dp"
+        android:text="2nd yr"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/student_branch"
+        android:layout_marginLeft="8dp"/>
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -113,7 +126,7 @@
         android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="38dp"
-        android:layout_alignBottom="@+id/branch"
+        android:layout_alignBottom="@+id/student_branch"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="33dp"
@@ -126,20 +139,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="26dp"
         android:text="About Us"
+        android:textStyle="italic"
         android:id="@+id/aboutUs"
-        android:textSize="24sp"
-
+        android:textSize="20sp"
+        android:layout_marginRight="5dp"
         android:layout_alignParentEnd="true"/>
     <TextView
         android:id="@+id/privacy"
-        android:textSize="24sp"
+        android:textSize="20sp"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Privacy Policy"
+        android:textStyle="italic"
         android:layout_alignParentBottom="true"
+        android:layout_marginRight="5dp"
         android:layout_alignParentRight="true"/>
 
 

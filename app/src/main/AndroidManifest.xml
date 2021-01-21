@@ -46,7 +46,13 @@
         <activity android:name=".AnnouncementsActivity" />
         <activity android:name=".Student.EditProfileActivity" />
         <activity android:name=".Student.SignUpActivity" />
-        <activity android:name=".Student.ProfileActivity" />
+        <activity android:name=".Student.ProfileActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Student.LoginActivity" />
         <activity
             android:name=".Student.AllContactForStudentActivity"
@@ -63,11 +69,7 @@
         <activity android:name=".Admin.AdminMainPanel" />
         <activity android:name=".Student.DashboardActivity" />
         <activity android:name=".SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service

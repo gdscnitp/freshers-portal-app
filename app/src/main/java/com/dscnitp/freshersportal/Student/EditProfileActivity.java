@@ -44,7 +44,8 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
         update = (Button) findViewById(R.id.update);
-        update.setOnClickListener(new View.OnClickListener() {
+        update.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
@@ -83,14 +84,14 @@ public class EditProfileActivity extends AppCompatActivity {
                     }
                 });
 
-
+                openActivity();
             }
         });
-
+    }
 
 
     public void openActivity() {
-        Intent intent = new Intent(this, ProfileFragment.class);
+        Intent intent = new Intent(EditProfileActivity.this, ProfileFragment.class);
         TextInputEditText name= (TextInputEditText) findViewById(R.id.name);
         String text = name.getText().toString();
         TextInputEditText roll= (TextInputEditText) findViewById(R.id.roll);
@@ -99,7 +100,6 @@ public class EditProfileActivity extends AppCompatActivity {
         String text2 = branch.getText().toString();
         TextInputEditText year= (TextInputEditText) findViewById(R.id.year);
         String text3 = year.getText().toString();
- Intent intent=new Intent(EditProfileActivity.this,ProfileActivity.class);
         intent.putExtra("mytext", text);
         intent.putExtra("mytext1",text1);
         intent.putExtra("mytext2",text2);
