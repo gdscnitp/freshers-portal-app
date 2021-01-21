@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String imgurl = "imgUrl";
     public static final String dbname = "name";
     private static final int RC_SIGN_IN = 101;
-    SignInButton googleSignUp;
+    Button googleSignUp;
     Button login;
     String name2;
     FirebaseAuth mAuth;
@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         emails = findViewById(R.id.emails);
         password = findViewById(R.id.password);
-        googleSignUp = (SignInButton) findViewById(R.id.btn_glogin);
+        googleSignUp = (Button) findViewById(R.id.btn_glogin);
         googleSignUp.setVisibility(View.INVISIBLE);
         Animation fadeOut = new AlphaAnimation(0, 1);
         fadeOut.setInterpolator(new AccelerateInterpolator()); //and this
