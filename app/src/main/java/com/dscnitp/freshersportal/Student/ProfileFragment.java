@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.dscnitp.freshersportal.AboutUs;
 import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.SplashScreen;
@@ -40,6 +41,7 @@ public class ProfileFragment extends Fragment {
     Button logout;
     FirebaseAuth mAuth;
     TextView Name,Branch,RollNo;
+    TextView aboutUs, privacy;
     FirebaseStorage mStorage;
     FirebaseUser firebaseUser;
     Uri ServerFileUri;
@@ -48,10 +50,8 @@ public class ProfileFragment extends Fragment {
 
 
     //views from xml
-    TextView yearTv ;
+    TextView year ;
 
-    Button submit;
-    RatingBar ratingBar;
 
 
     public ProfileFragment() {
@@ -64,44 +64,55 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view= inflater.inflate(R.layout.fragment_profile, container, false);
-        ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast.makeText(getActivity(), rating + "stars", Toast.LENGTH_SHORT).show();
-            }
-        });
-        submit = (Button) view.findViewById(R.id.submit);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String totalStars = "Total Stars: " + ratingBar.getNumStars();
-                String rating = "Rating : " + ratingBar.getRating();
-                Toast.makeText(getActivity(), totalStars + "\n" + rating, Toast.LENGTH_SHORT).show();
-            }
-        });
 
         Name=view.findViewById(R.id.name);
         RollNo=view.findViewById(R.id.roll);
         Branch=view.findViewById(R.id.branch);
-        yearTv= view.findViewById(R.id.yearTv);
+
+        year= view.findViewById(R.id.year);
+
 
         ivProfile=view.findViewById(R.id.ProfileImage);
 
+        aboutUs= view.findViewById(R.id.aboutUs);
+
         mAuth=FirebaseAuth.getInstance();
-//        logout=view.findViewById(R.id.logout);
+        logout=view.findViewById(R.id.logout);
+        privacy=view.findViewById(R.id.privacy);
+
         mAuth= FirebaseAuth.getInstance();
 
-//        logout.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v) {
-//                mAuth.signOut();
-//                Intent mainIntent = new Intent(getActivity(), SplashScreen.class);
-//                startActivity(mainIntent);
-//            }
-//        });
+        privacy.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String url = "https://freshers-portal.flycricket.io/privacy.html";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+
+        aboutUs.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent myintent = new Intent(getActivity(), AboutUs.class);
+                startActivity(myintent);
+            }
+        });
+
+
+        logout.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent mainIntent = new Intent(getActivity(), SplashScreen.class);
+                startActivity(mainIntent);
+            }
+        });
 
         edit=view.findViewById(R.id.edit);
         edit.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +122,7 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         mStorage= FirebaseStorage.getInstance();
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
 
@@ -129,6 +141,8 @@ public class ProfileFragment extends Fragment {
                     if (dataSnapshot.child(Node.Branch).getValue() != null)
                         Branch.setText(dataSnapshot.child(Node.Branch).getValue().toString());
 //                    yearTv.setText(yearTv);
+                    if (dataSnapshot.child(Node.Year).getValue() != null)
+                        year.setText(dataSnapshot.child(Node.Year).getValue().toString());
 
                }
                 @Override

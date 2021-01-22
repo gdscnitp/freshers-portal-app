@@ -30,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
     TextView logo;
     FirebaseUser user;
     FirebaseAuth firebaseAuth;
-    private static int splash = 3000;
+    private static int splash = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

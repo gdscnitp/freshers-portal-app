@@ -92,6 +92,9 @@ public class EditProfileActivity extends AppCompatActivity {
                     if (dataSnapshot.child(Node.Branch).getValue() != null)
                         Branch.setText(dataSnapshot.child(Node.Branch).getValue().toString());
 
+                    if (dataSnapshot.child(Node.Year).getValue() != null)
+                        Year.setText(dataSnapshot.child(Node.Year).getValue().toString());
+
                 }
 
                 @Override
@@ -146,6 +149,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     hashMap.put(Node.Name,Name.getText().toString().trim());
                     hashMap.put(Node.ROLL_NO,RollNo.getText().toString().trim());
                     hashMap.put(Node.Branch,Branch.getText().toString().trim());
+                    hashMap.put(Node.Year,Year.getText().toString().trim());
 
                     databaseReferenceUsers.child(UserID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

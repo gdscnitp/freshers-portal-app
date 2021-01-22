@@ -52,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:autoLink="all"
+                android:background="@drawable/buttonstylegradient"
                 android:layout_gravity="end"
                 android:drawableStart="@drawable/ic_file"
                 android:drawableTint="@color/colorWhite"
