@@ -3,12 +3,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="branch"><![CDATA[> Branch]]></string>
+    <string name="branch"><![CDATA[• Branch]]></string>
     <string name="AddBlogs">Add Your Blogs</string>
-    <string name="blog_type"><![CDATA[> Blog type]]></string>
-    <string name="description"><![CDATA[> Description]]></string>
+    <string name="blog_type"><![CDATA[• Blog type]]></string>
+    <string name="description"><![CDATA[• Description]]></string>
     <string name="post">Post</string>
-    <string name="title"><![CDATA[> Title]]></string>
+    <string name="title"><![CDATA[• Title]]></string>
     <string name="blog">Blog</string>
     <string name="share_your_experience_or_question">Share your experience or question</string>
     <string name="announcements">Announcements</string>

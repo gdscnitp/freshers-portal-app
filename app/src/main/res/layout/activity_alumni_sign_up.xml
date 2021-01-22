@@ -84,15 +84,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/Batch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="11dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="8dp"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="12dp"
                 android:text="Batch"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorBlack" />
+                android:textSize="15dp"
+                android:textColor="#171616" />
 
             <EditText
                 android:id="@+id/spinner1"
@@ -127,7 +129,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/proximanovasemibold"
                 android:hint="Password"
-                android:inputType="textPassword">
+                android:inputType="textPassword"
+                android:textColor="#171616" >
 
             </com.google.android.material.textfield.TextInputEditText>
 
@@ -161,7 +164,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:background="#4DB6AC"
+            android:background="@drawable/buttonstylegradient"
             android:padding="10dp"
             android:onClick="signuphere"
             android:text="@string/submit"

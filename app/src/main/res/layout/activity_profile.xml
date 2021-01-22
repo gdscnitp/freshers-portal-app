@@ -132,17 +132,18 @@
         android:textSize="24sp"
 
         android:layout_alignParentEnd="true"/>
+
     <TextView
         android:id="@+id/privacy"
-        android:textSize="24sp"
-
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
-        android:text="Privacy Policy"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
-
-
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="2dp"
+        android:text="Privacy Policy"
+        android:textSize="24sp" />
 
 
 </RelativeLayout>

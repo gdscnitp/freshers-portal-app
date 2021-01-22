@@ -115,19 +115,20 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:autoLink="all"
-                android:background="@color/colorWhite"
+                android:background="@drawable/buttonstylegradient"
                 android:drawableStart="@drawable/ic_like"
                 android:drawableLeft="@drawable/ic_like"
                 android:padding="5dp"
                 android:text="Like" />
-            
+
             <Button
                 android:id="@+id/comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:autoLink="all"
-                android:background="@color/colorWhite"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/buttonstylegradient"
                 android:drawableStart="@drawable/ic_message"
                 android:drawableLeft="@drawable/ic_message"
                 android:padding="5dp"

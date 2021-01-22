@@ -22,7 +22,7 @@
         android:layout_height="58dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/knewave"
         android:paddingLeft="50dp"
         android:text="@string/announcements"
@@ -33,16 +33,15 @@
 
     <ImageView
         android:id="@+id/logoSplash"
-        android:layout_width="47dp"
-        android:layout_height="32dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="6dp"
         android:layout_marginBottom="194dp"
         app:layout_constraintBottom_toTopOf="@+id/announce"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo_splash" />
 
     <ImageView

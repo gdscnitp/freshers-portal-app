@@ -136,4 +136,4 @@ public class AlumniProfileActivity extends AppCompatActivity {
             }
         });
     }
-    }
+}
