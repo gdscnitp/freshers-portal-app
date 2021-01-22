@@ -5,8 +5,38 @@
     android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbargrp"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#349C92"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backToProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/logo_splash" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:fontFamily="@font/knewave"
+            android:padding="10dp"
+            android:text="Chat"
+            android:textColor="#E8FFFFFF"
+            android:textSize="24sp" />
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/adminchat2"
+        android:layout_below="@+id/toolbargrp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

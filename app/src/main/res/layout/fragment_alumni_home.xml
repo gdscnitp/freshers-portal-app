@@ -11,5 +11,4 @@
         tools:listitem="@layout/row_posts"
         android:id="@+id/postrecyclerview"/>
 
-
 </FrameLayout>

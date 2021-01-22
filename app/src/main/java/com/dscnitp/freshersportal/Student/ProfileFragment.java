@@ -68,7 +68,9 @@ public class ProfileFragment extends Fragment {
         Name=view.findViewById(R.id.name);
         RollNo=view.findViewById(R.id.roll);
         Branch=view.findViewById(R.id.branch);
+
         year= view.findViewById(R.id.year);
+
 
         ivProfile=view.findViewById(R.id.ProfileImage);
 

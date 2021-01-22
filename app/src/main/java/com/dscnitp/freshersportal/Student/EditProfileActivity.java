@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
+import com.dscnitp.freshersportal.SplashScreen;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -41,6 +42,7 @@ public class EditProfileActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
 
     private TextInputEditText Name, Branch, RollNo, Year;
+    Button logout;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private FirebaseStorage mStorage;
@@ -63,6 +65,15 @@ public class EditProfileActivity extends AppCompatActivity {
         Branch = (TextInputEditText) findViewById(R.id.branch);
         Year = (TextInputEditText) findViewById(R.id.year);
         ImageView ivProfile = findViewById(R.id.profileimage);
+        logout=findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(EditProfileActivity.this, SplashScreen.class));
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();

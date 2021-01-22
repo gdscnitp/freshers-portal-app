@@ -52,9 +52,6 @@ public class AlumniMainActivity extends AppCompatActivity implements  BottomNavi
     Toolbar actionBar;
     BottomNavigationView navigationView;
     FirebaseAuth mAuth;
-    private Button Edit;
-    private ImageView ivProfile;
-    private TextView Name,company;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,52 +66,13 @@ public class AlumniMainActivity extends AppCompatActivity implements  BottomNavi
         navigationView=findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         //actionBar.setTitle("Home");
-        Edit=findViewById(R.id.edit);
-        ivProfile=findViewById(R.id.logo);
-        Name=findViewById(R.id.name);
-        company=findViewById(R.id.Com);
 
-        if(firebaseUser!=null)
-        {
-            Name.setText(firebaseUser.getDisplayName());
-            ServerFileUri=firebaseUser.getPhotoUrl();
 
-            databaseReferenceUsers = FirebaseDatabase.getInstance().getReference().child(Node.Users);
-            databaseReferenceUsers.child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if(dataSnapshot.exists()) {
-                        if (dataSnapshot.child(Node.Company).getValue()!=null)
-                            company.setText(dataSnapshot.child(Node.Company).getValue().toString());
-                    }
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-            if(ServerFileUri!=null)
-            {
-                Glide.with(this)
-                        .load(ServerFileUri)
-                        .placeholder(R.mipmap.ic_launcher_foreground)
-                        .error(R.mipmap.ic_launcher_foreground)
-                        .into(ivProfile);
-            }
-        }
-
-        Edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AlumniMainActivity.this, AlumniProfileActivity.class));
-            }
-        });
-        //AlumniHomeFragment fragment=new AlumniHomeFragment();
-        //FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        //fragmentTransaction.replace(R.id.content,fragment,"");
-        //fragmentTransaction.commit();
+        AlumniHomeFragment fragment=new AlumniHomeFragment();
+        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content,fragment,"");
+        fragmentTransaction.commit();
         checkUserStatus();
     }
 
@@ -273,14 +231,20 @@ public class AlumniMainActivity extends AppCompatActivity implements  BottomNavi
         {
             case R.id.nav_home:
                 actionBar.setTitle("Home");
-                fragment= new AlumniHomeFragment();
+                AlumniHomeFragment fragment1=new AlumniHomeFragment();
+                FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content,fragment1,"");
+                fragmentTransaction.commit();
                 break;
             case R.id.nav_message:
                 startActivity(new Intent(AlumniMainActivity.this, AlumniChatActivity.class));
                 break;
             case R.id.nav_profile:
                 actionBar.setTitle("Profile");
-                fragment= new AlumniProfileFragment();
+                AlumniProfileFragment fragment2=new AlumniProfileFragment();
+                FragmentTransaction fragmentTransaction1=getSupportFragmentManager().beginTransaction();
+                fragmentTransaction1.replace(R.id.content,fragment2,"");
+                fragmentTransaction1.commit();
                 break;
         }
         return loadFragments(fragment);

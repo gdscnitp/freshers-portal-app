@@ -57,7 +57,7 @@
             android:layout_height="wrap_content">
 
 
-        <LinearLayout
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -148,6 +148,18 @@
                 android:onClick="btnSave"
                 android:text="Update"
                 android:textColor="#fff" />
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:id="@+id/logout"
+                    android:layout_marginBottom="5dp"
+                    android:background="#4DB6AC"
+                    android:gravity="center"
+                    android:onClick="btnSave"
+                    android:text="Logout"
+                    android:textColor="#fff" />
 
         </LinearLayout>
         </RelativeLayout>

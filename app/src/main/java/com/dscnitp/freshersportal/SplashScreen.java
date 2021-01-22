@@ -12,7 +12,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dscnitp.freshersportal.Admin.AdminMainPanel;
 import com.dscnitp.freshersportal.Alumni.AlumniMainActivity;
 import com.dscnitp.freshersportal.Student.DashboardActivity;
 import com.dscnitp.freshersportal.Student.LoginActivity;
@@ -80,14 +79,11 @@ public class SplashScreen extends AppCompatActivity {
                         startActivity(new Intent(SplashScreen.this, DashboardActivity.class));
                         finish();
                     }
-                    else if(accountType.equals("Alumni")){
+                    else {
                         startActivity(new Intent(SplashScreen.this, AlumniMainActivity.class));
                         finish();
                     }
-                    else {
-                        startActivity(new Intent(SplashScreen.this, AdminMainPanel.class));
-                        finish();
-                    }
+
                 }
             }
 
