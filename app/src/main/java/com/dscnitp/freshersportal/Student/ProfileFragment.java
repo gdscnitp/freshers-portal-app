@@ -130,14 +130,12 @@ public class ProfileFragment extends Fragment {
         {
             Name.setText(firebaseUser.getDisplayName());
             ServerFileUri=firebaseUser.getPhotoUrl();
-
             databaseReferenceUsers = FirebaseDatabase.getInstance().getReference().child(Node.Users);
             databaseReferenceUsers.child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.child(Node.ROLL_NO).getValue() != null)
                         RollNo.setText(dataSnapshot.child(Node.ROLL_NO).getValue().toString());
-
                     if (dataSnapshot.child(Node.Branch).getValue() != null)
                         Branch.setText(dataSnapshot.child(Node.Branch).getValue().toString());
 //                    yearTv.setText(yearTv);

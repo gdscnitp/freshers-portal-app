@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/timetv"
-            android:text="02/01/1990 06:19PM"
+            android:text=""
             android:textColor="@color/colorBlack"
             android:textSize="12sp"/>
         <TextView
@@ -34,7 +34,7 @@
             android:textColor="@color/colorBlack"
             android:background="@drawable/bg_sender"
             android:padding="15dp"
-            android:text="His Message"/>
+            android:text=""/>
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
