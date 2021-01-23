@@ -154,6 +154,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:id="@+id/logout"
+                    android:visibility="gone"
                     android:layout_marginBottom="5dp"
                     android:background="#4DB6AC"
                     android:gravity="center"

@@ -127,7 +127,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="426dp"
-            android:background="#C4EAE8E8"
             android:text="@string/description"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimaryDark"

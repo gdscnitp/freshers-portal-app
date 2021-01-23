@@ -17,7 +17,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:id="@+id/imagep"
-            android:src="@drawable/ic_face"/>
+            />
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -28,14 +28,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/namep"
-                android:text="Name"
+                android:text=""
                 android:textSize="18sp"
                 android:textColor="@color/colorBlack"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/classp"
-                android:text="18*****"
+                android:text=""
                 android:textColor="@color/colorBlack"/>
 
         </LinearLayout>
