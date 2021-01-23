@@ -30,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
     TextView logo;
     FirebaseUser user;
     FirebaseAuth firebaseAuth;
-    private static int splash = 2000;
+    private static int splash = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,8 +46,6 @@ public class SplashScreen extends AppCompatActivity {
 
         image.setAnimation(top);
         logo.setAnimation(bottom);
-
-
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth !=null) {
             user = firebaseAuth.getCurrentUser();
