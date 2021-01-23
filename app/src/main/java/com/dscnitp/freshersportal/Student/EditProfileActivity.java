@@ -1,10 +1,12 @@
 package com.dscnitp.freshersportal.Student;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +21,8 @@ import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.SplashScreen;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +35,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
 
@@ -40,15 +48,17 @@ public class EditProfileActivity extends AppCompatActivity {
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    StorageReference storageReference;
 
     private TextInputEditText Name, Branch, RollNo, Year;
-    Button logout;
+    Button logout, edit;
+    ImageView profilePic;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private FirebaseStorage mStorage;
     private DatabaseReference databaseReferenceUsers;
     private String PhotoUrl;
-    private Uri ServerFileUri;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +74,16 @@ public class EditProfileActivity extends AppCompatActivity {
         RollNo = (TextInputEditText) findViewById(R.id.roll);
         Branch = (TextInputEditText) findViewById(R.id.branch);
         Year = (TextInputEditText) findViewById(R.id.year);
-        ImageView ivProfile = findViewById(R.id.profileimage);
-        logout=findViewById(R.id.logout);
+        profilePic = (ImageView) findViewById(R.id.student_profile_image);
+
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(EditProfileActivity.this,"Image clicked",Toast.LENGTH_SHORT).show();
+                CropImage.activity().setAspectRatio(1, 1).start(EditProfileActivity.this);
+            }
+        });
+        logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +113,10 @@ public class EditProfileActivity extends AppCompatActivity {
                     if (dataSnapshot.child(Node.Year).getValue() != null)
                         Year.setText(dataSnapshot.child(Node.Year).getValue().toString());
 
+                    String url = dataSnapshot.child(Node.Photo).getValue().toString();
+                    if (url.length() != 0)
+                        Picasso.get().load(url).into(profilePic);
+
                 }
 
                 @Override
@@ -103,14 +125,56 @@ public class EditProfileActivity extends AppCompatActivity {
                 }
             });
 
-            ServerFileUri = currentUser.getPhotoUrl();
-
-            Glide.with(this)
-                    .load(ServerFileUri)
-                    .error(R.mipmap.ic_launcher_foreground)
-                    .placeholder(R.mipmap.ic_launcher_foreground)
-                    .load(ivProfile);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            imageUri = result.getUri();
+
+            uploadImage(imageUri);
+        } else {
+            Toast.makeText(this, "Error try again", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void uploadImage(Uri imageUri) {
+
+        if (imageUri != null) {
+            String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            storageReference = FirebaseStorage.getInstance().getReference();
+            final StorageReference fileRef = storageReference.child("profile images").child(id).child("profile.jpg");
+            fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            HashMap<String, Object> userMap = new HashMap<>();
+                            userMap.put(Node.Photo, uri.toString());
+                            databaseReference = FirebaseDatabase.getInstance().getReference().child(Node.Users);
+                            databaseReferenceUsers.child(currentUser.getUid()).updateChildren(userMap);
+
+                            Picasso.get().load(uri).into(profilePic);
+                            Toast.makeText(EditProfileActivity.this, "Image uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(EditProfileActivity.this, "Image upload failed try again...", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            Toast.makeText(this, "Image not selected", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void btnSave(View V) {
@@ -126,25 +190,26 @@ public class EditProfileActivity extends AppCompatActivity {
         if (Year.getText().toString().trim().equals("")) {
             Year.setError(getString(R.string.etYear));
         } else {
-            //            if(localFileUri!=null)
-            //                updateNameAndPhoto();
-            //            else
+
             updateNameOnly();
         }
 
 
     }
-    public void updateNameOnly()
-    {
+    public void updateNameOnly() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Updating your profile");
+        progressDialog.setMessage("Please wait ....");
+        progressDialog.show();
+
         UserProfileChangeRequest request = new UserProfileChangeRequest.Builder().
                 setDisplayName(Name.getText().toString().trim()).build();
 
         currentUser.updateProfile(request).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful())
-                {
-                    String UserID=currentUser.getUid();
+                if (task.isSuccessful()) {
+                    String UserID = currentUser.getUid();
                     HashMap hashMap=new HashMap();
                     hashMap.put(Node.Name,Name.getText().toString().trim());
                     hashMap.put(Node.ROLL_NO,RollNo.getText().toString().trim());
@@ -155,7 +220,9 @@ public class EditProfileActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
-                                finish();
+                                progressDialog.dismiss();
+                                Toast.makeText(EditProfileActivity.this, "User updated", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(EditProfileActivity.this, DashboardActivity.class));
                             }
                             else
                             {
