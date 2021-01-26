@@ -13,7 +13,7 @@ import com.synnapps.carouselview.ImageListener;
 public class MyCollegeActivity extends AppCompatActivity {
 
     CarouselView carouselView;
-    int[] sampleImages = {R.drawable.nitp, R.drawable.tcf, R.drawable.img3};
+    int[] sampleImages = {R.drawable.nitpp, R.drawable.tcf, R.drawable.img3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
