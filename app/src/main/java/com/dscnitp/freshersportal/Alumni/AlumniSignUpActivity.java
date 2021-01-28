@@ -109,7 +109,22 @@ public class AlumniSignUpActivity extends AppCompatActivity {
         Company=company.getEditText().getText().toString();
         passw = password.getEditText().getText().toString();
 
-        if (!emails.equals("") && !password.equals("")) {
+        if(Name.equals("")){
+            name.setError("Enter Name");
+        }
+        else if(CheckAlphabet(Name)==0) {
+            name.setError("Enter Alphabet Only");
+        }
+        else if(emails.equals("")){
+            email.setError("Enter Email");
+        }
+        else if(CheckNITPEmail(emails)==0){
+            email.setError("Enter NITP Email Only");
+        }
+        else if(passw.equals("")){
+            password.setError("Enter Password");
+        }
+        else{
             mAuth = FirebaseAuth.getInstance();
             mAuth.createUserWithEmailAndPassword(emails, passw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -287,5 +302,37 @@ public class AlumniSignUpActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public int CheckAlphabet(String S)
+    {
+        int i;
+        for(i=0;i<S.length();i++)
+        {
+            char A=S.charAt(i);
+            if((A>='A'  &&  A<='Z')  || (A>='a'  &&  A<='z'))
+            {
+                ;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        return 1;
+    }
+
+    public int CheckNITPEmail(String S)
+    {
+        String M="@nitp.ac.in";
+        int i;
+        int X=S.length();
+        for(i=0;i<M.length();i++)
+        {
+            char Y=S.charAt(X-11+i);
+            char Z=M.charAt(i);
+            if(Y!=Z)
+                return 0;
+        }
+        return 1;
     }
 }

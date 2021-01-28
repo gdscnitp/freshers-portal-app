@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.Model.ModelBlogs;
 import com.dscnitp.freshersportal.PostDetailsActivity;
 import com.dscnitp.freshersportal.R;
@@ -64,9 +65,10 @@ public class AdapterBlogs extends RecyclerView.Adapter<AdapterBlogs.MyHolder>{
         final String type=modelPosts.get(position).getType();
         final String department=modelPosts.get(position).getDepartment();
         Calendar calendar=Calendar.getInstance(Locale.ENGLISH);
+        if(ptime!=null)
         calendar.setTimeInMillis(Long.parseLong(ptime));
         String timedate= DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
-        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference().child(Node.Users);
         reference.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
