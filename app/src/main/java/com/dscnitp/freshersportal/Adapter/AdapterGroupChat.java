@@ -195,7 +195,7 @@ public class AdapterGroupChat extends RecyclerView.Adapter<AdapterGroupChat.Myho
         ImageView image;
         public Myholder(@NonNull View itemView) {
             super(itemView);
-            name=itemView.findViewById(R.id.sedername);
+            name=itemView.findViewById(R.id.sendername);
             image=itemView.findViewById(R.id.imagegrp);
             message=itemView.findViewById(R.id.sendermsg);
             time=itemView.findViewById(R.id.timegrp);

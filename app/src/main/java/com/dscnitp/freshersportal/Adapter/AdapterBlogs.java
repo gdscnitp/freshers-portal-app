@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.dscnitp.freshersportal.Model.ModelBlogs;
+import com.dscnitp.freshersportal.PostDetailsActivity;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.Student.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -91,11 +92,19 @@ public class AdapterBlogs extends RecyclerView.Adapter<AdapterBlogs.MyHolder>{
         holder.description.setText(descri);
         holder.time.setText(timedate);
 
-        holder.profile.setOnClickListener(new View.OnClickListener() {
+//        holder.profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(context, ProfileActivity.class);
+//                intent.putExtra("uid", uid);
+//                context.startActivity(intent);
+//            }
+//        });
+        holder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, ProfileActivity.class);
-                intent.putExtra("uid", uid);
+                Intent intent=new Intent(context, PostDetailsActivity.class);
+                intent.putExtra("pid",ptime);
                 context.startActivity(intent);
             }
         });

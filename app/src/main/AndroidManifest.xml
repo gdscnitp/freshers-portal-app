@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Gallery"></activity>
+        <activity android:name=".PostDetailsActivity" android:parentActivityName=".Student.DashboardActivity"></activity>
+        <activity android:name=".Gallery" />
         <activity android:name=".Student.ViewQuesPaperActivity" />
         <activity android:name=".Student.ViewBooksActivity" />
         <activity android:name=".ViewPdfActivity" />
