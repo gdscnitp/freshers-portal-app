@@ -23,6 +23,13 @@
         <activity android:name=".Student.UploadPdfActivity" />
         <activity android:name=".GroupInfoActivity" />
         <activity android:name=".GroupEditActivity" />
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <activity android:name=".AboutUs"></activity>
+
         <activity android:name=".AboutUs" />
         <activity
             android:name=".Alumni.AlumniAllContactActivity"
@@ -58,7 +65,7 @@
         <activity
             android:name=".Student.ViewNotesActivity"
             android:parentActivityName=".ChatActivity" />
-        <activity android:name=".Admin.AdminMainPanel" />
+  
         <activity android:name=".Student.DashboardActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
