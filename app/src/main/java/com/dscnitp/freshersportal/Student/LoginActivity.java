@@ -24,7 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dscnitp.freshersportal.Admin.AdminMainPanel;
+import com.dscnitp.freshersportal.Alumni.AlumniMainActivity;
 import com.dscnitp.freshersportal.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String imgurl = "imgUrl";
     public static final String dbname = "name";
     private static final int RC_SIGN_IN = 101;
-    SignInButton googleSignUp;
+    Button googleSignUp;
     Button login;
     String name2;
     FirebaseAuth mAuth;
@@ -79,36 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseUser currentUser;
 
-    @Override
-    public void onStart() {
 
-        super.onStart();
-
-        mAuth.addAuthStateListener(mAuthListener);
-
-//        mAuth=FirebaseAuth.getInstance();
-
-//        if (mAuth != null)
-//        {
-//            currentUser = mAuth.getCurrentUser();
-//        }
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                FirebaseUser user=mAuth.getCurrentUser();
-//                if(user==null){
-//                    bounce = AnimationUtils.loadAnimation(getApplicationContext(),
-//                            R.anim.bounce);
-//                    googleSignUp.startAnimation(bounce);
-//                    googleSignUp.setVisibility(View.VISIBLE);
-//                }
-//                else {
-//                    uid=user.getUid();
-//                    secondActivity();
-//                }
-//            }
-//        },1000);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         emails = findViewById(R.id.emails);
         password = findViewById(R.id.password);
-        googleSignUp = (SignInButton) findViewById(R.id.btn_glogin);
+        googleSignUp = (Button) findViewById(R.id.btn_glogin);
         googleSignUp.setVisibility(View.INVISIBLE);
         Animation fadeOut = new AlphaAnimation(0, 1);
         fadeOut.setInterpolator(new AccelerateInterpolator()); //and this
@@ -205,6 +176,36 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onStart() {
+
+        super.onStart();
+
+        mAuth.addAuthStateListener(mAuthListener);
+
+//        mAuth=FirebaseAuth.getInstance();
+
+//        if (mAuth != null)
+//        {
+//            currentUser = mAuth.getCurrentUser();
+//        }
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                FirebaseUser user=mAuth.getCurrentUser();
+//                if(user==null){
+//                    bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+//                            R.anim.bounce);
+//                    googleSignUp.startAnimation(bounce);
+//                    googleSignUp.setVisibility(View.VISIBLE);
+//                }
+//                else {
+//                    uid=user.getUid();
+//                    secondActivity();
+//                }
+//            }
+//        },1000);
+    }
     private void signIn() {
         progressDialog.dismiss();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -368,7 +369,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(mainIntent);
                             finish();
                         } else {
-                            Intent mainIntent = new Intent(LoginActivity.this, AdminMainPanel.class);
+                            Intent mainIntent = new Intent(LoginActivity.this, AlumniMainActivity.class);
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(mainIntent);
                             finish();

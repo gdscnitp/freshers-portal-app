@@ -77,11 +77,10 @@
     <Button
         android:id="@+id/alumni"
         android:layout_width="216dp"
-
         android:layout_height="74dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="276dp"
         android:background="@drawable/gradient4"
         android:fontFamily="@font/proximanovasemibold"
         android:paddingStart="10dp"

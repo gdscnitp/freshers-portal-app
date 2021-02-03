@@ -21,20 +21,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/namepg"
-                android:text="Person NAme"
+                android:text=""
                 android:textSize="18sp"
                 android:textColor="@color/colorBlack"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/emailpg"
-                android:text="Person Email"
+                android:text=""
                 android:textColor="@color/colorBlack"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status"
+                android:text=""
                 android:id="@+id/status"/>
         </LinearLayout>
     </LinearLayout>

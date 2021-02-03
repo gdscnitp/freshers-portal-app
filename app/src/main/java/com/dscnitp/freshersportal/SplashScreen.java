@@ -12,7 +12,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dscnitp.freshersportal.Admin.AdminMainPanel;
 import com.dscnitp.freshersportal.Alumni.AlumniMainActivity;
 import com.dscnitp.freshersportal.Student.DashboardActivity;
 import com.dscnitp.freshersportal.Student.LoginActivity;
@@ -31,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
     TextView logo;
     FirebaseUser user;
     FirebaseAuth firebaseAuth;
-    private static int splash = 3000;
+    private static int splash = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,8 +46,6 @@ public class SplashScreen extends AppCompatActivity {
 
         image.setAnimation(top);
         logo.setAnimation(bottom);
-
-
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth !=null) {
             user = firebaseAuth.getCurrentUser();
@@ -80,14 +77,11 @@ public class SplashScreen extends AppCompatActivity {
                         startActivity(new Intent(SplashScreen.this, DashboardActivity.class));
                         finish();
                     }
-                    else if(accountType.equals("Alumni")){
+                    else {
                         startActivity(new Intent(SplashScreen.this, AlumniMainActivity.class));
                         finish();
                     }
-                    else {
-                        startActivity(new Intent(SplashScreen.this, AdminMainPanel.class));
-                        finish();
-                    }
+
                 }
             }
 

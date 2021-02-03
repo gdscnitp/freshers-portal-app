@@ -40,7 +40,7 @@
                     android:id="@+id/unametv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name"
+                    android:text=""
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp" />
 
@@ -48,7 +48,7 @@
                     android:id="@+id/utimetv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="33 min" />
+                    android:text="" />
 
 
             </LinearLayout>
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
-            android:text="Title"
+            android:text=""
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -111,23 +111,24 @@
 
             <Button
                 android:id="@+id/like"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:autoLink="all"
-                android:background="@color/colorWhite"
+                android:background="@drawable/buttonstylegradient"
                 android:drawableStart="@drawable/ic_like"
+                android:visibility="gone"
                 android:drawableLeft="@drawable/ic_like"
                 android:padding="5dp"
                 android:text="Like" />
-            
+
             <Button
                 android:id="@+id/comment"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:autoLink="all"
-                android:background="@color/colorWhite"
+                android:background="@drawable/buttonstylegradient"
                 android:drawableStart="@drawable/ic_message"
                 android:drawableLeft="@drawable/ic_message"
                 android:padding="5dp"

@@ -2,7 +2,7 @@ package com.dscnitp.freshersportal.Student;
 
 
 import android.os.Bundle;
-
+import com.dscnitp.freshersportal.Common.Node;
 import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dscnitp.freshersportal.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -89,17 +92,29 @@ public class AddPostFragment extends Fragment {
                     BlogDes.setError(getString(R.string.EmptyBlog));
                     return;
                 }
-
+                final String timestamp=String.valueOf(System.currentTimeMillis());
                 String First=Branch.getSelectedItem().toString();
                 String Second=Type.getSelectedItem().toString();
                 String Third=Title.getSelectedItem().toString();
                 HashMap<String,String> hashMap=new HashMap<>();
-                hashMap.put("Branch",First);
-                hashMap.put("BlogType",Second);
-                hashMap.put("BlogTitle",Third);
+                hashMap.put("Writtenby", FirebaseAuth.getInstance().getUid());
+                hashMap.put("Type",Second);
+                hashMap.put("Title",Third);
                 hashMap.put("Description",Fourth);
-                databaseReferenceBlogs.push().setValue(hashMap);
-                Toast.makeText(AddPostFragment.this.getActivity(),"Your Blog Posted",Toast.LENGTH_SHORT).show();
+                hashMap.put("Department",First);
+                hashMap.put("Time",timestamp);
+//                hashMap.put("Branch",First);
+//                hashMap.put("BlogType",Second);
+//                hashMap.put("BlogTitle",Third);
+//                hashMap.put("Description",Fourth);
+                databaseReferenceBlogs.child(timestamp.substring(5)).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(AddPostFragment.this.getActivity(),"Your Blog Posted",Toast.LENGTH_SHORT).show();
+                        Description.setText("");
+                    }
+                });
+
             }
         });
     }

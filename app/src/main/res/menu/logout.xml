@@ -9,7 +9,6 @@
         android:title="Profile"
         android:icon="@drawable/ic_addpost"
         app:showAsAction="always" />
-
     <item
         android:id="@+id/action_logout"
         android:orderInCategory="100"

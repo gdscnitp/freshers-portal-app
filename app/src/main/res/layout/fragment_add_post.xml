@@ -16,8 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:background="#349C92"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            />
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 
         <ImageView
@@ -40,7 +39,7 @@
             android:layout_toEndOf="@+id/backToProfile"
             android:fontFamily="@font/knewave"
             android:padding="10dp"
-            android:text="Blog"
+            android:text="Add Post"
             android:textColor="#E8FFFFFF"
             android:textSize="24sp" />
 
@@ -63,13 +62,13 @@
 
         <Button
             android:id="@+id/btn_post"
-            android:layout_width="110dp"
-            android:layout_height="36dp"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="3dp"
             android:layout_marginBottom="19dp"
-            android:background="#4DB6AC"
+            android:background="@drawable/buttonstylegradient"
             android:shadowColor="#FFFFFF"
             android:text="@string/post"
             android:textAllCaps="false"
@@ -128,7 +127,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="426dp"
-            android:background="#C4EAE8E8"
             android:text="@string/description"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimaryDark"

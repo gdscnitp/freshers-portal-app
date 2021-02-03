@@ -116,7 +116,6 @@ public class AlumniLoginActivity extends AppCompatActivity {
                 })
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-
         googleSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -336,7 +335,7 @@ public class AlumniLoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             bar.setVisibility(View.INVISIBLE);
-                            Intent intent =new Intent(AlumniLoginActivity.this, AlumniProfileActivity.class);
+                            Intent intent =new Intent(AlumniLoginActivity.this, AlumniMainActivity.class);
                             intent.putExtra("email",mAuth.getCurrentUser().getEmail());
                             intent.putExtra("uid",mAuth.getCurrentUser().getUid());
                             startActivity(intent);

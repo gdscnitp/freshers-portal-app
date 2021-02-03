@@ -4,6 +4,7 @@
     Because the window insets on round devices are larger than 15dp, this padding only applies
     to square screens.
     -->
+
     <dimen name="box_inset_layout_padding">0dp</dimen>
 
     <!--

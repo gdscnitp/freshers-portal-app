@@ -2,7 +2,7 @@ package com.dscnitp.freshersportal.Alumni;
 
 
 import android.os.Bundle;
-
+import com.dscnitp.freshersportal.Common.Node;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -81,11 +81,12 @@ public class AlumniHomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 posts.clear();
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
-                    ModelBlogs modelPost=dataSnapshot1.getValue(ModelBlogs.class);
-                    posts.add(modelPost);
-                    adapterPosts=new AdapterBlogs(getActivity(),posts);
-                    recyclerView.setAdapter(adapterPosts);
-
+                    if(dataSnapshot1.exists()) {
+                        ModelBlogs modelPost = dataSnapshot1.getValue(ModelBlogs.class);
+                        posts.add(modelPost);
+                        adapterPosts = new AdapterBlogs(getActivity(), posts);
+                        recyclerView.setAdapter(adapterPosts);
+                    }
                 }
             }
 
@@ -101,6 +102,23 @@ public class AlumniHomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        firebaseAuth=FirebaseAuth.getInstance();
+        recyclerView=view.findViewById(R.id.postrecyclerview);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(layoutManager);
+        posts=new ArrayList<>();
+        adapterPosts=new AdapterBlogs(getActivity(),posts);
+        recyclerView.setAdapter(adapterPosts);
+        loadPosts();
+//        return view;
     }
 
 }
