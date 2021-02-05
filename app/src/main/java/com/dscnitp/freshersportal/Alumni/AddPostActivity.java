@@ -204,7 +204,7 @@ public class AddPostActivity extends AppCompatActivity {
             hashMap.put("Department",description);
             hashMap.put("Time",timestamp);
             DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("Blogs");
-            databaseReference.child(timestamp).setValue(hashMap)
+            databaseReference.child(timestamp.substring(5)).setValue(hashMap)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

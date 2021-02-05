@@ -120,7 +120,6 @@ public class AlumniLoginActivity extends AppCompatActivity {
                 })
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-
         googleSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

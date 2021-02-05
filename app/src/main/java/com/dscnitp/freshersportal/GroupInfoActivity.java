@@ -76,34 +76,31 @@ public class GroupInfoActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadParticipants();
         loadGroupInfo();
     }
 
     private void loadParticipants() {
 
         users=new ArrayList<>();
-        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Groups");
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Groups");
         reference.child(groupid).child("Participants").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                users.clear();
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                    users.clear();
                     final String uid=""+dataSnapshot1.child("uid").getValue();
-                    DatabaseReference reference1= FirebaseDatabase.getInstance().getReference("users");
+                    DatabaseReference reference1=FirebaseDatabase.getInstance().getReference("users");
                     reference1.orderByChild("uid").equalTo(uid).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            users.clear();
-
                             for (DataSnapshot dataSnapshot11:dataSnapshot.getChildren()){
                                 ModelUser userss=dataSnapshot11.getValue(ModelUser.class);
                                 users.add(userss);
-
                             }
                             participantsAd=new AdapterParticipantsAd(GroupInfoActivity.this,users,groupid,myGrprole);
                             recyclerView.setAdapter(participantsAd);
-                            totalp.setText("Participants (" +users.size() + ")");                        }
+                            totalp.setText("Participants (" +users.size() + ")");
+                        }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -131,11 +128,9 @@ public class GroupInfoActivity extends AppCompatActivity {
                             String grpdesc=""+ds.child("grpdesc").getValue();
                             String groupicon=""+ds.child("grpicon").getValue();
                             String timstamp=""+ds.child("timestamp").getValue();
-                            String craetedby=""+ds.child("createBy").getValue();
                             Calendar calendar=Calendar.getInstance(Locale.ENGLISH);
                             calendar.setTimeInMillis(Long.parseLong(timstamp));
                             String timedate= DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
-                            loadCreatorInfo(timedate,craetedby);
                             getSupportActionBar().setTitle(grptitle);
                             descri.setText(grpdesc);
                             try {
@@ -156,23 +151,6 @@ public class GroupInfoActivity extends AppCompatActivity {
                 });
     }
 
-    private void loadCreatorInfo(final String timedate, String craetedby) {
-        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Users");
-        reference.orderByChild("uid").equalTo(craetedby).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
-                    String name=""+dataSnapshot1.child("name").getValue();
-                    createdby.setText("Created By " + name + "on " + timedate);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

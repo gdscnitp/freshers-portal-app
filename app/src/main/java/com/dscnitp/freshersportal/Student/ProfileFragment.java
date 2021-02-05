@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -72,7 +73,7 @@ public class ProfileFragment extends Fragment {
         year= view.findViewById(R.id.year);
 
 
-        ivProfile=view.findViewById(R.id.ProfileImage);
+        ivProfile = view.findViewById(R.id.profile_image);
 
         aboutUs= view.findViewById(R.id.aboutUs);
 
@@ -142,23 +143,16 @@ public class ProfileFragment extends Fragment {
                     if (dataSnapshot.child(Node.Year).getValue() != null)
                         year.setText(dataSnapshot.child(Node.Year).getValue().toString());
 
-               }
+                    String url = dataSnapshot.child(Node.Photo).getValue().toString();
+                    if (url.length() != 0)
+                        Picasso.get().load(url).placeholder(R.mipmap.ic_launcher_foreground).into(ivProfile);
+                }
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
             });
 
-
-        }
-
-        if(ServerFileUri!=null)
-        {
-            Glide.with(this)
-                    .load(ServerFileUri)
-                    .placeholder(R.mipmap.ic_launcher_foreground)
-                    .error(R.mipmap.ic_launcher_foreground)
-                    .into(ivProfile);
 
         }
 

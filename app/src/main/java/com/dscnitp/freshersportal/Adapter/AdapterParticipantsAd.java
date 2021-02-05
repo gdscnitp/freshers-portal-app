@@ -67,7 +67,6 @@ public class AdapterParticipantsAd extends RecyclerView.Adapter<AdapterParticipa
 
         }
         setClass(hisuid,holder);
-
         checkIfUserAlreadyExist(modelUsers,holder);
 
     }
@@ -89,79 +88,6 @@ public class AdapterParticipantsAd extends RecyclerView.Adapter<AdapterParticipa
             }
         });
     }
-
-    private void makeadmin(ModelUser modelUsers) {
-
-        HashMap<String,Object> hashMap=new HashMap<>();
-        hashMap.put("role","admin");
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Groups");
-        ref.child(groupid).child("Participants").child(modelUsers.getUid()).updateChildren(hashMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context,"The User is now Admin",Toast.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(context,""+e.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    private void addParticipants(ModelUser modelUsers) {
-        String timestamp=""+System.currentTimeMillis();
-        HashMap<String,String> hashMap=new HashMap<>();
-        hashMap.put("uid",modelUsers.getUid());
-        hashMap.put("role","participants");
-        hashMap.put("timestamp",timestamp);
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Groups");
-        ref.child(groupid).child("Participants").child(modelUsers.getUid()).setValue(hashMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context,"added Sucessfully",Toast.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(context,""+e.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-    private void removeParticipants(ModelUser modelUsers) {
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Groups");
-        ref.child(groupid).child("Participants").child(modelUsers.getUid()).removeValue()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context,"Removed Sucessfully",Toast.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(context,""+e.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-    private void removeadmin(ModelUser modelUsers){
-        HashMap<String,Object> hashMap=new HashMap<>();
-        hashMap.put("role","participants");
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Groups");
-        ref.child(groupid).child("Participants").child(modelUsers.getUid()).updateChildren(hashMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context,"The User is no longer admin",Toast.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(context,""+e.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
 
     private void checkIfUserAlreadyExist(ModelUser modelUsers, final MyHolder holder){
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Groups");

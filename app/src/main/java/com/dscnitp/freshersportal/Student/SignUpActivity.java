@@ -79,11 +79,26 @@ public class SignUpActivity extends AppCompatActivity {
             RollNo = rollNo.getText().toString();
             Branch = BranchList.getSelectedItem().toString();
 
-            if (RollNo.equals("")) {
-                rollNo.setError("Enter Roll No");
+            if(name.equals("")){
+                names.setError("Enter Name");
             }
-
-            if (!email.equals("") && !password.equals("") && !name.equals("") && !RollNo.equals("")) {
+            else if(CheckAlphabet(name)==0) {
+                names.setError("Enter Alphabet Only");
+            }
+            else if(email.equals("")){
+            t1.setError("Enter Email");
+            }
+            else if(CheckNITPEmail(email)==0){
+                t1.setError("Enter NITP Email Only");
+            }
+            else if(RollNo.length()!=7){
+                rollNo.setError("Enter valid RollNo");
+            }
+            else if(password.equals("")){
+            t2.setError("Enter Password");
+            }
+            else
+                {
                 mAuth = FirebaseAuth.getInstance();
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -262,6 +277,39 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public int CheckAlphabet(String S)
+    {
+        int i;
+        for(i=0;i<S.length();i++)
+        {
+            char A=S.charAt(i);
+            if((A>='A'  &&  A<='Z')  || (A>='a'  &&  A<='z'))
+            {
+                ;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        return 1;
+    }
+
+    public int CheckNITPEmail(String S)
+    {
+        String M="@nitp.ac.in";
+        int i;
+        int X=S.length();
+        for(i=0;i<M.length();i++)
+        {
+            char Y=S.charAt(X-11+i);
+            char Z=M.charAt(i);
+            if(Y!=Z)
+                return 0;
+        }
+        return 1;
     }
 
 }

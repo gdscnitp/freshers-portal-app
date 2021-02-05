@@ -16,7 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.Model.ModelBlogs;
+import com.dscnitp.freshersportal.PostDetailsActivity;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.Student.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,9 +65,10 @@ public class AdapterBlogs extends RecyclerView.Adapter<AdapterBlogs.MyHolder>{
         final String type=modelPosts.get(position).getType();
         final String department=modelPosts.get(position).getDepartment();
         Calendar calendar=Calendar.getInstance(Locale.ENGLISH);
+        if(ptime!=null)
         calendar.setTimeInMillis(Long.parseLong(ptime));
         String timedate= DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
-        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference().child(Node.Users);
         reference.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -91,11 +94,19 @@ public class AdapterBlogs extends RecyclerView.Adapter<AdapterBlogs.MyHolder>{
         holder.description.setText(descri);
         holder.time.setText(timedate);
 
-        holder.profile.setOnClickListener(new View.OnClickListener() {
+//        holder.profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(context, ProfileActivity.class);
+//                intent.putExtra("uid", uid);
+//                context.startActivity(intent);
+//            }
+//        });
+        holder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, ProfileActivity.class);
-                intent.putExtra("uid", uid);
+                Intent intent=new Intent(context, PostDetailsActivity.class);
+                intent.putExtra("pid",ptime);
                 context.startActivity(intent);
             }
         });
