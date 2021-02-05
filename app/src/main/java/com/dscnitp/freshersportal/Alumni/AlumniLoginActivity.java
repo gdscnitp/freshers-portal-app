@@ -18,6 +18,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthCredential;
@@ -46,6 +48,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AlumniLoginActivity extends AppCompatActivity {
     TextInputLayout t1, t2;
@@ -57,7 +61,7 @@ public class AlumniLoginActivity extends AppCompatActivity {
     public static final String imgurl="imgUrl";
     public static final String dbname="name";
     private static final int RC_SIGN_IN = 101;
-    Button googleSignUp;
+    FloatingActionButton googleSignUp;
     String name2;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -86,7 +90,7 @@ public class AlumniLoginActivity extends AppCompatActivity {
         });
         mAuth= FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(this);
-        googleSignUp=findViewById(R.id.btn_glogin);
+        googleSignUp=(FloatingActionButton) findViewById(R.id.btn_glogin);
         googleSignUp.setVisibility(View.INVISIBLE);
         Animation fadeOut = new AlphaAnimation(0, 1);
         fadeOut.setInterpolator(new AccelerateInterpolator()); //and this
@@ -122,6 +126,7 @@ public class AlumniLoginActivity extends AppCompatActivity {
                 progressDialog.setMessage("Getting accounts...");
                 progressDialog.show();
                 signIn();
+
             }
         });
     }
