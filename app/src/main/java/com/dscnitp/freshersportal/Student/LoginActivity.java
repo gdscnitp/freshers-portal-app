@@ -39,6 +39,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthCredential;
@@ -53,6 +54,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
     TextInputLayout t1, t2;
@@ -64,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String imgurl = "imgUrl";
     public static final String dbname = "name";
     private static final int RC_SIGN_IN = 101;
-    Button googleSignUp;
+    FloatingActionButton googleSignUp;
     Button login;
     String name2;
     FirebaseAuth mAuth;
@@ -100,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         emails = findViewById(R.id.emails);
         password = findViewById(R.id.password);
-        googleSignUp = (Button) findViewById(R.id.btn_glogin);
+        googleSignUp = (FloatingActionButton) findViewById(R.id.btn_glogin);
         googleSignUp.setVisibility(View.INVISIBLE);
         Animation fadeOut = new AlphaAnimation(0, 1);
         fadeOut.setInterpolator(new AccelerateInterpolator()); //and this
@@ -163,14 +166,41 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (emails.getText().equals("")) {
-                    emails.setError("Required");
-                    return;
+                String validemail = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+
+                        "\\@" +
+
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+
+                        "(" +
+
+                        "\\." +
+
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+
+                        ")+";
+
+
+                String email = emails.getText().toString();
+
+                Matcher matcher= Pattern.compile(validemail).matcher(email);
+
+                if (matcher.matches()){
+                    Toast.makeText(getApplicationContext(),"Logging you in!",Toast.LENGTH_LONG).show();
+                    signinhere();
                 }
-                if (password.getText().equals("")) {
-                    password.setError("Required");
-                    return;
+                else {
+                    Toast.makeText(getApplicationContext(),"Enter Valid Email-Id",Toast.LENGTH_LONG).show();
                 }
+
+//                if (emails.getText().equals("")) {
+//                    emails.setError("Required");
+//                    return;
+//                }
+//                if (password.getText().equals("")) {
+//                    password.setError("Required");
+//                    return;
+//                }
                 signinhere();
             }
         });

@@ -1,56 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/login_bk_color"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
     tools:context=".Student.LoginActivity">
 
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/proximanovasemibold"
-        android:text="Login Here"
-        android:textColor="#E91E63"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312" />
-
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="306dp"
-        android:layout_height="242dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635">
+        android:padding="20dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/viewParent.headerText.NoMode"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Already \nhave an \nAccount?" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_register_hero" />
+    </RelativeLayout>
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/linearLayout"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:hint="Email"-->
+<!--            android:textColorHint="@color/colorBlack"/>-->
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email_login"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
             android:hint="Email"
             android:textColorHint="@color/colorBlack">
 
             <EditText
+                android:id="@+id/emails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/proximanovasemibold"
                 android:hint="Email"
-                android:id="@+id/emails"
                 android:inputType="textEmailAddress"
                 android:textColor="#171616">
 
@@ -78,37 +86,41 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            style="@style/viewParent"
+            android:id="@+id/forgot_password"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:text="Forgot Password?"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/newsMoreTextSize" />
+
         <Button
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            app:layout_constraintWidth_percent=".8"
+            app:layout_constraintVertical_bias=".7"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
             android:background="@drawable/buttonstylegradient"
-            android:padding="10dp"
             android:text="Login"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/createaccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/antic"
-        android:text="New User? Sign up"
-        android:textAllCaps="false"
-        android:textColor="#000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774" />
+        <TextView
+            android:id="@+id/createaccount"
+            style="@style/parent"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:onClick="onLoginClick"
+            android:text="New user? Register Now"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
 
     <ProgressBar
         android:id="@+id/progressBar_login"
@@ -116,12 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.385" />
+        android:layout_gravity="center"/>
 
     <!--    <Button-->
 <!--        android:id="@+id/btn_glogin"-->
@@ -143,31 +150,44 @@
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        app:layout_constraintVertical_bias="0.96" />-->
 
-    <Button
-        android:id="@+id/btn_glogin"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:paddingLeft="10dp"
-        android:textAllCaps="false"
-        android:text="Google SignIn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:weightSum="12">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="3"
+                android:background="@color/colorPrimaryDark" />
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:text="Use other Methods"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="3"
+                android:background="@color/colorPrimaryDark" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
 
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="210dp"
-        android:layout_height="152dp"
-        app:layout_constraintBottom_toTopOf="@+id/welcome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_splash" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_glogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorWhite"
+                android:elevation="35dp"
+                android:src="@drawable/google"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
