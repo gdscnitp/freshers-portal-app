@@ -30,7 +30,6 @@
 
         <activity android:name=".AboutUs"></activity>
 
-        <activity android:name=".AboutUs" />
         <activity
             android:name=".Alumni.AlumniAllContactActivity"
             android:parentActivityName=".Alumni.AlumniChatActivity" />
