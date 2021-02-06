@@ -43,6 +43,7 @@
             android:name=".Alumni.AddPostActivity"
             android:parentActivityName=".Alumni.AlumniMainActivity" />
         <activity android:name=".Alumni.AlumniProfileActivity" />
+        <activity android:name=".Alumni.AlumniEditProfileActivity" />
         <activity android:name=".Alumni.AlumniSignUpActivity" />
         <activity android:name=".Alumni.AlumniLoginActivity" />
         <activity android:name=".UserTypeActivity" />

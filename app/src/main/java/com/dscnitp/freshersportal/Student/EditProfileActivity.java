@@ -3,8 +3,6 @@ package com.dscnitp.freshersportal.Student;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,10 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.SplashScreen;
@@ -49,6 +45,8 @@ public class EditProfileActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     StorageReference storageReference;
+    FirebaseUser firebaseUser;
+    Uri ServerFileUri;
 
     private TextInputEditText Name, Branch, RollNo, Year;
     Button logout, edit;
@@ -95,35 +93,34 @@ public class EditProfileActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
+
         if (currentUser != null) {
 
-            databaseReferenceUsers = FirebaseDatabase.getInstance().getReference().child(Node.Users);
-            databaseReferenceUsers.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            Query query= databaseReference.orderByChild("email").equalTo(user.getEmail());
+            query.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.child(Node.Name).getValue() != null)
-                        Name.setText(dataSnapshot.child(Node.Name).getValue().toString());
 
-                    if (dataSnapshot.child(Node.ROLL_NO).getValue() != null)
-                        RollNo.setText(dataSnapshot.child(Node.ROLL_NO).getValue().toString());
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        String name = "" + ds.child("name").getValue();
+                        Name.setText(name);
+                        String roll = "" + ds.child("rollNo").getValue();
+                        RollNo.setText(roll);
+                        String branch = "" + ds.child("Branch").getValue();
+                        Branch.setText(branch);
+                        String year = "" + ds.child("year").getValue();
+                        Year.setText(year);
+                       // String url = (String) ds.child("photo").getValue();
+                        //Picasso.get().load(url).into(profilePic);
 
-                    if (dataSnapshot.child(Node.Branch).getValue() != null)
-                        Branch.setText(dataSnapshot.child(Node.Branch).getValue().toString());
-
-                    if (dataSnapshot.child(Node.Year).getValue() != null)
-                        Year.setText(dataSnapshot.child(Node.Year).getValue().toString());
-
-                    String url = dataSnapshot.child(Node.Photo).getValue().toString();
-                    if (url.length() != 0)
-                        Picasso.get().load(url).into(profilePic);
-
+                    }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
             });
+
 
         }
     }
@@ -210,7 +207,7 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     String UserID = currentUser.getUid();
-                    HashMap hashMap=new HashMap();
+                    HashMap<String, Object> hashMap=new HashMap<String, Object>();
                     hashMap.put(Node.Name,Name.getText().toString().trim());
                     hashMap.put(Node.ROLL_NO,RollNo.getText().toString().trim());
                     hashMap.put(Node.Branch,Branch.getText().toString().trim());

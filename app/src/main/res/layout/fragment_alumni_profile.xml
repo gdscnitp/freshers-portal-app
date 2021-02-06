@@ -42,7 +42,6 @@
                 android:layout_gravity="right"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="15dp"
-
                 android:background="@drawable/buttonstylegradient"
                 android:text="Edit"
                 android:textColor="#fff" />
