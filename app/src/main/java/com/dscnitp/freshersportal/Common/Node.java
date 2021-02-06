@@ -13,6 +13,9 @@ public class Node {
     public static final String Company="company";
     public static final String ROLL_NO = "rollNo";
     public static final String Year = "year";
+    public static final String From = "from";
+    public static final String To = "to";
+
 
     public static final String Department="Department";
     public static final String Description="Description";

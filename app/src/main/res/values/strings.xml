@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Freshers Portal</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="branch"><![CDATA[• Branch]]></string>
     <string name="AddBlogs">Add Your Blogs</string>
@@ -26,6 +25,7 @@
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
     <string name="etYear">Enter Year</string>
+    <string name="etCompany">Enter Company</string>
     <string-array name="Branch">
         <item>Computer Science</item>
         <item>Electronics Communication</item>
@@ -56,5 +56,33 @@
         <item><b>Congratulations! NIT Patna for securing "92" position in NIRF 2020 Ranking; achieving an improvement of 42 places than NIRF 2019 Ranking</b></item>
         <item><b>One Week FDP on Machine Learning Applications in Mechanical Engineering" under the banner of E &amp; ICT Academy, NIT Patna. </b>21st to 26th December, 2020</item>
         <item><b>One week online FDP on Multimedia and Security </b>16–20 Dec 2020</item>
+    </string-array>
+
+    <string-array name="YearFrom">
+        <item>2000</item>
+        <item>2001</item>
+        <item>2002</item>
+        <item>2003</item>
+        <item>2004</item>
+        <item>2005</item>
+        <item>2006</item>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
     </string-array>
 </resources>

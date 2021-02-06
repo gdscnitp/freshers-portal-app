@@ -30,7 +30,6 @@
 
         <activity android:name=".AboutUs"></activity>
 
-        <activity android:name=".AboutUs" />
         <activity
             android:name=".Alumni.AlumniAllContactActivity"
             android:parentActivityName=".Alumni.AlumniChatActivity" />
@@ -65,7 +64,7 @@
         <activity
             android:name=".Student.ViewNotesActivity"
             android:parentActivityName=".ChatActivity" />
-        <activity android:name=".Admin.AdminMainPanel" />
+  
         <activity android:name=".Student.DashboardActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
