@@ -9,14 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.Glide;
 import com.dscnitp.freshersportal.AboutUs;
 import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
@@ -32,6 +29,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
 
+import java.time.Year;
+import java.util.Objects;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,17 +41,18 @@ public class ProfileFragment extends Fragment {
     Button edit;
     Button logout;
     FirebaseAuth mAuth;
-    TextView Name,Branch,RollNo;
+    TextView Name,Branch,RollNo, Year;
     TextView aboutUs, privacy;
     FirebaseStorage mStorage;
     FirebaseUser firebaseUser;
     Uri ServerFileUri;
     ImageView ivProfile;
     DatabaseReference databaseReferenceUsers;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
-
-    //views from xml
-    TextView year ;
 
 
 
@@ -70,7 +71,7 @@ public class ProfileFragment extends Fragment {
         RollNo=view.findViewById(R.id.roll);
         Branch=view.findViewById(R.id.branch);
 
-        year= view.findViewById(R.id.year);
+        Year= view.findViewById(R.id.year);
 
 
         ivProfile = view.findViewById(R.id.profile_image);
@@ -82,6 +83,10 @@ public class ProfileFragment extends Fragment {
         privacy=view.findViewById(R.id.privacy);
 
         mAuth= FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user= firebaseAuth.getCurrentUser();
+        firebaseDatabase= FirebaseDatabase.getInstance();
+        databaseReference= firebaseDatabase.getReference("users");
 
         privacy.setOnClickListener(new View.OnClickListener() {
 
@@ -127,31 +132,34 @@ public class ProfileFragment extends Fragment {
         mStorage= FirebaseStorage.getInstance();
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
 
+
         if(firebaseUser!=null)
         {
             Name.setText(firebaseUser.getDisplayName());
             ServerFileUri=firebaseUser.getPhotoUrl();
-            databaseReferenceUsers = FirebaseDatabase.getInstance().getReference().child(Node.Users);
-            databaseReferenceUsers.child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.child(Node.ROLL_NO).getValue() != null)
-                        RollNo.setText(dataSnapshot.child(Node.ROLL_NO).getValue().toString());
-                    if (dataSnapshot.child(Node.Branch).getValue() != null)
-                        Branch.setText(dataSnapshot.child(Node.Branch).getValue().toString());
-//                    yearTv.setText(yearTv);
-                    if (dataSnapshot.child(Node.Year).getValue() != null)
-                        year.setText(dataSnapshot.child(Node.Year).getValue().toString());
+            Query query= databaseReference.orderByChild("email").equalTo(user.getEmail());
+            query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    String url = dataSnapshot.child(Node.Photo).getValue().toString();
-                    if (url.length() != 0)
-                        Picasso.get().load(url).placeholder(R.mipmap.ic_launcher_foreground).into(ivProfile);
-                }
+            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                String name = "" + ds.child("name").getValue();
+                Name.setText(name);
+                String roll = "" + ds.child("rollNo").getValue();
+                RollNo.setText(roll);
+                String branch = "" + ds.child("Branch").getValue();
+                Branch.setText(branch);
+                String year = "" + ds.child("year").getValue();
+                Year.setText(year);
+
+            }
+        }
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
             });
+          //
 
 
         }
