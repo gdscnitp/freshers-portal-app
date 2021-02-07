@@ -15,16 +15,19 @@ import com.dscnitp.freshersportal.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class ViewBooksActivity extends AppCompatActivity {
 
     RecyclerView booksListrecyclerView;
     AdapterMaterials adapter;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_books);
-
         booksListrecyclerView = (RecyclerView) findViewById(R.id.books_list);
         booksListrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -33,6 +36,7 @@ public class ViewBooksActivity extends AppCompatActivity {
 
         adapter = new AdapterMaterials(options);
         booksListrecyclerView.setAdapter(adapter);
+
     }
 
     @Override

@@ -40,6 +40,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniSignUpActivity extends AppCompatActivity {
 
     EditText spinner1,spinner2;
@@ -52,12 +54,14 @@ public class AlumniSignUpActivity extends AppCompatActivity {
     private DatabaseReference db;
     private FirebaseStorage mStorage;
 
+
     String emails,Name,From,Company,passw,uid;
     String selected,getSelected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alumni_sign_up);
+
         spinner1 =  findViewById(R.id.spinner1);
         name = (TextInputLayout) findViewById(R.id.name);
         email = (TextInputLayout) findViewById(R.id.email);

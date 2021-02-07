@@ -15,6 +15,8 @@ import com.dscnitp.freshersportal.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class ViewQuesPaperActivity extends AppCompatActivity {
 
     RecyclerView quesPaperListrecyclerView;
@@ -25,6 +27,7 @@ public class ViewQuesPaperActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_ques_paper);
 
+
         quesPaperListrecyclerView = (RecyclerView) findViewById(R.id.ques_paper_list);
         quesPaperListrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -33,6 +36,7 @@ public class ViewQuesPaperActivity extends AppCompatActivity {
 
         adapter = new AdapterMaterials(options);
         quesPaperListrecyclerView.setAdapter(adapter);
+
     }
 
     @Override

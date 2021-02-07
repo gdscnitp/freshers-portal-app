@@ -25,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 public class ViewNotesActivity extends AppCompatActivity {
@@ -32,6 +34,7 @@ public class ViewNotesActivity extends AppCompatActivity {
     RecyclerView notesListrecyclerView;
     Button downloadNotes;
     AdapterMaterials adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class ViewNotesActivity extends AppCompatActivity {
 
         adapter = new AdapterMaterials(options);
         notesListrecyclerView.setAdapter(adapter);
+
 
         /*downloadNotes = findViewById(R.id.download_file_btn);
         downloadNotes.setOnClickListener(new View.OnClickListener() {

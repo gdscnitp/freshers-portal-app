@@ -41,6 +41,8 @@ import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniEditProfileActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
@@ -48,6 +50,7 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     StorageReference storageReference;
+    NoInternetDialog noInternetDialog;
 
     private TextInputEditText Name, Branch, RollNo, Company;
     Button logout, edit;
@@ -67,7 +70,7 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("users");
-
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
         Name =  (TextInputEditText)findViewById(R.id.name);
         Company =  (TextInputEditText)findViewById(R.id.Com);
         Branch =  (TextInputEditText)findViewById(R.id.Branch);
@@ -225,5 +228,9 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
             }
         });
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
+    }
 }

@@ -51,11 +51,15 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniLoginActivity extends AppCompatActivity {
     TextInputLayout t1, t2;
     TextView createaccount;
     ProgressBar bar;
     FirebaseAuth mAuth;
+
+
     private static final String EMAIL = "email";
     public static final String Id="id";
     public static final String imgurl="imgUrl";
@@ -71,6 +75,8 @@ public class AlumniLoginActivity extends AppCompatActivity {
     String mailid = "";
     String name = "";
     String photo = "";
+    NoInternetDialog noInternetDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -81,6 +87,8 @@ public class AlumniLoginActivity extends AppCompatActivity {
         t2 = (TextInputLayout) findViewById(R.id.pwd_login);
         bar = (ProgressBar) findViewById(R.id.progressBar_login);
         createaccount=findViewById(R.id.createaccount);
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
+
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -355,4 +363,11 @@ public class AlumniLoginActivity extends AppCompatActivity {
                     }
                 });
     }
-}}
+
+}
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
+    }
+}

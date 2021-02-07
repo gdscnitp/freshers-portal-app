@@ -38,6 +38,8 @@ import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class EditProfileActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
@@ -47,6 +49,8 @@ public class EditProfileActivity extends AppCompatActivity {
     StorageReference storageReference;
     FirebaseUser firebaseUser;
     Uri ServerFileUri;
+    NoInternetDialog noInternetDialog;
+
 
     private TextInputEditText Name, Branch, RollNo, Year;
     Button logout, edit;
@@ -58,14 +62,19 @@ public class EditProfileActivity extends AppCompatActivity {
     private String PhotoUrl;
     private Uri imageUri;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("users");
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
 
 
         Name = (TextInputEditText) findViewById(R.id.name);
@@ -235,5 +244,10 @@ public class EditProfileActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 }

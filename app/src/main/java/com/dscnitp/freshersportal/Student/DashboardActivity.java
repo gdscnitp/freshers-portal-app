@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class DashboardActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener
 {
 
@@ -32,11 +35,13 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
 //    Toolbar actionBar;
     BottomNavigationView navigationView;
     FirebaseAuth mAuth;
+  NoInternetDialog noInternetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
 //        actionBar=findViewById(R.id.toolbar);
 //        setSupportActionBar(actionBar);
 //        actionBar.setTitle("Profile Activity");
@@ -46,9 +51,9 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
         navigationView=findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
 //
-//
         checkUserStatus();
     }
+
 
     public boolean loadFragments(Fragment fragment) {
        if(fragment!=null)
@@ -154,5 +159,10 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
         {
             navigationView.setSelectedItemId(R.id.nav_home);
         }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 }

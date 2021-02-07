@@ -75,6 +75,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class GroupChatActivity extends AppCompatActivity {
     String grouid,mygrprole="";
     Toolbar toolbar;
@@ -110,6 +112,7 @@ public class GroupChatActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         grpicon=findViewById(R.id.groupicontv);
         attachbtn=findViewById(R.id.grpattach);
         sendmsgbtn=findViewById(R.id.sendgrpmsg);

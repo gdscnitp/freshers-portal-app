@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.dscnitp.freshersportal.Adapter.AdapterBlogs;
@@ -26,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import am.appwise.components.ni.NoInternetDialog;
 
 
 /**
@@ -43,7 +46,7 @@ public class HomeFagment extends Fragment {
     RecyclerView recyclerView;
     List<ModelBlogs> posts;
     AdapterBlogs adapterPosts;
-
+    //NoInternetDialog noInternetDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +55,9 @@ public class HomeFagment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_home_fagment, container, false);
         firebaseAuth= FirebaseAuth.getInstance();
         recyclerView=view.findViewById(R.id.postrecyclerview);
+
+        //noInternetDialog = new NoInternetDialog.Builder(this).build();
+
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         layoutManager.setReverseLayout(true);
@@ -61,6 +67,8 @@ public class HomeFagment extends Fragment {
         loadPosts();
         return view;
     }
+
+
     @Override
     public void onStart() {
         super.onStart();

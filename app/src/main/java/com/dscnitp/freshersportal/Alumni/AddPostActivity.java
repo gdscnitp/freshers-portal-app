@@ -41,6 +41,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
+
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AddPostActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
@@ -65,6 +68,8 @@ public class AddPostActivity extends AppCompatActivity {
         title = findViewById(R.id.ptitle);
         type = findViewById(R.id.type);
         uid=FirebaseAuth.getInstance().getUid();
+
+
 
         title.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -142,7 +147,9 @@ public class AddPostActivity extends AppCompatActivity {
             }
         });
         actionBar.setSubtitle(email);
+
     }
+
 
     private void prepareNotification(String pId,String title,String description,String notificationtype,String notificationtopic) throws JSONException {
 
@@ -249,5 +256,6 @@ public class AddPostActivity extends AppCompatActivity {
         onBackPressed();
         return super.onSupportNavigateUp();
     }
+
 
 }

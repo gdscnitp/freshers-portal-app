@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class SplashScreen extends AppCompatActivity {
 
     Animation top, bottom;
@@ -31,6 +33,8 @@ public class SplashScreen extends AppCompatActivity {
     FirebaseUser user;
     FirebaseAuth firebaseAuth;
     private static int splash = 1000;
+    NoInternetDialog noInternetDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,6 +47,7 @@ public class SplashScreen extends AppCompatActivity {
 
         image = findViewById(R.id.logoSplash);
         logo = findViewById(R.id.text_fresher);
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
 
         image.setAnimation(top);
         logo.setAnimation(bottom);
@@ -65,6 +70,11 @@ public class SplashScreen extends AppCompatActivity {
             }
         },splash);
 
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
     private void checkUserType() {
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("users");

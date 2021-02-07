@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.dscnitp.freshersportal.AboutUs;
 import com.dscnitp.freshersportal.R;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class ProfileActivity extends AppCompatActivity {
 
     Button edit;

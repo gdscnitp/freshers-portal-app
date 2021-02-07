@@ -33,6 +33,8 @@ import com.squareup.picasso.Picasso;
 
 import java.time.Year;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniProfileFragment extends Fragment {
 
     Button edit;
@@ -49,7 +51,6 @@ public class AlumniProfileFragment extends Fragment {
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-
 
 
     //views from xml
@@ -70,7 +71,6 @@ public class AlumniProfileFragment extends Fragment {
         Branch=view.findViewById(R.id.branch);
         Year= view.findViewById(R.id.year);
         Company = view.findViewById(R.id.company);
-
         ivProfile = view.findViewById(R.id.profile_image);
 
         aboutUs= view.findViewById(R.id.aboutUs);

@@ -57,6 +57,8 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class LoginActivity extends AppCompatActivity {
     TextInputLayout t1, t2;
     TextView createaccount;
@@ -79,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
     String mailid = "";
     String name = "";
     String photo = "";
+   // NoInternetDialog noInternetDialog;
 
     FirebaseUser currentUser;
 
@@ -88,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+      //  noInternetDialog = new NoInternetDialog.Builder(this).build();
         t1 = (TextInputLayout) findViewById(R.id.email_login);
         t2 = (TextInputLayout) findViewById(R.id.pwd_login);
         bar = (ProgressBar) findViewById(R.id.progressBar_login);

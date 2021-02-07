@@ -28,6 +28,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniProfileActivity extends AppCompatActivity {
 
     EditText spinner1,spinner2;
@@ -40,6 +43,7 @@ public class AlumniProfileActivity extends AppCompatActivity {
     private FirebaseStorage mStorage;
     private DatabaseReference databaseReferenceUsers;
     private Uri ServerFileUri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +54,6 @@ public class AlumniProfileActivity extends AppCompatActivity {
         Company=findViewById(R.id.Com);
         update =  findViewById(R.id.update);
         ivProfile=findViewById(R.id.logo);
-
         mAuth=FirebaseAuth.getInstance();
         currentUser=mAuth.getCurrentUser();
 
