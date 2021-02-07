@@ -53,7 +53,7 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
 
     private TextInputEditText Name, Branch, RollNo, Company;
     Button logout, edit;
-    ImageView profilePic;
+    ImageView profilePic, alumniImagebtn;
     Spinner from, to;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -61,6 +61,7 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
     private DatabaseReference databaseReferenceUsers;
     private String PhotoUrl;
     private Uri imageUri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +76,8 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
         from = findViewById(R.id.spinner_from);
         to = findViewById(R.id.spinner_to);
         profilePic = (ImageView) findViewById(R.id.ProfileImage);
-        profilePic.setOnClickListener(new View.OnClickListener() {
+        alumniImagebtn = (ImageView) findViewById(R.id.alumni_image_btn);
+        alumniImagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(EditProfileActivity.this,"Image clicked",Toast.LENGTH_SHORT).show();
@@ -101,22 +103,22 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
                     if (dataSnapshot.child(Node.Name).getValue() != null)
                         Name.setText(dataSnapshot.child(Node.Name).getValue().toString());
 
-                    if (dataSnapshot.child(Node.ROLL_NO).getValue() != null)
-                        RollNo.setText(dataSnapshot.child(Node.ROLL_NO).getValue().toString());
+//                    if (dataSnapshot.child(Node.ROLL_NO).getValue() != null)
+//                        RollNo.setText(dataSnapshot.child(Node.ROLL_NO).getValue().toString());
+//
+//                    if (dataSnapshot.child(Node.Branch).getValue() != null)
+//                        Branch.setText(dataSnapshot.child(Node.Branch).getValue().toString());
+//
+//                    String url = dataSnapshot.child(Node.Photo).getValue().toString();
+//                    if (url.length() != 0)
+//                        Picasso.get().load(url).into(profilePic);
 
-                    if (dataSnapshot.child(Node.Branch).getValue() != null)
-                        Branch.setText(dataSnapshot.child(Node.Branch).getValue().toString());
-
-                    String url = dataSnapshot.child(Node.Photo).getValue().toString();
-                    if (url.length() != 0)
-                        Picasso.get().load(url).into(profilePic);
-
-                    ArrayAdapter<String> fromYearAdapter=new ArrayAdapter<String>(AlumniEditProfileActivity.this,android.R.layout.simple_list_item_1,
+                    ArrayAdapter<String> fromYearAdapter = new ArrayAdapter<String>(AlumniEditProfileActivity.this, android.R.layout.simple_list_item_1,
                             getResources().getStringArray(R.array.YearFrom));
                     fromYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                   from.setAdapter(fromYearAdapter);
+                    from.setAdapter(fromYearAdapter);
 
-                   ArrayAdapter<String> ToYearAdapter=new ArrayAdapter<String>(AlumniEditProfileActivity.this,android.R.layout.simple_list_item_1,
+                    ArrayAdapter<String> ToYearAdapter = new ArrayAdapter<String>(AlumniEditProfileActivity.this, android.R.layout.simple_list_item_1,
                             getResources().getStringArray(R.array.YearFrom));
                     fromYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     to.setAdapter(fromYearAdapter);

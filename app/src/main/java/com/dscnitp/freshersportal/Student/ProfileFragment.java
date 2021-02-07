@@ -137,16 +137,21 @@ public class ProfileFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.child(Node.ROLL_NO).getValue() != null)
                         RollNo.setText(dataSnapshot.child(Node.ROLL_NO).getValue().toString());
+
                     if (dataSnapshot.child(Node.Branch).getValue() != null)
                         Branch.setText(dataSnapshot.child(Node.Branch).getValue().toString());
-//                    yearTv.setText(yearTv);
+//                      yearTv.setText(yearTv);
+
                     if (dataSnapshot.child(Node.Year).getValue() != null)
                         year.setText(dataSnapshot.child(Node.Year).getValue().toString());
 
                     String url = dataSnapshot.child(Node.Photo).getValue().toString();
-                    if (url.length() != 0)
+                    if (url.length() != 0) {
                         Picasso.get().load(url).placeholder(R.mipmap.ic_launcher_foreground).into(ivProfile);
+                    }
+
                 }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 

@@ -42,7 +42,6 @@
                 android:textSize="24sp" />
         </LinearLayout>
 
-
     </androidx.appcompat.widget.Toolbar>
 
 
@@ -63,25 +62,41 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/student_profile_image"
-                    android:layout_width="171dp"
-                    android:layout_height="138dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="110dp"
-                    android:layout_marginTop="39dp"
-                    android:layout_marginEnd="114dp"
-                    android:src="@mipmap/ic_launcher_foreground" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/student_profile_image"
+                        android:layout_width="151dp"
+                        android:layout_height="138dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="39dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/ic_launcher_foreground" />
+
+                    <ImageView
+                        android:id="@+id/student_image_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/student_profile_image"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_toEndOf="@+id/student_profile_image"
+                        android:src="@drawable/ic_baseline_add_a_photo_24" />
+
+                </RelativeLayout>
+
 
                 <TextView
                     android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="20dp"
-                android:text="PROFILE DETAILS"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="24sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingBottom="20dp"
+                    android:text="PROFILE DETAILS"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="24sp"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout

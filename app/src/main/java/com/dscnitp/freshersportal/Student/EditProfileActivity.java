@@ -52,7 +52,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private TextInputEditText Name, Branch, RollNo, Year;
     Button logout, edit;
-    ImageView profilePic;
+    ImageView profilePic, imageUpdatebtn;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private FirebaseStorage mStorage;
@@ -75,8 +75,9 @@ public class EditProfileActivity extends AppCompatActivity {
         Branch = (TextInputEditText) findViewById(R.id.branch);
         Year = (TextInputEditText) findViewById(R.id.year);
         profilePic = (ImageView) findViewById(R.id.student_profile_image);
+        imageUpdatebtn = (ImageView) findViewById(R.id.student_image_btn);
 
-        profilePic.setOnClickListener(new View.OnClickListener() {
+        imageUpdatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(EditProfileActivity.this,"Image clicked",Toast.LENGTH_SHORT).show();
@@ -114,8 +115,9 @@ public class EditProfileActivity extends AppCompatActivity {
                         Year.setText(dataSnapshot.child(Node.Year).getValue().toString());
 
                     String url = dataSnapshot.child(Node.Photo).getValue().toString();
-                    if (url.length() != 0)
+                    if (url.length() != 0) {
                         Picasso.get().load(url).into(profilePic);
+                    }
 
                 }
 
