@@ -1,51 +1,73 @@
 package com.dscnitp.freshersportal.Student;
 
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DownloadManager;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.SearchView;
-
 import com.dscnitp.freshersportal.Adapter.AdapterMaterials;
-import com.dscnitp.freshersportal.Model.PdfFileInfo;
+import com.dscnitp.freshersportal.Model.ModelQuestionPaper;
 import com.dscnitp.freshersportal.R;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
+import com.google.firebase.database.ValueEventListener;
 
-import static android.os.Environment.DIRECTORY_DOWNLOADS;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewNotesActivity extends AppCompatActivity {
 
-    RecyclerView notesListrecyclerView;
     Button downloadNotes;
     AdapterMaterials adapter;
+    SearchView searchView;
+    List<ModelQuestionPaper> NotesList;
+    DatabaseReference databaseReferenceNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_notes);
 
-        notesListrecyclerView = (RecyclerView) findViewById(R.id.pdf_list);
+        final RecyclerView notesListrecyclerView = (RecyclerView) findViewById(R.id.pdf_list);
+        searchView=findViewById(R.id.search_files);
         notesListrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        NotesList=new ArrayList<>();
 
-        FirebaseRecyclerOptions<PdfFileInfo> options = new FirebaseRecyclerOptions.Builder<PdfFileInfo>()
-                .setQuery(FirebaseDatabase.getInstance().getReference("Notes"),PdfFileInfo.class).build();
+//        FirebaseRecyclerOptions<PdfFileInfo> options = new FirebaseRecyclerOptions.Builder<PdfFileInfo>()
+//                .setQuery(FirebaseDatabase.getInstance().getReference("Notes"),PdfFileInfo.class).build();
 
-        adapter = new AdapterMaterials(options);
-        notesListrecyclerView.setAdapter(adapter);
+//        adapter = new AdapterMaterials(options);
+
+        databaseReferenceNotes=FirebaseDatabase.getInstance().getReference().child("Notes");
+        databaseReferenceNotes.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds:snapshot.getChildren())
+                {
+
+                            String FileName=ds.child("filename").getValue().toString();
+                            String FileUrl=ds.child("fileurl").getValue().toString();
+                            ModelQuestionPaper modelQuestionPaper=new ModelQuestionPaper(FileName,FileUrl);
+                            NotesList.add(modelQuestionPaper);
+                }
+                adapter = new AdapterMaterials(ViewNotesActivity.this,NotesList);
+                notesListrecyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         /*downloadNotes = findViewById(R.id.download_file_btn);
         downloadNotes.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +78,18 @@ public class ViewNotesActivity extends AppCompatActivity {
         });
 
 */
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return false;
+            }
+        });
     }
 /*
     private void download() {
@@ -88,17 +122,17 @@ public class ViewNotesActivity extends AppCompatActivity {
     }*/
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,19 +141,7 @@ public class ViewNotesActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.search_item);
         SearchView searchView = (SearchView)item.getActionView();
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                processSearch(s);
-                return false;
-            }
 
-            @Override
-            public boolean onQueryTextChange(String s) {
-                processSearch(s);
-                return false;
-            }
-        });
         return super.onCreateOptionsMenu(menu);
     }
 
