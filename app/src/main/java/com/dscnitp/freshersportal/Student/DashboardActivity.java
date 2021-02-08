@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,7 +42,9 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        noInternetDialog = new NoInternetDialog.Builder(this).build();
+        noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
+                .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
+                .setBgGradientEnd(Color.parseColor("#4488A7")).build();
 //        actionBar=findViewById(R.id.toolbar);
 //        setSupportActionBar(actionBar);
 //        actionBar.setTitle("Profile Activity");

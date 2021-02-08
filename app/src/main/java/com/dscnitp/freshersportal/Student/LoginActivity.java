@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -81,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
     String mailid = "";
     String name = "";
     String photo = "";
-   // NoInternetDialog noInternetDialog;
+   NoInternetDialog noInternetDialog;
 
     FirebaseUser currentUser;
 
@@ -91,7 +92,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-      //  noInternetDialog = new NoInternetDialog.Builder(this).build();
+        noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
+                .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
+                .setBgGradientEnd(Color.parseColor("#4488A7")).build();
         t1 = (TextInputLayout) findViewById(R.id.email_login);
         t2 = (TextInputLayout) findViewById(R.id.pwd_login);
         bar = (ProgressBar) findViewById(R.id.progressBar_login);
@@ -208,6 +211,11 @@ public class LoginActivity extends AppCompatActivity {
                 signinhere();
             }
         });
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 
     @Override

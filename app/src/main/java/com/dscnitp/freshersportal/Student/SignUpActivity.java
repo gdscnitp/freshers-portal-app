@@ -3,6 +3,7 @@ package com.dscnitp.freshersportal.Student;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -58,7 +59,9 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-      noInternetDialog = new NoInternetDialog.Builder(this).build();
+        noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
+                .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
+                .setBgGradientEnd(Color.parseColor("#4488A7")).build();
 
         t1 = findViewById(R.id.email);
         t2 = findViewById(R.id.pwd);
