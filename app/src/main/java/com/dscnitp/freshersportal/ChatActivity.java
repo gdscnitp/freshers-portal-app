@@ -82,6 +82,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class ChatActivity extends AppCompatActivity {
 
     Toolbar toolbar;
@@ -100,6 +102,7 @@ public class ChatActivity extends AppCompatActivity {
     List<ModelChat> chatList;
     AdapterChat adapterChat;
 
+
     private static final int IMAGEPICK_GALLERY_REQUEST = 300;
     private static final int IMAGE_PICKCAMERA_REQUEST = 400;
     private static final int CAMERA_REQUEST = 100;
@@ -116,6 +119,7 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
         firebaseAuth= FirebaseAuth.getInstance();
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

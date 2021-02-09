@@ -24,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniAllContactActivity extends AppCompatActivity {
 
     ArrayList<ModelUser> modelUsers;
@@ -43,6 +45,7 @@ public class AlumniAllContactActivity extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         modelUsers=new ArrayList<>();
+
         getAllUsers();
     }
 
@@ -51,7 +54,6 @@ public class AlumniAllContactActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
     private void getAllUsers() {
@@ -103,7 +105,9 @@ public class AlumniAllContactActivity extends AppCompatActivity {
 
             }
         });
+
     }
+
 
 
 }

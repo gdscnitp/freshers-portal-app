@@ -52,10 +52,10 @@ public class ViewQuesPaperActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds:snapshot.getChildren())
                 {
-                            String FileName=ds.child("filename").getValue().toString();
-                            String FileUrl=ds.child("fileurl").getValue().toString();
-                            ModelQuestionPaper modelQuestionPaper=new ModelQuestionPaper(FileName,FileUrl);
-                            QuestionPaperList.add(modelQuestionPaper);
+                    String FileName=ds.child("filename").getValue().toString();
+                    String FileUrl=ds.child("fileurl").getValue().toString();
+                    ModelQuestionPaper modelQuestionPaper=new ModelQuestionPaper(FileName,FileUrl);
+                    QuestionPaperList.add(modelQuestionPaper);
                 }
                 adapter = new AdapterMaterials(ViewQuesPaperActivity.this,QuestionPaperList);
                 quesPaperListrecyclerView.setAdapter(adapter);

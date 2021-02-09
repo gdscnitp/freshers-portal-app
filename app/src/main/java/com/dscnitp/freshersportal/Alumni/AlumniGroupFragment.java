@@ -30,6 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +42,8 @@ public class AlumniGroupFragment extends Fragment {
     FirebaseAuth firebaseAuth;
     ArrayList<ModelGroupChatList> groupChats;
     AdapterGroupChatList chatList;
+    NoInternetDialog noInternetDialog;
+
 
     public AlumniGroupFragment() {
         // Required empty public constructor
@@ -54,6 +58,7 @@ public class AlumniGroupFragment extends Fragment {
         recyclerView=view.findViewById(R.id.grptv);
         firebaseAuth=FirebaseAuth.getInstance();
         loadGroupChat();
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
         return view;
     }
     private void loadGroupChat(){
@@ -109,6 +114,10 @@ public class AlumniGroupFragment extends Fragment {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
     }
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
+    }
 
 }

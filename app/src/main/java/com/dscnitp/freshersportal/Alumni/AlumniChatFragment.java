@@ -33,6 +33,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,8 +55,9 @@ public class AlumniChatFragment extends Fragment {
     Query reference;
     AdapterChatList adapterChatList;
     List<ModelChat> chatList;
-
     FirebaseUser firebaseUser;
+    NoInternetDialog noInternetDialog;
+
 
 
     @Override
@@ -62,6 +65,7 @@ public class AlumniChatFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_alumni_chat, container, false);
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
         actionBar =view.findViewById(R.id.seeallcontacts);
         actionBar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,5 +188,9 @@ public class AlumniChatFragment extends Fragment {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
     }
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
+    }
 }

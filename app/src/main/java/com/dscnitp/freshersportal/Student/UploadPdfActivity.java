@@ -35,6 +35,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.google.type.TimeOfDayOrBuilder;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 
 public class UploadPdfActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

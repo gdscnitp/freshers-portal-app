@@ -54,10 +54,10 @@ public class ViewNotesActivity extends AppCompatActivity {
                 for(DataSnapshot ds:snapshot.getChildren())
                 {
 
-                            String FileName=ds.child("filename").getValue().toString();
-                            String FileUrl=ds.child("fileurl").getValue().toString();
-                            ModelQuestionPaper modelQuestionPaper=new ModelQuestionPaper(FileName,FileUrl);
-                            NotesList.add(modelQuestionPaper);
+                    String FileName=ds.child("filename").getValue().toString();
+                    String FileUrl=ds.child("fileurl").getValue().toString();
+                    ModelQuestionPaper modelQuestionPaper=new ModelQuestionPaper(FileName,FileUrl);
+                    NotesList.add(modelQuestionPaper);
                 }
                 adapter = new AdapterMaterials(ViewNotesActivity.this,NotesList);
                 notesListrecyclerView.setAdapter(adapter);
@@ -76,7 +76,6 @@ public class ViewNotesActivity extends AppCompatActivity {
                 download();
             }
         });
-
 */
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -93,10 +92,8 @@ public class ViewNotesActivity extends AppCompatActivity {
     }
 /*
     private void download() {
-
         StorageReference storageReference = FirebaseStorage.getInstance().getReference();
         storageReference.child("");
-
         storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -105,17 +102,13 @@ public class ViewNotesActivity extends AppCompatActivity {
         }) .addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
             }
         });
     }
-
     private void downloadFile(Context context,String fileName, String fileExtension,String destinationDirectory,String url) {
-
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         Uri uri = Uri.parse(url);
         DownloadManager.Request request = new DownloadManager.Request(uri);
-
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         request.setDestinationInExternalFilesDir(context,destinationDirectory,fileName + fileExtension);
         downloadManager.enqueue(request);
@@ -146,9 +139,9 @@ public class ViewNotesActivity extends AppCompatActivity {
     }
 
     private void processSearch(String s) {
-       // FirebaseRecyclerOptions<PdfFileInfo> options = new FirebaseRecyclerOptions.Builder<PdfFileInfo>()
-         //       .setQuery(FirebaseDatabase.getInstance().getReference()
-           //             .child("Materials").orderByChild("filename").startAt(s).endAt(s+"\uf8ff"),PdfFileInfo.class).build();
+        // FirebaseRecyclerOptions<PdfFileInfo> options = new FirebaseRecyclerOptions.Builder<PdfFileInfo>()
+        //       .setQuery(FirebaseDatabase.getInstance().getReference()
+        //             .child("Materials").orderByChild("filename").startAt(s).endAt(s+"\uf8ff"),PdfFileInfo.class).build();
 
         //adapter = new AdapterMaterials(options);
         //adapter.startListening();

@@ -1,19 +1,19 @@
 package com.dscnitp.freshersportal;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.net.URLEncoder;
 
 public class ViewPdfActivity extends AppCompatActivity {
 
     WebView pdfview;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class ViewPdfActivity extends AppCompatActivity {
 
         String filename = getIntent().getStringExtra("filename");
         String fileurl = getIntent().getStringExtra("fileurl");
+
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setTitle(filename);

@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class GroupInfoActivity extends AppCompatActivity {
 
     private String myGrprole="";
@@ -43,10 +45,12 @@ public class GroupInfoActivity extends AppCompatActivity {
     ArrayList<ModelUser> users;
     RecyclerView recyclerView;
     AdapterParticipantsAd participantsAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_info);
+
         toolbar=findViewById(R.id.toolbargrp);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
