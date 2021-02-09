@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,7 @@ import com.dscnitp.freshersportal.Student.LoginActivity;
 import am.appwise.components.ni.NoInternetDialog;
 
 public class UserTypeActivity extends AppCompatActivity {
+
 
     Button student,alumni;
     NoInternetDialog noInternetDialog;
