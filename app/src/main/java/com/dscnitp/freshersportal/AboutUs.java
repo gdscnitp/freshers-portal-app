@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Gallery;
 
-import am.appwise.components.ni.NoInternetDialog;
 
 public class AboutUs extends AppCompatActivity {
 
@@ -25,6 +23,5 @@ public class AboutUs extends AppCompatActivity {
                 startActivity(new Intent(AboutUs.this, Gallery.class));
             }
         });
-
     }
 }

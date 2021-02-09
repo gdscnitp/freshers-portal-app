@@ -40,7 +40,7 @@ public class AlumniProfileFragment extends Fragment {
     Button edit;
     Button logout;
     FirebaseAuth mAuth;
-    TextView Name,Branch,RollNo, Year;
+    TextView Name,RollNo, Year;
     TextView aboutUs, privacy;
     FirebaseStorage mStorage;
     FirebaseUser firebaseUser;
@@ -68,7 +68,7 @@ public class AlumniProfileFragment extends Fragment {
 
         Name=view.findViewById(R.id.name);
         RollNo=view.findViewById(R.id.roll);
-        Branch=view.findViewById(R.id.branch);
+//        Branch=view.findViewById(R.id.branch);
         Year= view.findViewById(R.id.year);
         Company = view.findViewById(R.id.company);
         ivProfile = view.findViewById(R.id.profile_image);
@@ -132,21 +132,20 @@ public class AlumniProfileFragment extends Fragment {
         {
             Name.setText(firebaseUser.getDisplayName());
             ServerFileUri=firebaseUser.getPhotoUrl();
-            Query query= databaseReference.orderByChild("email").equalTo(user.getEmail());
+            Query query= databaseReference.child(firebaseAuth.getUid());
             query.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        String name = "" + ds.child("name").getValue();
+                        String name = "" + dataSnapshot.child("name").getValue();
                         Name.setText(name);
-                        String year = "" + ds.child("year").getValue();
+                        String year = "" + dataSnapshot.child("year").getValue();
                         Year.setText(year);
-                        String branch = "" + ds.child("Branch").getValue();
-                        Branch.setText(branch);
-                        String company = "" + ds.child("company").getValue();
+//                        String branch = "" + dataSnapshot.child("Branch").getValue();
+//                        Branch.setText(branch);
+                        String company = "" + dataSnapshot.child("company").getValue();
                         Company.setText(company);
-
                     }
                 }
                 @Override

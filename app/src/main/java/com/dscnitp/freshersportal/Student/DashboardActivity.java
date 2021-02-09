@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-import com.dscnitp.freshersportal.Alumni.AlumniHomeFragment;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.SplashScreen;
 import com.dscnitp.freshersportal.notifications.Token;
@@ -53,7 +52,6 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
         loadFragments(new HomeFagment());
         navigationView=findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
-//
         checkUserStatus();
     }
 
@@ -88,16 +86,16 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.action_logout) {
-            mAuth.signOut();
-            finish();
-            Intent mainIntent = new Intent(DashboardActivity.this, SplashScreen.class);
-            startActivity(mainIntent);
-        }
-        if(item.getItemId()==R.id.action_post){
-            Intent mainIntent = new Intent(DashboardActivity.this, ProfileActivity.class);
-            startActivity(mainIntent);
-        }
+//        if (item.getItemId() == R.id.action_logout) {
+//            mAuth.signOut();
+//            finish();
+//            Intent mainIntent = new Intent(DashboardActivity.this, SplashScreen.class);
+//            startActivity(mainIntent);
+//        }
+//        if(item.getItemId()==R.id.action_post){
+//            Intent mainIntent = new Intent(DashboardActivity.this, ProfileActivity.class);
+//            startActivity(mainIntent);
+//        }
         return super.onOptionsItemSelected(item);
     }
 

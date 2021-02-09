@@ -133,15 +133,14 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Year"
+                android:hint="Enrollment Number"
                 android:paddingBottom="40dp">
 
-
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/year"
+                    android:id="@+id/enroll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Year"
+                    android:hint="Enrollment Number"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
