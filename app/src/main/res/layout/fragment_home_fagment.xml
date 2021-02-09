@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="#349C92"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +25,8 @@
             android:id="@+id/backToProfile"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:paddingTop="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="6dp"
             android:src="@drawable/logo_splash" />
 
         <TextView
@@ -33,11 +35,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="0dp"
             android:fontFamily="@font/knewave"
-            android:padding="10dp"
+            android:padding="8dp"
             android:text="Blogs"
             android:textColor="#E8FFFFFF"
             android:textSize="24sp" />
     </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
