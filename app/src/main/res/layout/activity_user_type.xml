@@ -90,7 +90,7 @@
     <!--        android:id="@+id/alumni"-->
 
     <LinearLayout
-        android:id="@+id/alumni"
+        android:id="@+id/alumniOption"
         android:layout_width="216dp"
         android:layout_height="192dp"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -122,7 +122,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/student"
+        android:id="@+id/studentOption"
         android:layout_width="212dp"
         android:layout_height="191dp"
         android:layout_gravity="center_vertical|center_horizontal"
