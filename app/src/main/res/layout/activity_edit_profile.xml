@@ -99,22 +99,7 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Roll no."
-                android:paddingBottom="20dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/roll"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Roll no."
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,8 +112,22 @@
                     android:layout_height="wrap_content"
                     android:hint="Branch"
                     />
+                </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Roll no."
+                        android:paddingBottom="20dp">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/roll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Roll no." />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -136,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Year"
                 android:paddingBottom="40dp">
+
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/year"
