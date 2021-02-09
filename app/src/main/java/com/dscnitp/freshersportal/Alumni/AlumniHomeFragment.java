@@ -27,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +40,6 @@ public class AlumniHomeFragment extends Fragment {
     RecyclerView recyclerView;
     List<ModelBlogs> posts;
     AdapterBlogs adapterPosts;
-
     public AlumniHomeFragment() {
         // Required empty public constructor
     }
@@ -52,6 +53,7 @@ public class AlumniHomeFragment extends Fragment {
         firebaseAuth=FirebaseAuth.getInstance();
         recyclerView=view.findViewById(R.id.postrecyclerview);
         recyclerView.setHasFixedSize(true);
+
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);

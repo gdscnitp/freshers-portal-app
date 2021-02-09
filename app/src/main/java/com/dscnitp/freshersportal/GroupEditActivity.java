@@ -50,6 +50,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class GroupEditActivity extends AppCompatActivity {
 
     String groupid;
@@ -68,14 +70,17 @@ public class GroupEditActivity extends AppCompatActivity {
     EditText title,desc;
     FloatingActionButton craetegrp;
     Uri imageuri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_edit);
+
         toolbar=findViewById(R.id.editgrps);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         groupid=getIntent().getStringExtra("groupId");
         getSupportActionBar().setTitle("Edit Group");
         icon=findViewById(R.id.groupiconn);

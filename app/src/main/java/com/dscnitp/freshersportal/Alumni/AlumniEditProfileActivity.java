@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,8 @@ import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniEditProfileActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
@@ -48,6 +51,7 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     StorageReference storageReference;
+    NoInternetDialog noInternetDialog;
 
     private TextInputEditText Name, Branch, RollNo, Company;
     Button logout, edit;
@@ -67,7 +71,9 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("users");
-
+        noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
+                .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
+                .setBgGradientEnd(Color.parseColor("#4488A7")).build();
         Name =  (TextInputEditText)findViewById(R.id.name);
         Company =  (TextInputEditText)findViewById(R.id.Com);
         Branch =  (TextInputEditText)findViewById(R.id.Branch);
@@ -225,5 +231,9 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
             }
         });
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
+    }
 }

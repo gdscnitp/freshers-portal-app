@@ -9,6 +9,8 @@ import android.os.Bundle;
 import com.dscnitp.freshersportal.R;
 import com.google.android.material.tabs.TabLayout;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniChatActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
@@ -24,10 +26,12 @@ public class AlumniChatActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Messages");
 
+
         myViewPager = (ViewPager) findViewById(R.id.main_tabs_pager);
         myTabsAccessorAdapter=new TabAccessorAdapterAlumni(getSupportFragmentManager());
         myViewPager.setAdapter(myTabsAccessorAdapter);
         myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
         myTabLayout.setupWithViewPager(myViewPager);
     }
+
 }

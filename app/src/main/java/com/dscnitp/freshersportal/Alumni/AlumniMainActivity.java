@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.graphics.Color;
 import android.net.Uri;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,6 +42,8 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.dscnitp.freshersportal.Student.EditProfileActivity;
 import java.util.HashMap;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AlumniMainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener
 {
 
@@ -47,6 +51,7 @@ public class AlumniMainActivity extends AppCompatActivity implements  BottomNavi
     private FirebaseUser firebaseUser;
     private Uri ServerFileUri;
     private DatabaseReference databaseReferenceUsers;
+    NoInternetDialog noInternetDialog;
 
     String myuid;
     Toolbar actionBar;
@@ -56,6 +61,10 @@ public class AlumniMainActivity extends AppCompatActivity implements  BottomNavi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alumni_main);
+        noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
+                .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
+                .setBgGradientEnd(Color.parseColor("#4488A7")).build();
+
         actionBar=findViewById(R.id.toolbar);
         setSupportActionBar(actionBar);
         actionBar.setTitle("");
@@ -261,4 +270,10 @@ public class AlumniMainActivity extends AppCompatActivity implements  BottomNavi
             navigationView.setSelectedItemId(R.id.nav_home);
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
+    }
+
 }

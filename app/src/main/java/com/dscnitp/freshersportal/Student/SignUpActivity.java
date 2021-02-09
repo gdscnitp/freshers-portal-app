@@ -3,6 +3,7 @@ package com.dscnitp.freshersportal.Student;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -38,6 +39,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class SignUpActivity extends AppCompatActivity {
     TextInputEditText t1,t2,names,rollNo;
     ProgressBar bar;
@@ -47,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseUser firebaseUser;
     private DatabaseReference databaseReference;
     Spinner BranchList;
+    NoInternetDialog noInternetDialog;
 
     private FirebaseStorage mStorage;
 
@@ -55,6 +59,10 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
+                .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
+                .setBgGradientEnd(Color.parseColor("#4488A7")).build();
+
         t1 = findViewById(R.id.email);
         t2 = findViewById(R.id.pwd);
         names =  findViewById(R.id.name);
@@ -310,6 +318,11 @@ public class SignUpActivity extends AppCompatActivity {
                 return 0;
         }
         return 1;
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 
 }

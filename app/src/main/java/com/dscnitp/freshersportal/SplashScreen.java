@@ -1,9 +1,11 @@
 package com.dscnitp.freshersportal;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -23,6 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class SplashScreen extends AppCompatActivity {
 
     Animation top, bottom;
@@ -31,6 +35,8 @@ public class SplashScreen extends AppCompatActivity {
     FirebaseUser user;
     FirebaseAuth firebaseAuth;
     private static int splash = 1000;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,7 +49,6 @@ public class SplashScreen extends AppCompatActivity {
 
         image = findViewById(R.id.logoSplash);
         logo = findViewById(R.id.text_fresher);
-
         image.setAnimation(top);
         logo.setAnimation(bottom);
         firebaseAuth=FirebaseAuth.getInstance();
@@ -66,6 +71,7 @@ public class SplashScreen extends AppCompatActivity {
         },splash);
 
     }
+
     private void checkUserType() {
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("users");
         reference.orderByChild("uid").equalTo(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {

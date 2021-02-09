@@ -53,10 +53,10 @@ public class ViewBooksActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds:snapshot.getChildren())
                 {
-                            String FileName=ds.child("filename").getValue().toString();
-                            String FileUrl=ds.child("fileurl").getValue().toString();
-                            ModelQuestionPaper modelQuestionPaper=new ModelQuestionPaper(FileName,FileUrl);
-                            BooksList.add(modelQuestionPaper);
+                    String FileName=ds.child("filename").getValue().toString();
+                    String FileUrl=ds.child("fileurl").getValue().toString();
+                    ModelQuestionPaper modelQuestionPaper=new ModelQuestionPaper(FileName,FileUrl);
+                    BooksList.add(modelQuestionPaper);
                 }
                 adapter = new AdapterMaterials(ViewBooksActivity.this,BooksList);
                 booksListrecyclerView.setAdapter(adapter);
@@ -108,8 +108,8 @@ public class ViewBooksActivity extends AppCompatActivity {
 
     private void processSearch(String s) {
         //FirebaseRecyclerOptions<PdfFileInfo> options = new FirebaseRecyclerOptions.Builder<PdfFileInfo>()
-          //     .setQuery(FirebaseDatabase.getInstance().getReference()
-            //         .child("Books-PDFs").orderByChild("filename").startAt(s).endAt(s+"\uf8ff"),PdfFileInfo.class).build();
+        //     .setQuery(FirebaseDatabase.getInstance().getReference()
+        //         .child("Books-PDFs").orderByChild("filename").startAt(s).endAt(s+"\uf8ff"),PdfFileInfo.class).build();
 
         //adapter = new AdapterMaterials(options);
         //adapter.startListening();

@@ -10,6 +10,8 @@ import android.widget.ListView;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class MyCollegeActivity extends AppCompatActivity {
 
     CarouselView carouselView;
@@ -23,7 +25,6 @@ public class MyCollegeActivity extends AppCompatActivity {
         carouselView = findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
-
     }
     ImageListener imageListener = new ImageListener() {
         @Override

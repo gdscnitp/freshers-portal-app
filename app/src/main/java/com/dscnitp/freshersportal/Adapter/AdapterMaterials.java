@@ -118,5 +118,5 @@ public class AdapterMaterials extends RecyclerView.Adapter<AdapterMaterials.Mate
             title = itemView.findViewById(R.id.pdftitle);
             viewPdf = itemView.findViewById(R.id.view_pdf_file_btn);
         }
-     }
+    }
 }

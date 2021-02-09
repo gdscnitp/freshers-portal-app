@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,8 @@ import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class EditProfileActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
@@ -47,6 +50,8 @@ public class EditProfileActivity extends AppCompatActivity {
     StorageReference storageReference;
     FirebaseUser firebaseUser;
     Uri ServerFileUri;
+    NoInternetDialog noInternetDialog;
+
 
     private TextInputEditText Name, Branch, RollNo, Year;
     Button logout, edit;
@@ -58,14 +63,21 @@ public class EditProfileActivity extends AppCompatActivity {
     private String PhotoUrl;
     private Uri imageUri;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("users");
+        noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
+                .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
+                .setBgGradientEnd(Color.parseColor("#4488A7")).build();
 
 
         Name = (TextInputEditText) findViewById(R.id.name);
@@ -235,5 +247,10 @@ public class EditProfileActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 }

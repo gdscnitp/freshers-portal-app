@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Gallery;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class AboutUs extends AppCompatActivity {
 
     Button gallery;
@@ -15,6 +17,7 @@ public class AboutUs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
+
         gallery=findViewById(R.id.viewgallery);
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -22,5 +25,6 @@ public class AboutUs extends AppCompatActivity {
                 startActivity(new Intent(AboutUs.this, Gallery.class));
             }
         });
+
     }
 }

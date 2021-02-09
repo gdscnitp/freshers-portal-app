@@ -57,6 +57,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import am.appwise.components.ni.NoInternetDialog;
+
 public class PostDetailsActivity extends AppCompatActivity {
 
 
@@ -76,10 +78,12 @@ public class PostDetailsActivity extends AppCompatActivity {
     boolean mlike=false;
 //    Toolbar actionBar;
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_details);
+
 //        actionBar = findViewById(R.id.toolbar);
 //        actionBar.setTitle("Post Details");
 //        actionBar= getActionBar().setDisplayHomeAsUpEnabled(0);
