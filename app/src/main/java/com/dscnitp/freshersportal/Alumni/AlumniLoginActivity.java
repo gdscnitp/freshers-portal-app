@@ -290,16 +290,15 @@ public class AlumniLoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(),
-                                        "Verification email sent to " + currentUser.getEmail(),
-                                        Toast.LENGTH_SHORT).show();
-                                //Log.d("Verification", "Verification email sent to " + currentUser.getEmail());
-                            } else {
-                                //Log.e( "sendEmailVerification", task.getException());
+                            if (!task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(),
                                         "Failed to send verification email.",
                                         Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(),
+                                        "Verification email sent to " + currentUser.getEmail(),
+                                        Toast.LENGTH_SHORT).show();
+                                checkIfEmailVerified();
                             }
                         }
                     });
@@ -324,7 +323,24 @@ public class AlumniLoginActivity extends AppCompatActivity {
 
 
     }
+    private void checkIfEmailVerified()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        if (user.isEmailVerified())
+        {
+            finish();
+            Toast.makeText(AlumniLoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),
+                    "User verification necessary!",
+                    Toast.LENGTH_SHORT).show();
+
+            FirebaseAuth.getInstance().signOut();
+        }
+    }
 
     @Override
     public void onResume() {

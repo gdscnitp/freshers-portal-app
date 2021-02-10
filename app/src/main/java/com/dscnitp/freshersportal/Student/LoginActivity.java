@@ -25,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dscnitp.freshersportal.Alumni.AlumniLoginActivity;
 import com.dscnitp.freshersportal.Alumni.AlumniMainActivity;
 import com.dscnitp.freshersportal.R;
 import com.google.android.gms.auth.api.Auth;
@@ -152,16 +153,16 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
 
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(getApplicationContext(),
-                                                "Verification email sent to " + currentUser.getEmail(),
-                                                Toast.LENGTH_SHORT).show();
-                                        //Log.d("Verification", "Verification email sent to " + currentUser.getEmail());
-                                    } else {
-                                        //Log.e( "sendEmailVerification", task.getException());
+                                    if (!task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(),
                                                 "Failed to send verification email.",
                                                 Toast.LENGTH_SHORT).show();
+                                    } else {
+
+                                        Toast.makeText(getApplicationContext(),
+                                                "Verification email sent to " + currentUser.getEmail(),
+                                                Toast.LENGTH_SHORT).show();
+                                        checkIfEmailVerified();
                                     }
                                 }
                             });
@@ -232,6 +233,24 @@ public class LoginActivity extends AppCompatActivity {
                 signinhere();
             }
         });
+    }
+    private void checkIfEmailVerified()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user.isEmailVerified())
+        {
+            finish();
+            Toast.makeText(LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),
+                    "User verification necessary!",
+                    Toast.LENGTH_SHORT).show();
+
+            FirebaseAuth.getInstance().signOut();
+        }
     }
     @Override
     protected void onDestroy() {
