@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dscnitp.freshersportal.R;
+import com.dscnitp.freshersportal.Student.LoginActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -282,9 +283,28 @@ public class AlumniLoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         auth=FirebaseAuth.getInstance();
-        if (auth != null) {
-            currentUser = auth.getCurrentUser();
+        currentUser = auth.getCurrentUser();
+        if (auth.getCurrentUser() != null) {
+            currentUser.sendEmailVerification()
+                    .addOnCompleteListener(AlumniLoginActivity.this, new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(),
+                                        "Verification email sent to " + currentUser.getEmail(),
+                                        Toast.LENGTH_SHORT).show();
+                                //Log.d("Verification", "Verification email sent to " + currentUser.getEmail());
+                            } else {
+                                //Log.e( "sendEmailVerification", task.getException());
+                                Toast.makeText(getApplicationContext(),
+                                        "Failed to send verification email.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
         }
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
