@@ -33,9 +33,10 @@ import am.appwise.components.ni.NoInternetDialog;
 
 public class AlumniProfileActivity extends AppCompatActivity {
 
-    EditText spinner1,spinner2;
-    TextInputLayout Name,Company;
+    EditText spinner1,spinner2,Company;
+    TextInputLayout Name;
     ImageView ivProfile;
+
     Button update;
     String selected,getSelected;
     private FirebaseAuth mAuth;
@@ -51,7 +52,7 @@ public class AlumniProfileActivity extends AppCompatActivity {
         spinner1 =  findViewById(R.id.spinner1);
         spinner2 =  findViewById(R.id.spinner2);
         Name=findViewById(R.id.name);
-        Company=findViewById(R.id.Com);
+        Company=findViewById(R.id.company);
         update =  findViewById(R.id.update);
         ivProfile=findViewById(R.id.logo);
         mAuth=FirebaseAuth.getInstance();
@@ -67,7 +68,7 @@ public class AlumniProfileActivity extends AppCompatActivity {
                         Name.getEditText().setText(dataSnapshot.child(Node.Name).getValue().toString());
 
                     if (dataSnapshot.child(Node.Company).getValue() != null)
-                        Company.getEditText().setText(dataSnapshot.child(Node.Company).getValue().toString());
+                        Company.setText(dataSnapshot.child(Node.Company).getValue().toString());
 
                     if (dataSnapshot.child(Node.Year).getValue() != null)
                         spinner1.setText(dataSnapshot.child(Node.Year).getValue().toString());
@@ -125,6 +126,7 @@ public class AlumniProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("year", spinner1.getText().toString());
+                hashMap.put("company", Company.getText().toString());
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users");
                 db.child(FirebaseAuth.getInstance().getUid()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

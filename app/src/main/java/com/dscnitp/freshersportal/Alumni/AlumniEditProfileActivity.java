@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
 import com.dscnitp.freshersportal.SplashScreen;
-import com.dscnitp.freshersportal.Student.DashboardActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -54,9 +53,9 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
     NoInternetDialog noInternetDialog;
 
     private TextInputEditText Name, Branch, RollNo, Company;
-    Button logout, edit;
     ImageView profilePic;
-    Spinner from, to;
+//    Spinner from, to;
+    Button update;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private FirebaseStorage mStorage;
@@ -69,6 +68,7 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alumni_edit_profile);
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+        update=findViewById(R.id.update);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("users");
         noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
@@ -77,8 +77,9 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
         Name =  (TextInputEditText)findViewById(R.id.name);
         Company =  (TextInputEditText)findViewById(R.id.Com);
         Branch =  (TextInputEditText)findViewById(R.id.Branch);
-        from = findViewById(R.id.spinner_from);
-        to = findViewById(R.id.spinner_to);
+//        from = findViewById(R.id.spinner_from);
+        databaseReferenceUsers=FirebaseDatabase.getInstance().getReference("users");
+//        to = findViewById(R.id.spinner_to);
 
         profilePic = (ImageView) findViewById(R.id.ProfileImage);
         profilePic.setOnClickListener(new View.OnClickListener() {
@@ -91,32 +92,33 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnSave(v);
+            }
+        });
         if (currentUser != null) {
-            Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
+            Query query = databaseReference.child(firebaseAuth.getUid());
             query.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        String name = "" + ds.child("name").getValue();
+                        String name = "" + dataSnapshot.child("name").getValue();
                         Name.setText(name);
-                        String company = "" + ds.child("company").getValue();
+                        String company = "" + dataSnapshot.child("company").getValue();
                         Company.setText(company);
-                        String branch = "" + ds.child("Branch").getValue();
+                        String branch = "" + dataSnapshot.child("year").getValue();
                         Branch.setText(branch);
-
-                        // String url = (String) ds.child("photo").getValue();
-                        //Picasso.get().load(url).into(profilePic);
-
-                        ArrayAdapter<String> fromYearAdapter = new ArrayAdapter<String>(AlumniEditProfileActivity.this, android.R.layout.simple_list_item_1,
-                                getResources().getStringArray(R.array.YearFrom));
-                        fromYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        from.setAdapter(fromYearAdapter);
-
-                        ArrayAdapter<String> ToYearAdapter = new ArrayAdapter<String>(AlumniEditProfileActivity.this, android.R.layout.simple_list_item_1,
-                                getResources().getStringArray(R.array.YearFrom));
-                        fromYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        to.setAdapter(fromYearAdapter);
+//                        ArrayAdapter<String> fromYearAdapter = new ArrayAdapter<String>(AlumniEditProfileActivity.this, android.R.layout.simple_list_item_1,
+//                                getResources().getStringArray(R.array.YearFrom));
+//                        fromYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                        from.setAdapter(fromYearAdapter);
+//
+//                        ArrayAdapter<String> ToYearAdapter = new ArrayAdapter<String>(AlumniEditProfileActivity.this, android.R.layout.simple_list_item_1,
+//                                getResources().getStringArray(R.array.YearFrom));
+//                        fromYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                        to.setAdapter(fromYearAdapter);
 
                     }
                 }
@@ -173,21 +175,26 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Image not selected", Toast.LENGTH_SHORT).show();
         }
-
     }
     public void btnSave(View V) {
-        if (Name.getText().toString().trim().equals("")) {
-            Name.setError(getString(R.string.etName));
-        }
-        if (Company.getText().toString().trim().equals("")) {
-            Company.setError(getString(R.string.etCompany));
-        }
-        if (Branch.getText().toString().trim().equals("")) {
-            Branch.setError(getString(R.string.etBranch));
-        } else {
+        HashMap<String, Object> hashMap=new HashMap<>();
+        hashMap.put(Node.Name,Name.getText().toString().trim());
+        hashMap.put(Node.Company,Company.getText().toString().trim());
+        hashMap.put("year",Branch.getText().toString().trim());
 
-            updateNameOnly();
-        }
+        databaseReferenceUsers.child(currentUser.getUid()).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(AlumniEditProfileActivity.this, "User updated", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AlumniEditProfileActivity.this, AlumniMainActivity.class));
+                }
+                else
+                {
+                    Toast.makeText(AlumniEditProfileActivity.this,"User Not Created",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
     public void updateNameOnly() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -214,7 +221,7 @@ public class AlumniEditProfileActivity extends AppCompatActivity {
                             if(task.isSuccessful()) {
                                 progressDialog.dismiss();
                                 Toast.makeText(AlumniEditProfileActivity.this, "User updated", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(AlumniEditProfileActivity.this, DashboardActivity.class));
+                                startActivity(new Intent(AlumniEditProfileActivity.this, AlumniMainActivity.class));
                             }
                             else
                             {

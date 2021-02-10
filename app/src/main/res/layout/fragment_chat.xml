@@ -10,30 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="#349C92"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/backToProfile"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:paddingTop="8dp"
-            android:src="@drawable/logo_splash" />
+            <ImageView
+                android:id="@+id/backToProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/logo_splash" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="0dp"
-            android:fontFamily="@font/knewave"
-            android:padding="10dp"
-            android:text="Chat"
-            android:textColor="#E8FFFFFF"
-            android:textSize="24sp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/knewave"
+                android:padding="8dp"
+                android:text="Chat"
+                android:textColor="#E8FFFFFF"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/adminchat2"
         android:layout_below="@+id/toolbargrp"

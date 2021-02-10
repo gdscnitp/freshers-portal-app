@@ -93,15 +93,6 @@ public class AdapterBlogs extends RecyclerView.Adapter<AdapterBlogs.MyHolder>{
         }
         holder.description.setText(descri);
         holder.time.setText(timedate);
-
-//        holder.profile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(context, ProfileActivity.class);
-//                intent.putExtra("uid", uid);
-//                context.startActivity(intent);
-//            }
-//        });
         holder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

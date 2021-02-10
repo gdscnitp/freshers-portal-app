@@ -24,7 +24,7 @@
     <string name="etBranch">select Branch</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
-    <string name="etYear">Enter Year</string>
+    <string name="etYear">Enter Enrollment Number</string>
     <string name="etCompany">Enter Company</string>
     <string-array name="Branch">
         <item>Computer Science</item>
