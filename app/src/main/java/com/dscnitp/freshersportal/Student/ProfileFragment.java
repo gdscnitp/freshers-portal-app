@@ -149,11 +149,11 @@ public class ProfileFragment extends Fragment {
                 RollNo.setText(roll);
                 String branch = "" + ds.child("Branch").getValue();
                 Branch.setText(branch);
-                String year = "" + ds.child("year").getValue();
+                String year = "" + ds.child("enrollment").getValue();
                 Year.setText(year);
 
-            }
-        }
+                    }
+                }
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 

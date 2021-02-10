@@ -24,8 +24,8 @@ public class UserTypeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_type);
-        student=findViewById(R.id.student);
-        alumni=findViewById(R.id.alumni);
+        student=findViewById(R.id.studentOption);
+        alumni=findViewById(R.id.alumniOption);
         noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
                 .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
                 .setBgGradientEnd(Color.parseColor("#4488A7")).build();

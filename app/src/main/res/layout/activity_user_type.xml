@@ -6,12 +6,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserTypeActivity"
-    >
+    tools:context=".UserTypeActivity">
 
 
     <ImageView
-
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,23 +34,23 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="128dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="124dp"
         app:layout_constraintBottom_toTopOf="@+id/welcome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_splash" />
 
     <ImageView
-        android:layout_width="128dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="142dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toTopOf="@+id/welcome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/nitp" />
@@ -90,11 +88,11 @@
     <!--        android:id="@+id/alumni"-->
 
     <LinearLayout
-        android:id="@+id/alumni"
+        android:id="@+id/alumniOption"
         android:layout_width="216dp"
         android:layout_height="192dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/gradient4"
         android:clickable="true"
         android:gravity="center"
@@ -113,24 +111,25 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:textSize="24sp"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:text="Alumni"
             android:textColor="#000000"
+            android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/student"
+        android:id="@+id/studentOption"
         android:layout_width="212dp"
         android:layout_height="191dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/gradient3"
+        android:background="@drawable/gradient4"
         android:clickable="true"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_marginTop="40dp"
         android:padding="18dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
