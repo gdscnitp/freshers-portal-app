@@ -120,7 +120,7 @@ public class SignUpActivity extends AppCompatActivity {
                             bar.setVisibility(View.INVISIBLE);
                             t1.setText("");
                             t2.setText("");
-                            Toast.makeText(SignUpActivity.this, "Process Error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUpActivity.this, "Already Registered", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
