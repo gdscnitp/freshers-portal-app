@@ -123,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
 
+
         googleSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,8 +145,28 @@ public class LoginActivity extends AppCompatActivity {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                currentUser= firebaseAuth.getCurrentUser();
                 if (firebaseAuth.getCurrentUser() != null) {
+                             currentUser.sendEmailVerification()
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(),
+                                                "Verification email sent to " + currentUser.getEmail(),
+                                                Toast.LENGTH_SHORT).show();
+                                        //Log.d("Verification", "Verification email sent to " + currentUser.getEmail());
+                                    } else {
+                                        //Log.e( "sendEmailVerification", task.getException());
+                                        Toast.makeText(getApplicationContext(),
+                                                "Failed to send verification email.",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                     secondActivity();
+
                 } else {
                     bounce = AnimationUtils.loadAnimation(getApplicationContext(),
                             R.anim.bounce);

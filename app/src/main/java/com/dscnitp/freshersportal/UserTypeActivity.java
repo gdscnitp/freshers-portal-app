@@ -17,7 +17,7 @@ import am.appwise.components.ni.NoInternetDialog;
 public class UserTypeActivity extends AppCompatActivity {
 
 
-    Button student,alumni;
+    LinearLayout student,alumni;
     NoInternetDialog noInternetDialog;
 
     @Override
