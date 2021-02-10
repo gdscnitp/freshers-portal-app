@@ -78,12 +78,12 @@ public class EditProfileActivity extends AppCompatActivity {
         noInternetDialog = new NoInternetDialog.Builder(this).setBgGradientStart(Color.parseColor("#4488A7"))
                 .setBgGradientCenter(Color.parseColor("#4488A7")).setButtonColor(Color.parseColor("#2196F3"))
                 .setBgGradientEnd(Color.parseColor("#4488A7")).build();
-
+        databaseReferenceUsers=FirebaseDatabase.getInstance().getReference("users");
 
         Name = (TextInputEditText) findViewById(R.id.name);
         RollNo = (TextInputEditText) findViewById(R.id.roll);
         Branch = (TextInputEditText) findViewById(R.id.branch);
-        Year = (TextInputEditText) findViewById(R.id.year);
+        Year = (TextInputEditText) findViewById(R.id.enroll);
         profilePic = (ImageView) findViewById(R.id.student_profile_image);
 
         profilePic.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +120,7 @@ public class EditProfileActivity extends AppCompatActivity {
                         RollNo.setText(roll);
                         String branch = "" + ds.child("Branch").getValue();
                         Branch.setText(branch);
-                        String year = "" + ds.child("year").getValue();
+                        String year = "" + ds.child("enrollment").getValue();
                         Year.setText(year);
                        // String url = (String) ds.child("photo").getValue();
                         //Picasso.get().load(url).into(profilePic);
@@ -218,20 +218,20 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    String UserID = currentUser.getUid();
+                    String UserID = FirebaseAuth.getInstance().getUid();
                     HashMap<String, Object> hashMap=new HashMap<String, Object>();
                     hashMap.put(Node.Name,Name.getText().toString().trim());
                     hashMap.put(Node.ROLL_NO,RollNo.getText().toString().trim());
                     hashMap.put(Node.Branch,Branch.getText().toString().trim());
-                    hashMap.put(Node.Year,Year.getText().toString().trim());
-
-                    databaseReferenceUsers.child(UserID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    hashMap.put("enrollment",Year.getText().toString().trim());
+                    databaseReferenceUsers.child(currentUser.getUid()).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
                                 progressDialog.dismiss();
                                 Toast.makeText(EditProfileActivity.this, "User updated", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(EditProfileActivity.this, DashboardActivity.class));
+                                finish();
                             }
                             else
                             {

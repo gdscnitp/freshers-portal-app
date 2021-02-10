@@ -34,7 +34,7 @@ public class SplashScreen extends AppCompatActivity {
     TextView logo;
     FirebaseUser user;
     FirebaseAuth firebaseAuth;
-    private static int splash = 1000;
+    private static int splash = 2000;
 
 
 

@@ -19,7 +19,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.dscnitp.freshersportal.Alumni.AlumniMainActivity;
 import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -51,7 +50,6 @@ public class SignUpActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     Spinner BranchList;
     NoInternetDialog noInternetDialog;
-
     private FirebaseStorage mStorage;
 
     String email,password,name,RollNo,Branch;
@@ -90,15 +88,15 @@ public class SignUpActivity extends AppCompatActivity {
             if(name.equals("")){
                 names.setError("Enter Name");
             }
-            else if(CheckAlphabet(name)==0) {
-                names.setError("Enter Alphabet Only");
-            }
+//            else if(CheckAlphabet(name)==0) {
+//                names.setError("Enter Alphabet Only");
+//            }
             else if(email.equals("")){
             t1.setError("Enter Email");
             }
-            else if(CheckNITPEmail(email)==0){
-                t1.setError("Enter NITP Email Only");
-            }
+//            else if(CheckNITPEmail(email)==0){
+//                t1.setError("Enter NITP Email Only");
+//            }
             else if(RollNo.length()!=7){
                 rollNo.setError("Enter valid RollNo");
             }
@@ -122,7 +120,7 @@ public class SignUpActivity extends AppCompatActivity {
                             bar.setVisibility(View.INVISIBLE);
                             t1.setText("");
                             t2.setText("");
-                            Toast.makeText(SignUpActivity.this, "Process Error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUpActivity.this, "Already Registered", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

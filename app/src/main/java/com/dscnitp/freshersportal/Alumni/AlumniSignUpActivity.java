@@ -116,15 +116,15 @@ public class AlumniSignUpActivity extends AppCompatActivity {
         if(Name.equals("")){
             name.setError("Enter Name");
         }
-        else if(CheckAlphabet(Name)==0) {
-            name.setError("Enter Alphabet Only");
-        }
+//        else if(CheckAlphabet(Name)==0) {
+//            name.setError("Enter Alphabet Only");
+//        }
         else if(emails.equals("")){
             email.setError("Enter Email");
         }
-        else if(CheckNITPEmail(emails)==0){
-            email.setError("Enter NITP Email Only");
-        }
+//        else if(CheckNITPEmail(emails)==0){
+//            email.setError("Enter NITP Email Only");
+//        }
         else if(passw.equals("")){
             password.setError("Enter Password");
         }

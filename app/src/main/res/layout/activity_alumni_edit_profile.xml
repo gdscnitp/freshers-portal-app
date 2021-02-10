@@ -109,52 +109,52 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Branch"
+                android:hint="Batch"
                 android:paddingBottom="18dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Branch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Branch" />
+                    android:hint="Batch" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="18dp">
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingBottom="18dp">-->
 
-                <Spinner
-                    android:id="@+id/spinner_from"
-                    android:layout_width="match_parent"
-                    android:layout_height="47dp"
-                    />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="18dp">
-
-                    <Spinner
-                        android:id="@+id/spinner_to"
-                        android:layout_width="match_parent"
-                        android:layout_height="47dp"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                <Spinner-->
+<!--                    android:id="@+id/spinner_from"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="47dp"-->
+<!--                    />-->
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
 
-            </LinearLayout>
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingBottom="18dp">-->
+
+<!--                    <Spinner-->
+<!--                        android:id="@+id/spinner_to"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="47dp"-->
+<!--                        />-->
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--            </LinearLayout>-->
 
 
             <Button

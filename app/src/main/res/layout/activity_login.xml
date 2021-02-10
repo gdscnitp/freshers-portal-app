@@ -10,6 +10,16 @@
     android:gravity="center"
     tools:context=".Student.LoginActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="null"
+        android:scaleType="fitXY"
+        android:background="@drawable/user_bg"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,7 +105,7 @@
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/newsMoreTextSize" />
 
-        <Button
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,7 +124,6 @@
             android:id="@+id/createaccount"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:onClick="onLoginClick"
             android:text="New user? Register Now"
             android:textAlignment="center"
             android:textColor="@color/primaryTextColor"
