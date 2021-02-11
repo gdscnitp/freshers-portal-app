@@ -124,7 +124,6 @@
             android:id="@+id/createaccount"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:onClick="onLoginClick"
             android:text="New user? Register Now"
             android:textAlignment="center"
             android:textColor="@color/primaryTextColor"
