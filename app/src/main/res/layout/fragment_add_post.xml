@@ -64,21 +64,20 @@
             android:hint="@string/share_your_experience_or_question"
             android:padding="10dp" />
 
-        <Button
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
             android:id="@+id/btn_post"
-            android:layout_width="107dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="3dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginRight="21dp"
             android:layout_marginBottom="19dp"
             android:background="@drawable/buttonstylegradient"
             android:shadowColor="#FFFFFF"
             android:text="@string/post"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF"/>
 
 
         <TextView

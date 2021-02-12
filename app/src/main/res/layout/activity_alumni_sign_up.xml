@@ -31,7 +31,7 @@
                 style="@style/viewParent.headerText.NoMode"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:text="SHARE YOUR\nEXPERIENCE\nHERE"
+                android:text="Share\nyour\nexperience\nhere!"
                 android:textColor="@color/whiteTextColor" />
 
             <ImageView
@@ -39,9 +39,9 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/alumni00"
-                />
+                android:src="@drawable/alumni00"/>
         </RelativeLayout>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

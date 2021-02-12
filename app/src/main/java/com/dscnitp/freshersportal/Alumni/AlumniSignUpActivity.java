@@ -154,7 +154,7 @@ public class AlumniSignUpActivity extends AppCompatActivity {
         }
     }
     public void gotosignin(View view) {
-        startActivity(new Intent(AlumniSignUpActivity.this, LoginActivity.class));
+        startActivity(new Intent(AlumniSignUpActivity.this, AlumniLoginActivity.class));
         finish();
     }
     public void PickImage(View V)

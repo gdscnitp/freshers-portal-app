@@ -237,10 +237,10 @@
             android:textColor="#000000"
             android:textSize="18sp" />
 
-        <Button
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
             android:id="@+id/sendgrpmsg"
             android:layout_width="wrap_content"
-            android:layout_height="38dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/grpmsg"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -249,6 +249,7 @@
             android:layout_marginRight="21dp"
             android:background="@drawable/buttonstylegradient"
             android:text="Upload"
+            android:textStyle="bold"
             android:textColor="#FFFFFF" />
     </RelativeLayout>
 

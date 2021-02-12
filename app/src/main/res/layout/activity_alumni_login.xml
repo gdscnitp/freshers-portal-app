@@ -92,7 +92,7 @@
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/newsMoreTextSize" />
 
-        <Button
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintWidth_percent=".8"
