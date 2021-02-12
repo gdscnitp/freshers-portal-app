@@ -65,13 +65,13 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/student_profile_image"
-                    android:layout_width="171dp"
-                    android:layout_height="138dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="110dp"
                     android:layout_marginTop="39dp"
                     android:layout_marginEnd="114dp"
-                    android:src="@mipmap/ic_launcher_foreground" />
+                    android:src="@drawable/user_profile" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -144,7 +144,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

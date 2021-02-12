@@ -53,7 +53,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="14dp"
-        android:layout_marginBottom="0dp"
+        app:useCompatPadding="true"
         android:background="@null"
         android:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_message" />

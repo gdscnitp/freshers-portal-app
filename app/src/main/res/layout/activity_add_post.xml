@@ -90,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:id="@+id/pupload"
+            android:background="@drawable/buttonstylegradient"
             android:text="Upload"
             style="@style/Widget.AppCompat.Button.Colored"/>
     </LinearLayout>
