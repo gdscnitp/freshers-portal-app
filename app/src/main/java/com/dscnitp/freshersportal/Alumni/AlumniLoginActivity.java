@@ -24,7 +24,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dscnitp.freshersportal.ForgotActivity;
 import com.dscnitp.freshersportal.R;
+import com.dscnitp.freshersportal.Student.LoginActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -77,6 +79,7 @@ public class AlumniLoginActivity extends AppCompatActivity {
     String name = "";
     String photo = "";
     NoInternetDialog noInternetDialog;
+    private FirebaseUser firebaseUser;
 
 
     @Override
@@ -141,6 +144,14 @@ public class AlumniLoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void ResetPassword(View V)
+    {
+        Intent I=new Intent(AlumniLoginActivity.this, ForgotActivity.class);
+        startActivity(I);
+    }
+
+
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -350,12 +361,15 @@ public class AlumniLoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            bar.setVisibility(View.INVISIBLE);
-                            Intent intent =new Intent(AlumniLoginActivity.this, AlumniMainActivity.class);
-                            intent.putExtra("email",mAuth.getCurrentUser().getEmail());
-                            intent.putExtra("uid",mAuth.getCurrentUser().getUid());
-                            startActivity(intent);
-                            finish();
+                            firebaseUser=mAuth.getCurrentUser();
+                            if(firebaseUser.isEmailVerified()) {
+                                bar.setVisibility(View.INVISIBLE);
+                                Intent intent = new Intent(AlumniLoginActivity.this, AlumniMainActivity.class);
+                                intent.putExtra("email", mAuth.getCurrentUser().getEmail());
+                                intent.putExtra("uid", mAuth.getCurrentUser().getUid());
+                                startActivity(intent);
+                                finish();
+                            }
                         }
                         else {
                             bar.setVisibility(View.INVISIBLE);

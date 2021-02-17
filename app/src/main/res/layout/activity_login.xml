@@ -97,10 +97,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            style="@style/viewParent"
             android:id="@+id/forgot_password"
+            style="@style/viewParent"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
+            android:onClick="ResetPassword"
             android:text="Forgot Password?"
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/newsMoreTextSize" />
