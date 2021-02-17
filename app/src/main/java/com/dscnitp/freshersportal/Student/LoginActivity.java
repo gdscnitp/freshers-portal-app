@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dscnitp.freshersportal.Alumni.AlumniMainActivity;
+import com.dscnitp.freshersportal.ForgotActivity;
 import com.dscnitp.freshersportal.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -74,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     String name2;
     FirebaseAuth mAuth;
+    private FirebaseUser firebaseUser;
     private FirebaseAuth.AuthStateListener mAuthListener;
     GoogleApiClient mGoogleApiClient;
     //    GoogleSignInClient mGoogleSignInClient;
@@ -453,6 +455,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    public void ResetPassword(View V)
+    {
+         Intent I=new Intent(LoginActivity.this, ForgotActivity.class);
+         startActivity(I);
+    }
 
     @Override
     public void onResume() {
@@ -497,13 +504,20 @@ public class LoginActivity extends AppCompatActivity {
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                firebaseUser=mAuth.getCurrentUser();
                                 if (task.isSuccessful()) {
-                                    bar.setVisibility(View.INVISIBLE);
-                                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                                    intent.putExtra("email", mAuth.getCurrentUser().getEmail());
-                                    intent.putExtra("uid", mAuth.getCurrentUser().getUid());
-                                    startActivity(intent);
-                                    finish();
+                                    if(firebaseUser.isEmailVerified()) {
+                                        bar.setVisibility(View.INVISIBLE);
+                                        Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                                        intent.putExtra("email", mAuth.getCurrentUser().getEmail());
+                                        intent.putExtra("uid", mAuth.getCurrentUser().getUid());
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(LoginActivity.this,"Email Not Verified",Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
                                     bar.setVisibility(View.INVISIBLE);
                                     t1.getEditText().setText("");

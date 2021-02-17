@@ -22,6 +22,7 @@ import androidx.core.app.ActivityCompat;
 import com.dscnitp.freshersportal.Common.Node;
 import com.dscnitp.freshersportal.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -112,10 +113,21 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             bar.setVisibility(View.INVISIBLE);
                             firebaseUser = mAuth.getCurrentUser();
-                            if (localFileUri != null)
-                                updateNameAndPhoto();
-                            else
-                                updateNameOnly();
+                            firebaseUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(SignUpActivity.this,"Email Verification Link Sent",Toast.LENGTH_SHORT).show();
+                                    if (localFileUri != null)
+                                        updateNameAndPhoto();
+                                    else
+                                        updateNameOnly();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(SignUpActivity.this,"Email Verification Link Not Sent",Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         } else {
                             bar.setVisibility(View.INVISIBLE);
                             t1.setText("");
@@ -201,8 +213,10 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
                                 Toast.makeText(SignUpActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
-                                finish();
+                                if(firebaseUser.isEmailVerified()) {
+                                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                                    finish();
+                                }
                             }
                             else
                             {
@@ -260,8 +274,10 @@ public class SignUpActivity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()) {
                                                     Toast.makeText(SignUpActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
-                                                    startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
-                                                    finish();
+                                                    if(firebaseUser.isEmailVerified()) {
+                                                        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                                                        finish();
+                                                    }
                                                 }
                                                 else
                                                 {

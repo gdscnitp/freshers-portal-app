@@ -25,6 +25,7 @@ import com.dscnitp.freshersportal.Model.Session;
 import com.dscnitp.freshersportal.Student.LoginActivity;
 import com.dscnitp.freshersportal.Student.SignUpActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -136,13 +137,23 @@ public class AlumniSignUpActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         bar.setVisibility(View.INVISIBLE);
                         firebaseUser=mAuth.getCurrentUser();
-                        email.getEditText().setText("");
-                        password.getEditText().setText("");
-                        uid = firebaseUser.getUid();
-                        if(localFileUri!=null)
-                            updateNameAndPhoto();
-                        else
-                            updateNameOnly();
+                        firebaseUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                email.getEditText().setText("");
+                                password.getEditText().setText("");
+                                uid = firebaseUser.getUid();
+                                if(localFileUri!=null)
+                                    updateNameAndPhoto();
+                                else
+                                    updateNameOnly();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(AlumniSignUpActivity.this,"Email Verification Not Sent",Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
                     else
                     {
@@ -224,8 +235,10 @@ public class AlumniSignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
                                 Toast.makeText(AlumniSignUpActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(AlumniSignUpActivity.this,AlumniMainActivity.class));
-                                finish();
+                                if(firebaseUser.isEmailVerified()) {
+                                    startActivity(new Intent(AlumniSignUpActivity.this, AlumniMainActivity.class));
+                                    finish();
+                                }
                             }
                             else
                             {
@@ -283,8 +296,10 @@ public class AlumniSignUpActivity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()) {
                                                     Toast.makeText(AlumniSignUpActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
-                                                    startActivity(new Intent(AlumniSignUpActivity.this,AlumniMainActivity.class));
-                                                    finish();
+                                                    if(firebaseUser.isEmailVerified()) {
+                                                        startActivity(new Intent(AlumniSignUpActivity.this, AlumniMainActivity.class));
+                                                        finish();
+                                                    }
                                                 }
                                                 else
                                                 {
